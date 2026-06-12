@@ -1,0 +1,130 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/lambdatest/main/json-schema/lambdatest-session-schema.json",
+  "title": "LambdaTest Session",
+  "description": "Represents a single test session on the LambdaTest automation cloud grid.",
+  "type": "object",
+  "properties": {
+    "test_id": {
+      "type": "string",
+      "description": "Unique identifier for the test session.",
+      "example": "Z17EF-OPUKH-BDAE8-YEPXU"
+    },
+    "build_id": {
+      "type": "integer",
+      "description": "Identifier of the build this session belongs to.",
+      "example": 1
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the test.",
+      "example": "mytest"
+    },
+    "user_id": {
+      "type": "integer",
+      "description": "Identifier of the user who ran the session.",
+      "example": 250563
+    },
+    "username": {
+      "type": "string",
+      "description": "Username of the user who ran the session.",
+      "example": "bahubali"
+    },
+    "duration": {
+      "type": "integer",
+      "description": "Session duration in seconds."
+    },
+    "platform": {
+      "type": "string",
+      "description": "Operating system / platform used.",
+      "example": "win10"
+    },
+    "browser": {
+      "type": "string",
+      "description": "Browser used for the test.",
+      "example": "chrome"
+    },
+    "browser_version": {
+      "type": "string",
+      "description": "Version of the browser.",
+      "example": "71.0"
+    },
+    "device": {
+      "type": ["string", "null"],
+      "description": "Device name for mobile tests."
+    },
+    "status_ind": {
+      "type": "string",
+      "description": "Test status indicator.",
+      "enum": ["running", "queued", "completed", "timeout", "error", "failed", "passed"]
+    },
+    "session_id": {
+      "type": "string",
+      "description": "WebDriver session ID.",
+      "example": "bc02fd99593f14e37850745d66197f89"
+    },
+    "build_name": {
+      "type": "string",
+      "description": "Name of the parent build.",
+      "example": "my-build"
+    },
+    "create_timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the session was created.",
+      "example": "2019-02-05 08:24:36"
+    },
+    "start_timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the session started.",
+      "example": "2019-02-05 08:24:58"
+    },
+    "end_timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the session ended.",
+      "example": "2019-02-05 08:27:22"
+    },
+    "remark": {
+      "type": "string",
+      "description": "Final status remark.",
+      "example": "completed"
+    },
+    "console_logs_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to retrieve console logs."
+    },
+    "network_logs_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to retrieve network logs."
+    },
+    "command_logs_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to retrieve command logs."
+    },
+    "selenium_logs_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to retrieve Selenium driver logs."
+    },
+    "screenshot_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to retrieve screenshots archive."
+    },
+    "video_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the session recording video."
+    },
+    "customData": {
+      "type": "object",
+      "description": "Arbitrary custom metadata attached to the session."
+    }
+  },
+  "required": ["test_id", "build_id", "status_ind"]
+}

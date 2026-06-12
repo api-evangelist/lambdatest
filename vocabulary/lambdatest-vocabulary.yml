@@ -1,0 +1,82 @@
+vocabulary:
+  - term: build
+    definition: >-
+      A logical grouping of one or more test sessions executed together. Builds
+      are identified by a numeric build_id and have a name, status, timestamps,
+      and optional tags. They aggregate session-level results for reporting.
+
+  - term: session
+    definition: >-
+      A single test execution instance on the LambdaTest grid. Identified by a
+      unique test_id (e.g., "Z17EF-OPUKH-BDAE8-YEPXU"), a session has an
+      associated browser, platform, status, and links to logs, screenshots, and
+      video recordings.
+
+  - term: test_id
+    definition: >-
+      The unique LambdaTest identifier for a test session, formatted as a
+      hyphen-separated alphanumeric string (e.g., "Z17EF-OPUKH-BDAE8-YEPXU").
+      Used in API paths to retrieve session details, logs, screenshots, and video.
+
+  - term: build_id
+    definition: >-
+      A numeric identifier assigned to a build. Used as a path parameter to
+      fetch, update, or delete a specific build.
+
+  - term: status_ind
+    definition: >-
+      Status indicator field for builds and sessions. Possible values include
+      running, queued, completed, timeout, error, failed, and passed.
+
+  - term: HyperExecute
+    definition: >-
+      LambdaTest's AI-native distributed test orchestration platform. Runs test
+      suites across multiple nodes in parallel, reducing execution time by up to
+      70% versus traditional grids. Jobs are defined by a YAML configuration file.
+
+  - term: SmartUI
+    definition: >-
+      LambdaTest's visual regression testing product. Captures screenshots during
+      test runs, stores baselines, and automatically compares future runs to detect
+      pixel-level differences. Comparisons are tracked via project tokens and builds.
+
+  - term: project_token
+    definition: >-
+      A unique string credential that maps API calls to a specific SmartUI project.
+      Required as a parameter in all SmartUI upload and status endpoints.
+
+  - term: tunnel
+    definition: >-
+      A secure encrypted connection (LambdaTest Tunnel) that routes test traffic
+      from the LambdaTest cloud through the user's local network to reach
+      internally hosted or localhost applications.
+
+  - term: basicAuth
+    definition: >-
+      The authentication scheme used by all LambdaTest REST APIs. Credentials are
+      a username and access key, Base64-encoded and passed in the HTTP
+      Authorization header as "Basic <encoded-credentials>".
+
+  - term: concurrency
+    definition: >-
+      The number of parallel test sessions an account can run simultaneously.
+      The GET /concurrency endpoint returns the current number of running and
+      queued sessions against the account's plan limit.
+
+  - term: mismatch_percentage
+    definition: >-
+      In SmartUI, the percentage of pixels that differ between the captured
+      screenshot and the baseline image. Used to determine whether a screenshot
+      should be flagged for review or auto-approved based on a configured threshold.
+
+  - term: prerun_file
+    definition: >-
+      An executable script (e.g., AutoIt .au3) uploaded to LambdaTest storage
+      that runs on the remote machine before a test session begins, enabling
+      pre-configuration of the test environment.
+
+  - term: access_key
+    definition: >-
+      A secret token paired with a LambdaTest username for authenticating API
+      requests and configuring Selenium/Appium capabilities. Available from the
+      LambdaTest account settings page.

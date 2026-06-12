@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/lambdatest/main/json-schema/lambdatest-smartui-build-schema.json",
+  "title": "LambdaTest SmartUI Build",
+  "description": "Represents a SmartUI visual regression build with screenshot comparison results.",
+  "type": "object",
+  "properties": {
+    "build_id": {
+      "type": "string",
+      "description": "Unique identifier for the SmartUI build.",
+      "example": "c74f72b5-2dd9-42a4-9478-cd8174a56152"
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name of the build.",
+      "example": "build-1"
+    },
+    "baseline": {
+      "type": "boolean",
+      "description": "Whether this build is marked as the baseline.",
+      "example": false
+    },
+    "build_status": {
+      "type": "string",
+      "description": "Overall approval status of the build.",
+      "example": "Approved"
+    },
+    "changesFound": {
+      "type": "integer",
+      "description": "Number of screenshots with visual differences detected.",
+      "example": 2
+    },
+    "approved": {
+      "type": "integer",
+      "description": "Number of screenshots approved.",
+      "example": 3
+    },
+    "underReview": {
+      "type": "integer",
+      "description": "Number of screenshots under review.",
+      "example": 0
+    },
+    "rejected": {
+      "type": "integer",
+      "description": "Number of screenshots rejected.",
+      "example": 0
+    },
+    "projectName": {
+      "type": "string",
+      "description": "Name of the SmartUI project.",
+      "example": "web-project"
+    },
+    "screenshots": {
+      "type": "array",
+      "description": "List of screenshot comparison results.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "screenshot_name": { "type": "string", "example": "home-page" },
+          "captured_image": { "type": "string", "format": "uri" },
+          "baseline_image": { "type": "string", "format": "uri" },
+          "compared_image": { "type": "string", "format": "uri" },
+          "browser_name": { "type": "string", "example": "chrome" },
+          "browser_version": { "type": "string", "example": "118.0" },
+          "viewport": { "type": "string", "example": "1920x1080" },
+          "os": { "type": "string", "example": "default" },
+          "mismatch_percentage": { "type": "number", "example": 0.1 },
+          "status": { "type": "string", "example": "Approved" },
+          "approved_by": { "type": "string", "example": "john" },
+          "captured_image_timestamp": { "type": "string", "example": "2023-11-10 13:47:24" },
+          "compared_image_timestamp": { "type": "string", "example": "2023-11-10 13:47:29" }
+        }
+      }
+    }
+  },
+  "required": ["build_id", "build_status"]
+}

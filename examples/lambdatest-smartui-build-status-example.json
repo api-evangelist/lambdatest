@@ -1,0 +1,14 @@
+{
+  "data": {
+    "changesFound": 2,
+    "approved": 5,
+    "underReview": 1,
+    "rejected": 0,
+    "buildId": "2423e94d-7f12-460c-8de7-e35db3698d8a",
+    "buildName": "c24dd3e",
+    "projectName": "web-project",
+    "buildStatus": "Changes Need Approval",
+    "message": "Fetched Build Status Successfully"
+  },
+  "status": "success"
+}

@@ -1,0 +1,59 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "lt": "https://www.lambdatest.com/vocab#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Build": "lt:Build",
+    "Session": "lt:Session",
+    "SmartUIBuild": "lt:SmartUIBuild",
+    "Screenshot": "lt:Screenshot",
+    "Tunnel": "lt:Tunnel",
+
+    "build_id": { "@id": "lt:buildId" },
+    "build_name": { "@id": "lt:buildName" },
+    "test_id": { "@id": "lt:testId" },
+    "session_id": { "@id": "lt:sessionId" },
+    "project_id": { "@id": "lt:projectId" },
+    "project_token": { "@id": "lt:projectToken" },
+
+    "status_ind": { "@id": "lt:statusIndicator" },
+    "build_status": { "@id": "lt:buildStatus" },
+    "mismatch_percentage": { "@id": "lt:mismatchPercentage", "@type": "xsd:decimal" },
+    "threshold": { "@id": "lt:comparisonThreshold", "@type": "xsd:decimal" },
+
+    "username": { "@id": "schema:name" },
+    "user_id": { "@id": "schema:identifier" },
+    "browser": { "@id": "lt:browser" },
+    "browser_version": { "@id": "lt:browserVersion" },
+    "platform": { "@id": "lt:platform" },
+    "device": { "@id": "lt:device" },
+
+    "create_timestamp": { "@id": "schema:dateCreated", "@type": "xsd:dateTime" },
+    "start_timestamp": { "@id": "schema:startDate", "@type": "xsd:dateTime" },
+    "end_timestamp": { "@id": "schema:endDate", "@type": "xsd:dateTime" },
+    "duration": { "@id": "schema:duration", "@type": "xsd:integer" },
+
+    "console_logs_url": { "@id": "lt:consoleLogsUrl", "@type": "@id" },
+    "network_logs_url": { "@id": "lt:networkLogsUrl", "@type": "@id" },
+    "command_logs_url": { "@id": "lt:commandLogsUrl", "@type": "@id" },
+    "selenium_logs_url": { "@id": "lt:seleniumLogsUrl", "@type": "@id" },
+    "screenshot_url": { "@id": "lt:screenshotUrl", "@type": "@id" },
+    "video_url": { "@id": "lt:videoUrl", "@type": "@id" },
+    "dashboard_url": { "@id": "lt:dashboardUrl", "@type": "@id" },
+    "public_url": { "@id": "lt:publicUrl", "@type": "@id" },
+
+    "tags": { "@id": "schema:keywords", "@container": "@set" },
+    "customData": { "@id": "lt:customData" },
+
+    "captured_image": { "@id": "lt:capturedImage", "@type": "@id" },
+    "baseline_image": { "@id": "lt:baselineImage", "@type": "@id" },
+    "compared_image": { "@id": "lt:comparedImage", "@type": "@id" },
+    "screenshot_name": { "@id": "schema:name" },
+    "approved_by": { "@id": "lt:approvedBy" },
+
+    "tunnel_id": { "@id": "lt:tunnelId" },
+    "tunnel_name": { "@id": "lt:tunnelName" },
+    "status": { "@id": "lt:status" }
+  }
+}

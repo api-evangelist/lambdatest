@@ -1,0 +1,14 @@
+{
+  "repo": "lambdatest",
+  "feeds": [
+    {
+      "source": "https://www.lambdatest.com/blog/",
+      "feed_url": "https://www.lambdatest.com/blog/feed/",
+      "title": "LambdaTest Blog",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-06-12T00:00:00Z"
+}

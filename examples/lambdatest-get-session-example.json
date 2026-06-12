@@ -1,0 +1,31 @@
+{
+  "data": {
+    "test_id": "Z17EF-OPUKH-BDAE8-YEPXU",
+    "build_id": 1212,
+    "name": "Homepage Login Test",
+    "user_id": 250563,
+    "username": "john.smith",
+    "duration": 164,
+    "platform": "win10",
+    "browser": "chrome",
+    "browser_version": "120.0",
+    "device": null,
+    "status_ind": "completed",
+    "session_id": "bc02fd99593f14e37850745d66197f89",
+    "build_name": "regression-suite-v2",
+    "create_timestamp": "2024-03-15 09:00:12",
+    "start_timestamp": "2024-03-15 09:00:30",
+    "end_timestamp": "2024-03-15 09:03:14",
+    "remark": "completed",
+    "console_logs_url": "https://api.lambdatest.com/automation/api/v1/sessions/bc02fd99593f14e37850745d66197f89/log/console",
+    "network_logs_url": "https://api.lambdatest.com/automation/api/v1/sessions/bc02fd99593f14e37850745d66197f89/log/network",
+    "command_logs_url": "https://api.lambdatest.com/automation/api/v1/sessions/bc02fd99593f14e37850745d66197f89/log/command",
+    "selenium_logs_url": "https://api.lambdatest.com/automation/api/v1/sessions/bc02fd99593f14e37850745d66197f89/log/selenium",
+    "screenshot_url": "https://d15x9hjibri3lt.cloudfront.net/Z17EF-OPUKH-BDAE8-YEPXU/screenshots.zip",
+    "video_url": "https://s3.amazonaws.com/ml-screenshots/Z17EF-OPUKH-BDAE8-YEPXU/video/index.m3u8",
+    "customData": {
+      "environment": "staging",
+      "sprint": "2024-Q1-S3"
+    }
+  }
+}

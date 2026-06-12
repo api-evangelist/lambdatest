@@ -1,0 +1,33 @@
+{
+  "Meta": {
+    "limit": 10,
+    "offset": 0,
+    "total": 2
+  },
+  "data": [
+    {
+      "build_id": 1212,
+      "build_name": "regression-suite-v2",
+      "username": "john.smith",
+      "status_ind": "completed",
+      "create_timestamp": "2024-03-15T09:00:00.000Z",
+      "end_timestamp": "2024-03-15T09:18:42.000Z",
+      "project_id": 24,
+      "tags": ["regression", "chrome", "nightly"],
+      "duration": 1122,
+      "dashboard_url": "https://automation.lambdatest.com/build?&build=1212"
+    },
+    {
+      "build_id": 1213,
+      "build_name": "smoke-tests",
+      "username": "john.smith",
+      "status_ind": "error",
+      "create_timestamp": "2024-03-15T10:30:00.000Z",
+      "end_timestamp": "2024-03-15T10:32:11.000Z",
+      "project_id": 24,
+      "tags": ["smoke"],
+      "duration": 131,
+      "dashboard_url": "https://automation.lambdatest.com/build?&build=1213"
+    }
+  ]
+}

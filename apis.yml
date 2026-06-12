@@ -49,6 +49,8 @@ apis:
         url: https://www.lambdatest.com/support/docs/api-doc/
       - type: OpenAPI
         url: https://swagger-api-support.lambdatest.com/index.html
+      - type: OpenAPI
+        url: openapi/lambdatest-web-automation-api-openapi.yml
 
   - aid: lambdatest:app-automation-api
     name: LambdaTest App Automation API
@@ -88,6 +90,8 @@ apis:
         url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
       - type: OpenAPI
         url: https://swagger-api-support.lambdatest.com/smartui/index.html
+      - type: OpenAPI
+        url: openapi/lambdatest-smartui-api-openapi.yml
 
   - aid: lambdatest:hyperexecute-api
     name: LambdaTest HyperExecute API
