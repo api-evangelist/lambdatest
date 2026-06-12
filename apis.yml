@@ -1,0 +1,135 @@
+aid: lambdatest
+name: LambdaTest
+description: >-
+  LambdaTest (rebranding as TestMu AI) is a cloud-based AI-powered test
+  execution platform that enables developers and QA teams to run Selenium,
+  Cypress, Playwright, and Appium automation tests across 3,000+ browser
+  and OS combinations at scale. The platform provides live interactive
+  cross-browser and real device testing, visual regression testing with
+  SmartUI, and AI-native test orchestration via HyperExecute. LambdaTest
+  exposes a suite of REST APIs for managing test sessions, uploading mobile
+  apps, retrieving test results, and controlling tunnel connections, all
+  secured with HTTP Basic Authentication using a username and access key.
+  The platform serves over 2 million developers and testers across 10,000+
+  enterprise customers in 130 countries.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Testing
+  - Cross-Browser Testing
+  - Selenium
+  - Cypress
+  - Playwright
+  - Mobile Testing
+  - Automation
+  - QA
+  - Visual Regression
+url: https://raw.githubusercontent.com/api-evangelist/lambdatest/refs/heads/main/apis.yml
+created: '2026-06-12'
+modified: '2026-06-12'
+specificationVersion: '0.19'
+apis:
+  - aid: lambdatest:web-automation-api
+    name: LambdaTest Web Automation API
+    description: >-
+      REST API for managing Selenium, Cypress, and Playwright test sessions
+      on the LambdaTest cloud grid. Enables retrieval of test builds, test
+      sessions, screenshots, video recordings, and network logs. Uses HTTP
+      Basic Authentication with username and access key credentials.
+    humanURL: https://www.lambdatest.com/support/docs/api-doc/
+    baseURL: https://api.lambdatest.com
+    tags:
+      - Web Automation
+      - Selenium
+      - Cypress
+      - Playwright
+      - Test Sessions
+    properties:
+      - type: Documentation
+        url: https://www.lambdatest.com/support/docs/api-doc/
+      - type: OpenAPI
+        url: https://swagger-api-support.lambdatest.com/index.html
+
+  - aid: lambdatest:app-automation-api
+    name: LambdaTest App Automation API
+    description: >-
+      REST API for managing mobile app test automation on real devices and
+      emulators/simulators. Supports uploading iOS (.ipa) and Android
+      (.apk/.aab) apps, listing devices by region, managing app versions,
+      and retrieving concurrency details. Base URLs differ between real
+      device and virtual device workflows.
+    humanURL: https://www.lambdatest.com/support/docs/app-testing-apis/
+    baseURL: https://mobile-api.lambdatest.com
+    tags:
+      - Mobile Testing
+      - App Automation
+      - iOS
+      - Android
+      - Real Devices
+    properties:
+      - type: Documentation
+        url: https://www.lambdatest.com/support/docs/app-testing-apis/
+
+  - aid: lambdatest:smartui-api
+    name: LambdaTest SmartUI API
+    description: >-
+      REST API for visual regression testing and screenshot comparison.
+      Allows programmatic control of SmartUI visual testing sessions,
+      baseline management, and comparison results. Swagger/OpenAPI 3.0
+      specification is publicly available.
+    humanURL: https://www.lambdatest.com/support/docs/smart-ui-cypress/
+    baseURL: https://api.lambdatest.com
+    tags:
+      - Visual Regression
+      - Screenshot Testing
+      - SmartUI
+    properties:
+      - type: Documentation
+        url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
+      - type: OpenAPI
+        url: https://swagger-api-support.lambdatest.com/smartui/index.html
+
+  - aid: lambdatest:hyperexecute-api
+    name: LambdaTest HyperExecute API
+    description: >-
+      REST API for the HyperExecute AI-native test orchestration platform.
+      Provides endpoints for triggering distributed test jobs, monitoring
+      job status, fetching artifacts, and retrieving execution analytics.
+      HyperExecute runs test suites up to 70% faster than traditional grids.
+    humanURL: https://www.lambdatest.com/support/docs/hyperexecute-api-testing/
+    baseURL: https://api.lambdatest.com
+    tags:
+      - HyperExecute
+      - Test Orchestration
+      - Parallel Testing
+      - CI/CD
+    properties:
+      - type: Documentation
+        url: https://www.lambdatest.com/support/docs/hyperexecute-api-testing/
+
+common:
+  - type: Website
+    url: https://www.lambdatest.com
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/
+  - type: GitHubOrganization
+    url: https://github.com/LambdaTest
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/lambdatest
+  - type: X
+    url: https://x.com/lambdatesting
+  - type: Blog
+    url: https://www.lambdatest.com/blog/
+  - type: Pricing
+    url: https://www.lambdatest.com/pricing
+  - type: StatusPage
+    url: https://status.lambdatest.com/
+  - type: Plans
+    url: plans/lambdatest-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/lambdatest-rate-limits.yml
+  - type: FinOps
+    url: finops/lambdatest-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

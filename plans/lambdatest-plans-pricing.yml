@@ -1,0 +1,323 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: LambdaTest
+providerId: lambdatest
+created: '2026-06-12'
+modified: '2026-06-12'
+reconciled: true
+tags:
+  - Testing
+  - Cross-Browser Testing
+  - Automation
+  - Mobile Testing
+description: >-
+  LambdaTest (TestMu AI) pricing is modular, structured around testing type:
+  live browser testing, web automation, mobile real device automation, and
+  AI-native execution via HyperExecute and KaneAI. Plans start at $0 and
+  scale by parallel sessions, device access, and AI agent capacity. Annual
+  billing offers up to 20% savings.
+sources:
+  - https://www.lambdatest.com/pricing
+plans:
+  - id: lambdatest-free
+    name: Free
+    type: freemium
+    description: >-
+      Free-for-life plan with limited live interactive cross-browser testing
+      minutes (60 minutes/month), access to 3,000+ browsers, and 2 parallel
+      sessions. No credit card required.
+    entries:
+      - label: Live Testing Minutes
+        name: live_testing_minutes
+        type: quota
+        metric: minutes
+        limit: 60
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Parallel Sessions
+        name: parallel_sessions
+        type: quota
+        metric: sessions
+        limit: 2
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+
+  - id: lambdatest-virtual-live
+    name: Virtual Live
+    type: paid
+    description: >-
+      Unlimited live interactive testing across 3,000+ browsers and operating
+      systems. Billed annually at $15/month per user.
+    entries:
+      - label: Monthly Price (Annual Billing)
+        name: monthly_price_annual
+        type: metered
+        metric: per_user_per_month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '15.00'
+        userMultiplied: true
+      - label: Live Testing
+        name: live_testing_unlimited
+        type: boolean
+        metric: feature
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+
+  - id: lambdatest-chromeos-live
+    name: ChromeOS Live
+    type: paid
+    description: >-
+      Live testing including ChromeOS coverage for seamless cross-platform
+      compatibility. Billed annually at $29/month per user.
+    entries:
+      - label: Monthly Price (Annual Billing)
+        name: monthly_price_annual
+        type: metered
+        metric: per_user_per_month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '29.00'
+        userMultiplied: true
+      - label: ChromeOS Testing
+        name: chromeos_testing
+        type: boolean
+        metric: feature
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+
+  - id: lambdatest-real-device-plus-live
+    name: Real Device Plus Live
+    type: paid
+    description: >-
+      Live interactive testing on 10,000+ real iOS and Android devices plus
+      full virtual browser coverage. Billed annually at $39/month per user.
+    entries:
+      - label: Monthly Price (Annual Billing)
+        name: monthly_price_annual
+        type: metered
+        metric: per_user_per_month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '39.00'
+        userMultiplied: true
+      - label: Real Devices
+        name: real_devices
+        type: quota
+        metric: devices
+        limit: 10000
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+
+  - id: lambdatest-web-automation
+    name: Web Automation on Desktop
+    type: paid
+    description: >-
+      Full browser automation via Selenium, Cypress, and Playwright with CI/CD
+      integrations and Google Lighthouse reporting. Billed annually at
+      $79/month per parallel session.
+    entries:
+      - label: Monthly Price (Annual Billing)
+        name: monthly_price_annual
+        type: metered
+        metric: per_parallel_session_per_month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '79.00'
+        userMultiplied: false
+
+  - id: lambdatest-virtual-automation-cloud
+    name: Virtual Automation Cloud
+    type: paid
+    description: >-
+      Web and mobile browser automation with emulators and simulators, Appium
+      support. Billed annually at $99/month per parallel session.
+    entries:
+      - label: Monthly Price (Annual Billing)
+        name: monthly_price_annual
+        type: metered
+        metric: per_parallel_session_per_month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '99.00'
+        userMultiplied: false
+
+  - id: lambdatest-real-device-plus-automation
+    name: Real Device Plus Automation
+    type: paid
+    description: >-
+      Native app testing on real devices with GPS mocking, biometrics, and
+      camera injection. Billed annually at $199/month per parallel session.
+    entries:
+      - label: Monthly Price (Annual Billing)
+        name: monthly_price_annual
+        type: metered
+        metric: per_parallel_session_per_month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '199.00'
+        userMultiplied: false
+
+  - id: lambdatest-hyperexecute-free
+    name: HyperExecute Free
+    type: freemium
+    description: >-
+      Free HyperExecute tier with 300 minutes/month, 2 concurrent sessions,
+      Linux only, for AI-native test orchestration.
+    entries:
+      - label: Execution Minutes
+        name: execution_minutes
+        type: quota
+        metric: minutes
+        limit: 300
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Concurrent Sessions
+        name: concurrent_sessions
+        type: quota
+        metric: sessions
+        limit: 2
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+
+  - id: lambdatest-hyperexecute-cloud
+    name: HyperExecute Cloud
+    type: paid
+    description: >-
+      Full HyperExecute tier with multi-OS support, unlimited minutes, auto-
+      splitting, fail-fast, and AI-powered root cause analysis on failed tests.
+      Billed annually at $159/month.
+    entries:
+      - label: Monthly Price (Annual Billing)
+        name: monthly_price_annual
+        type: metered
+        metric: per_month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '159.00'
+        userMultiplied: false
+      - label: Execution Minutes
+        name: execution_minutes
+        type: quota
+        metric: minutes
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+
+  - id: lambdatest-kaneai-web
+    name: KaneAI Web
+    type: paid
+    description: >-
+      AI-native test authoring agent for web applications with auto-healing,
+      500 agentic sessions/month, and 300 HyperExecute minutes included.
+      Billed at $199/month per agent.
+    entries:
+      - label: Monthly Price
+        name: monthly_price
+        type: metered
+        metric: per_agent_per_month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '199.00'
+        userMultiplied: false
+      - label: Agentic Sessions
+        name: agentic_sessions
+        type: quota
+        metric: sessions
+        limit: 500
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+
+  - id: lambdatest-kaneai-mobile-web
+    name: KaneAI Mobile + Web
+    type: paid
+    description: >-
+      AI-native test authoring agent for both mobile and web applications,
+      500 agentic sessions/month, 300 HyperExecute minutes included. Billed
+      at $299/month per agent.
+    entries:
+      - label: Monthly Price
+        name: monthly_price
+        type: metered
+        metric: per_agent_per_month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '299.00'
+        userMultiplied: false
+      - label: Agentic Sessions
+        name: agentic_sessions
+        type: quota
+        metric: sessions
+        limit: 500
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+
+  - id: lambdatest-enterprise
+    name: Enterprise
+    type: enterprise
+    description: >-
+      Custom enterprise plan with SOC 2 Type II, ISO 27001 compliance,
+      GDPR/CCPA/HIPAA-readiness, dedicated success manager, private Slack
+      channel, and on-premise device cloud options. Pricing by negotiation.
+    entries:
+      - label: Custom Pricing
+        name: custom_pricing
+        type: boolean
+        metric: feature
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'custom'
+        userMultiplied: false

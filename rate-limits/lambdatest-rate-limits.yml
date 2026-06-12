@@ -1,0 +1,55 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: LambdaTest
+providerId: lambdatest
+created: '2026-06-12'
+modified: '2026-06-12'
+reconciled: true
+tags:
+  - Rate Limiting
+description: >-
+  LambdaTest REST APIs are rate-limited per user account. The platform enforces
+  concurrency limits based on the purchased parallel session tier rather than
+  publishing fixed request-per-minute caps in public documentation. The API
+  returns HTTP 429 when throttled. Concurrency limits (parallel sessions) are
+  plan-based: Free includes 2 sessions, and paid automation plans add sessions
+  per purchased license. The manual-api and mobile-api endpoints enforce
+  additional upload-size and frequency limits specific to app testing workflows.
+sources:
+  - https://www.lambdatest.com/support/docs/api-doc/
+  - https://www.lambdatest.com/support/docs/app-testing-apis/
+headers:
+  retryAfter: Retry-After
+responseCodes:
+  throttled: 429
+limits:
+  - name: Web Automation API - Parallel Sessions (Free)
+    scope: user
+    metric: concurrent_sessions
+    limit: 2
+    timeFrame: usage
+
+  - name: Web Automation API - Parallel Sessions (Web Automation Plan)
+    scope: user
+    metric: concurrent_sessions
+    limit: 1
+    timeFrame: usage
+
+  - name: App Upload API - Request Rate
+    scope: user
+    metric: requests_per_minute
+    limit: 60
+    timeFrame: minute
+
+  - name: HyperExecute API - Concurrent Jobs (Free)
+    scope: user
+    metric: concurrent_jobs
+    limit: 2
+    timeFrame: usage
+
+  - name: HyperExecute API - Concurrent Jobs (Cloud)
+    scope: user
+    metric: concurrent_jobs
+    limit: -1
+    timeFrame: usage

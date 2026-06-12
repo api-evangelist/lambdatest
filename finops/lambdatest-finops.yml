@@ -1,0 +1,65 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: LambdaTest
+providerId: lambdatest
+created: '2026-06-12'
+modified: '2026-06-12'
+reconciled: true
+tags:
+  - FinOps
+  - FOCUS
+description: FOCUS-aligned FinOps for LambdaTest cloud test execution platform.
+sources:
+  - https://www.lambdatest.com/pricing
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: LambdaTest
+serviceCategory: Developer Tools / Quality Engineering
+billingModel:
+  pricingCategory: Subscription + Consumption
+  billingFrequency: Monthly
+  billingCurrency: USD
+focusColumns:
+  ServiceName: LambdaTest
+  ServiceCategory: Developer Tools
+  ProviderName: LambdaTest
+  PublisherName: LambdaTest
+  BillingCurrency: USD
+meters:
+  - name: Live Testing Sessions
+    unit: parallel_session_minutes
+    aggregation: sum
+  - name: Web Automation Parallel Sessions
+    unit: parallel_session_license
+    aggregation: max
+  - name: Real Device Test Minutes
+    unit: minutes
+    aggregation: sum
+  - name: HyperExecute Execution Minutes
+    unit: minutes
+    aggregation: sum
+  - name: KaneAI Agentic Sessions
+    unit: sessions
+    aggregation: sum
+principles:
+  - name: Visibility
+    description: >-
+      Track LambdaTest consumption monthly across live testing, automation,
+      HyperExecute, and KaneAI agent tiers. Separate cost centers by testing
+      type (web, mobile, AI-native) to identify spend drivers.
+  - name: Optimization
+    description: >-
+      Right-size parallel session licenses to actual peak concurrency observed
+      in CI/CD pipelines. Monitor HyperExecute minute burn rate versus the
+      free 300-minute tier before upgrading. Evaluate KaneAI agent utilization
+      (500 sessions/month included) before adding agents.
+  - name: Accountability
+    description: >-
+      Assign LambdaTest costs to engineering teams or squads by tagging test
+      projects. Use the Analytics API to attribute test execution costs to
+      specific repos or products.
