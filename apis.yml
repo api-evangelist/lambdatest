@@ -112,6 +112,15 @@ apis:
         url: https://www.lambdatest.com/support/docs/hyperexecute-api-testing/
 
 common:
+  - type: TrustCenter
+    url: security/lambdatest-trust-center.yml
+  - type: DomainSecurity
+    url: security/lambdatest-domain-security.yml
+  - type: Authentication
+    url: authentication/lambdatest-authentication.yml
+  - name: Agent Skills
+    url: https://github.com/LambdaTest/agent-skills
+    type: AgentSkills
   - type: Website
     url: https://www.lambdatest.com
   - type: Documentation

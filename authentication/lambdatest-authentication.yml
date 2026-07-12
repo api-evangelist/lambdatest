@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/lambdatest-smartui-api-openapi.yml, openapi/lambdatest-web-automation-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  sources:
+  - openapi/lambdatest-smartui-api-openapi.yml
+  - openapi/lambdatest-web-automation-api-openapi.yml
