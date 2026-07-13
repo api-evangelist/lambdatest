@@ -2,11 +2,11 @@
   "repo": "lambdatest",
   "feeds": [
     {
-      "source": "https://www.testmuai.com/blog/",
+      "source": "https://www.testmuai.com/blog/feed.xml",
       "feed_url": "https://www.testmuai.com/blog/feed.xml",
       "title": "",
-      "saved": 50,
-      "method": "discovered"
+      "saved": 0,
+      "method": "feed"
     },
     {
       "source": "https://x.com/lambdatesting",
@@ -16,6 +16,6 @@
       "method": "none"
     }
   ],
-  "fetched": "2026-06-27T12:03:07Z",
-  "post_count": 54
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 152
 }
