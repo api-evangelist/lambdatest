@@ -112,6 +112,8 @@ apis:
         url: https://www.lambdatest.com/support/docs/hyperexecute-api-testing/
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/lambdatest-agentic-access.yml
   - type: TrustCenter
     url: security/lambdatest-trust-center.yml
   - type: DomainSecurity
