@@ -1,0 +1,483 @@
+openapi: 3.0.0
+info:
+  title: TestMu AI SmartUI API Documentation Autoheal Command Logs Build API
+  version: 1.0.1
+servers:
+- url: https://api.lambdatest.com/automation/smart-ui
+- url: https://eu-api.lambdatest.com/automation/smart-ui
+tags:
+- name: Build
+paths:
+  /builds:
+    get:
+      tags:
+      - Build
+      summary: Fetch all builds of an account.
+      description: Fetch all builds of an account. You can limit the number of records and apply filter on status,build date range and sort by users,start date and end date in asc and desc order. You can apply sort on multiple columns.
+      operationId: builds
+      parameters:
+      - name: offset
+        in: query
+        description: It defines the number of lists on the basis of limit parameter. e.g offset=10
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        description: To fetch specified number of records. e.g. limit=10
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: status
+        in: query
+        description: To fetch the list of builds with specific statuses. You can pass multiple comma seperated statuses e.g. running,queued,completed,timeout and error.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: fromdate
+        in: query
+        description: To fetch the list of builds that executed from the specified Start Date. The Date format must be YYYY-MM-DD. e.g. "2018-03-15".
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: todate
+        in: query
+        description: To fetch the list of builds that executed till the specified End Date. If both fromdate and todate value provided then it works as range filter. The Date format must be YYYY-MM-DD. e.g. "2018-03-15".
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: sort
+        in: query
+        description: To sort the list in ascending or descending order using multiple keys. e.g. "asc.user_id,desc.org_id"
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: publicurl
+        in: query
+        description: If true, includes the public URL for each build in the response. If false (default), public URLs are omitted. When true, the limit cannot exceed 20.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: boolean
+          default: false
+      - name: username
+        in: query
+        description: To filter builds by username(s). You can pass a single username or multiple comma-separated usernames (e.g. "alice,bob").
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBuildResponse'
+        400:
+          description: Invalid session id value
+        401:
+          description: Access denied. Auth error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+      security:
+      - basicAuth: []
+  /builds/{build_id}:
+    get:
+      tags:
+      - Build
+      summary: Fetch specified build details
+      description: To fetch build details of the buildid specified by the user.
+      operationId: singlebuild
+      parameters:
+      - name: build_id
+        in: path
+        description: Build ID that details you want to fetch
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      - name: shareExpiryLimit
+        in: query
+        description: Days after which share link will get expired (3,7,10,30)
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SingleBuildResponse'
+        401:
+          description: Access denied. Auth error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+        404:
+          description: Resource not found
+      security:
+      - basicAuth: []
+    delete:
+      tags:
+      - Build
+      summary: Delete Build
+      description: To delete specified Build from dashboard.
+      operationId: status_ind
+      parameters:
+      - name: build_id
+        in: path
+        description: Build ID that need to be deleted
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteBuildResponse'
+        400:
+          description: Invalid build id value
+        401:
+          description: Access denied. Auth error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+      security:
+      - basicAuth: []
+    patch:
+      tags:
+      - Build
+      summary: Update Build Name or Status
+      description: To change build name or status
+      operationId: build_id
+      parameters:
+      - name: build_id
+        in: path
+        description: build id that name need to be changed.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        description: You can update either name or status or both of a build in single request.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EditBuild'
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EditBuildResponse'
+        400:
+          description: Bad Request
+        401:
+          description: Access denied. Auth error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+      security:
+      - basicAuth: []
+  /build/stop:
+    put:
+      tags:
+      - Build
+      summary: Stop tests by BuildID
+      description: To stop tests by BuildID.
+      parameters:
+      - name: build
+        in: query
+        description: build id for which to stop tests
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StopBuildResponse'
+        400:
+          description: Bad operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BuildInvalidQueryParams'
+        401:
+          description: Access denied. Auth error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+        403:
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BuildActionForbidden'
+        404:
+          description: Build id not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BuildNotFound'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    BuildInvalidQueryParams:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Query Params provided
+        status:
+          type: string
+          example: fail
+    BuildNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Could not find any build in running state
+        status:
+          type: string
+          example: fail
+    EditBuildResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Build updated successfully
+        status:
+          type: string
+          example: success
+        data:
+          $ref: '#/components/schemas/EditBuildResponse_data'
+    ListsTestsResponse_Meta_attributes:
+      type: object
+      properties:
+        org_id:
+          type: number
+    BuildActionForbidden:
+      type: object
+      properties:
+        message:
+          example: Cannot stop more than 10 builds through this API
+        status:
+          example: fail
+    DeleteBuildResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Build deleted successfully
+        status:
+          type: string
+          example: success
+        data:
+          $ref: '#/components/schemas/EditBuildResponse_data'
+    ListBuildResponse_data:
+      type: object
+      properties:
+        build_id:
+          type: number
+          example: 1782
+        name:
+          type: string
+          example: shivam-video-test
+        user_id:
+          type: number
+          example: 1212
+        username:
+          type: string
+          example: shivam
+        status_ind:
+          type: string
+          example: completed
+        create_timestamp:
+          type: string
+          example: 2019-02-05 08:24:36+00:00
+        end_timestamp:
+          type: string
+          example: 2019-02-05 08:27:22+00:00
+        project_id:
+          type: string
+          example: ML
+        project_name:
+          type: string
+          example: magicleap
+        tags:
+          type: array
+          items:
+            type: string
+          example:
+          - tag1
+          - tag2
+          - tag3
+        duration:
+          type: number
+          example: 719
+    EditBuild:
+      type: object
+      properties:
+        name:
+          type: string
+          format: string
+        status:
+          type: string
+          format: string
+    ListsTestsResponse_Meta_result_set:
+      type: object
+      properties:
+        count:
+          type: number
+        limit:
+          type: number
+        offset:
+          type: number
+        total:
+          type: number
+    ListBuildResponse:
+      required:
+      - Meta
+      - data
+      properties:
+        Meta:
+          $ref: '#/components/schemas/ListsTestsResponse_Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListBuildResponse_data'
+    SingleBuildResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/SingleBuildResponse_data'
+        message:
+          type: string
+          example: Retrieve build list was successful
+        status:
+          type: string
+          example: success
+    SingleBuildResponse_data:
+      type: object
+      properties:
+        build_id:
+          type: number
+          example: 1
+        name:
+          type: string
+          example: asdaskjaaa
+        org_id:
+          type: number
+          example: 1246
+        user_id:
+          type: number
+          example: 1212
+        username:
+          type: string
+          example: john smith
+        status_ind:
+          type: string
+          example: completed
+        create_timestamp:
+          type: string
+          example: 2018-12-23 14:30:14+00:00
+        end_timestamp:
+          type: string
+          example: 2018-12-25 12:46:38+00:00
+        project_id:
+          type: number
+          example: 24
+        tags:
+          type: array
+          items:
+            type: string
+          example:
+          - tag1
+          - tag2
+          - tag3
+        public_url:
+          type: string
+          example: https://automation.lambdatest.com/share?shareId=asdas
+        duration:
+          type: number
+          example: 156
+        dashboard_url:
+          type: string
+          example: https://automation.lambdatest.com/build?&build=1
+    StopBuildResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            builds:
+              type: array
+              items:
+                type: string
+              example:
+              - buildId1
+              - buildId2
+              - buildId3
+        message:
+          type: string
+          example: Initiated build stop
+        status:
+          type: string
+          example: success
+    EditBuildResponse_data:
+      type: object
+      properties:
+        result:
+          type: string
+          example: '1'
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+    ListsTestsResponse_Meta:
+      type: object
+      properties:
+        attributes:
+          $ref: '#/components/schemas/ListsTestsResponse_Meta_attributes'
+        result_set:
+          $ref: '#/components/schemas/ListsTestsResponse_Meta_result_set'
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

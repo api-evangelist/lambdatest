@@ -1,0 +1,62 @@
+openapi: 3.0.0
+info:
+  title: TestMu AI SmartUI API Documentation Autoheal Command Logs platforms API
+  version: 1.0.1
+servers:
+- url: https://api.lambdatest.com/automation/smart-ui
+- url: https://eu-api.lambdatest.com/automation/smart-ui
+tags:
+- name: platforms
+paths:
+  /platforms:
+    get:
+      tags:
+      - platforms
+      summary: Fetch platforms
+      description: Fetch platforms along with browsers and versions supported.
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPlatformResponse'
+components:
+  schemas:
+    PlatformResponse_data:
+      type: object
+      properties:
+        platform:
+          type: string
+        browsers:
+          type: array
+          items:
+            $ref: '#/components/schemas/BrowserResponse_data'
+    BrowserResponse_data:
+      type: object
+      properties:
+        browser_name:
+          type: string
+        version:
+          type: string
+        type:
+          type: string
+        slug:
+          type: string
+    GetPlatformResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Retrieve platforms was successful.
+        status:
+          type: string
+          example: success
+        platforms:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlatformResponse_data'
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

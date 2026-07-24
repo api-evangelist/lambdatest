@@ -1,0 +1,164 @@
+openapi: 3.0.0
+info:
+  title: TestMu AI SmartUI API Documentation Autoheal Command Logs tunnel API
+  version: 1.0.1
+servers:
+- url: https://api.lambdatest.com/automation/smart-ui
+- url: https://eu-api.lambdatest.com/automation/smart-ui
+tags:
+- name: tunnel
+paths:
+  /tunnels:
+    get:
+      tags:
+      - tunnel
+      summary: Fetch running tunnels of your account.
+      description: To fetch lists of all tunnels runing in an account.
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetTunnelsResponse'
+        401:
+          description: Access denied. Auth error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+        404:
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionNotFound'
+      security:
+      - basicAuth: []
+  /tunnels/{tunnel_id}:
+    delete:
+      tags:
+      - tunnel
+      summary: Stop a running tunnel
+      description: To stop a running tunnel in your account. e.g 2345
+      parameters:
+      - name: tunnel_id
+        in: path
+        description: Your tunnel id.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TunnelsDeleteResponse'
+        401:
+          description: Access denied. Auth error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+        403:
+          description: Forbidden! Operation not allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TunnelStopForbidden'
+        404:
+          description: Tunnel with specified id does not exists.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TunnelStopBadRequest'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    TunnelStopBadRequest:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Tunnel with specified id not found.
+        status:
+          type: string
+          example: fail
+    SessionNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Either resource not found or already deleted
+        status:
+          type: string
+          example: fail
+    TunnelStopForbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Forbidden! Opertaion not allowed.
+        status:
+          type: string
+          example: fail
+    GetTunnelsResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Retrieve tunnel was successful
+        status:
+          type: string
+          example: success
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TunnelData'
+    TunnelData:
+      type: object
+      properties:
+        dns:
+          type: string
+        email:
+          type: string
+        username:
+          type: string
+        shared_tunnel:
+          type: boolean
+        folder_path:
+          type: string
+        local_domains:
+          type: string
+        org_id:
+          type: integer
+        start_timestamp:
+          type: string
+        status_ind:
+          type: string
+        tunnel_id:
+          type: integer
+        tunnel_name:
+          type: string
+        user_id:
+          type: integer
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+    TunnelsDeleteResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Delete tunnel was successful.
+        status:
+          type: string
+          example: success
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

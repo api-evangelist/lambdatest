@@ -1,0 +1,117 @@
+openapi: 3.0.0
+info:
+  title: TestMu AI SmartUI API Documentation Autoheal Command Logs Upload Screenshots API
+  version: 1.0.1
+servers:
+- url: https://api.lambdatest.com/automation/smart-ui
+- url: https://eu-api.lambdatest.com/automation/smart-ui
+tags:
+- name: Upload Screenshots
+paths:
+  /v2/upload:
+    post:
+      tags:
+      - Upload Screenshots
+      summary: Upload any locally captured images to SmartUI for visual regression testing.Maximum Upload Size:100MB
+      description: Using this API you can upload any local images to our cloud comparsion. You can upload images and add their meta-data information to map the screenshots for comparsion.
+      requestBody:
+        description: Pass your list of screenshots which needs to be uploaded for comparison. (Minimum 1 file required)
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - files
+              - projectToken
+              properties:
+                files:
+                  type: string
+                  format: binary
+                projectToken:
+                  type: string
+                  example: projectToken#key
+                buildName:
+                  type: string
+                  example: any
+                baseline:
+                  type: boolean
+                  example: false
+                screenshotNames:
+                  type: string
+                  example: screenshot1,screenshot2
+                githubURL:
+                  type: string
+                  example: https://api.github.com/repos/OWNER/REPO/statuses/commitId
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadScreenshotResponseV2'
+        400:
+          description: Invalid/Missing Project Token . Missing mandatory parameters or wrong input.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadScreenshotError'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    UploadScreenshotError:
+      type: object
+      properties:
+        data:
+          type: string
+          example: Please Specify Project Token. It is a mandatory parameter
+        message:
+          type: string
+          example: error
+        status:
+          type: string
+          example: fail
+    UploadScreenshotResponseV2:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            filesUploaded:
+              type: object
+              properties:
+                error:
+                  type: string
+                  example: ''
+                message:
+                  type: string
+                  example: ''
+                fileName:
+                  type: string
+                  example: Screenshot 2022-12-05 at 5.00.37 PM.png
+                screenshotName:
+                  type: string
+                  example: screenshot1
+            buildName:
+              type: string
+              example: build-1
+            buildId:
+              type: string
+              example: f3e9bf89-4b61-4eb2-ad60-aaa72150d05e
+            projectName:
+              type: string
+              example: demo-project
+            totalFilesUploaded:
+              type: integer
+              example: 1
+            projectId:
+              type: string
+              example: 65bd1675-fe42-40bf-9698-7610cb4211bd
+        status:
+          type: string
+          example: success
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

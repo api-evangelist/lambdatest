@@ -1,0 +1,57 @@
+openapi: 3.0.0
+info:
+  title: TestMu AI SmartUI API Documentation Autoheal Command Logs Organisation API
+  version: 1.0.1
+servers:
+- url: https://api.lambdatest.com/automation/smart-ui
+- url: https://eu-api.lambdatest.com/automation/smart-ui
+tags:
+- name: Organisation
+paths:
+  /org/concurrency:
+    get:
+      tags:
+      - Organisation
+      summary: Get organisation concurrency
+      description: This API fetches the organisation level concurrency
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetOrgConcurrency'
+        400:
+          description: Invalid request to fetch org concurrency
+        401:
+          description: Access denied. Auth error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    GetOrgConcurrency:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            queued:
+              type: integer
+              example: 100
+            running:
+              type: integer
+              example: 100
+        status:
+          type: string
+          example: success
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

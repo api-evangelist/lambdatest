@@ -1,0 +1,75 @@
+openapi: 3.0.0
+info:
+  title: TestMu AI SmartUI API Documentation Autoheal Command Logs Geolocation API
+  version: 1.0.1
+servers:
+- url: https://api.lambdatest.com/automation/smart-ui
+- url: https://eu-api.lambdatest.com/automation/smart-ui
+tags:
+- name: Geolocation
+paths:
+  /geoLocation/ips:
+    get:
+      tags:
+      - Geolocation
+      summary: Get Ips of geolocation
+      description: This API fetches all the possible ips of geolocation. It is recommended to filter using two digit country code.
+      parameters:
+      - name: countryCode
+        in: query
+        description: To filter ips of specific country.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetGeolocationIps'
+        401:
+          description: Access denied. Auth error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    GetGeolocationIps:
+      properties:
+        data:
+          type: object
+          properties:
+            in:
+              type: array
+              items:
+                type: string
+              example:
+              - 0.0.0.0
+              - 0.0.0.0
+              - 0.0.0.0
+            us:
+              type: array
+              items:
+                type: string
+              example:
+              - 0.0.0.0
+              - 0.0.0.0
+        message:
+          type: string
+          example: Geolocation IP fetched successfully
+        status:
+          type: string
+          example: success
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

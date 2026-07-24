@@ -1,0 +1,351 @@
+openapi: 3.0.0
+info:
+  title: TestMu AI SmartUI API Documentation Autoheal Command Logs prerun API
+  version: 1.0.1
+servers:
+- url: https://api.lambdatest.com/automation/smart-ui
+- url: https://eu-api.lambdatest.com/automation/smart-ui
+tags:
+- name: prerun
+paths:
+  /files:
+    get:
+      tags:
+      - prerun
+      summary: Fetch all pre run files uploaded by the user
+      description: This API fetches all the pre run executable which are uploaded to our lambda storage.
+      operationId: ListFiles
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPrerunFileResponse'
+        401:
+          description: Access denied. Auth error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+      security:
+      - basicAuth: []
+    post:
+      tags:
+      - prerun
+      summary: Upload pre run executable file to our lambda storage
+      description: In order to use pre run feature you first need to upload your relevant script files to our lambda storage. For every pre run action you need to upload 2 scripts (Pre run file and Post run file). Pre run file will be executed before starting the test and post run file will be executed after test is completed. If you perform any changes in test machine like changing host file, changing windows registry key, installing certificates, then your post run file should undo those changes
+      operationId: UploadPrerun
+      requestBody:
+        description: To upload a new pre run executable files
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UploadPrerunPayload'
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreatePrerunResponse'
+        401:
+          description: Access denied. Auth error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InValidJson'
+      security:
+      - basicAuth: []
+  /files/delete:
+    delete:
+      tags:
+      - prerun
+      summary: Delete pre run from our lambda storage
+      description: This API deletes a pre run executable script from our lambda storage. Since pre run executable name should be unique, this API is useful if you want to re-upload your updated pre run script with the name same as the previous one.
+      requestBody:
+        description: To delete a pre run executable
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeletePrerunPayload'
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeletePrerunResponse'
+        400:
+          description: Invalid file path value
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeletePageNotFound'
+        401:
+          description: Access denied. Auth error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+      security:
+      - basicAuth: []
+  /files/validate:
+    post:
+      tags:
+      - prerun
+      summary: Check if the file is approved by Lambdatest
+      description: Once the pre run executable is successfully uploaded, LambdaTest will check the script and approve it after successful verification. This API will tell if the file is approved or not
+      requestBody:
+        description: To check if the file is approved by Lambdatest
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidatePrerunPayload'
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidatePrerunResponse'
+        400:
+          description: Invalid file path value
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidatePageNotFound'
+        401:
+          description: Access denied. Auth error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+      security:
+      - basicAuth: []
+  /files/download:
+    put:
+      tags:
+      - prerun
+      summary: Download pre run executable file.
+      requestBody:
+        description: To download a pre run executable
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DownloadPrerunPayload'
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        400:
+          description: Invalid file path value specified
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DownloadPrerunPageNotFound'
+        401:
+          description: Access denied. Auth error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    ListPreRunResponse_data:
+      type: object
+      properties:
+        name:
+          type: string
+          example: dialog_disable
+          description: Name of the pre run
+        last_modified_at:
+          type: string
+          example: '2020-08-02T06:46:08Z'
+        size:
+          type: number
+          example: 104
+          description: file size
+        capability_url:
+          type: string
+          example: lambda:dialog_disable/pre/httpdialog.au3
+          description: capability url
+        file_path:
+          type: string
+          example: dialog_disable/pre/httpdialog.au3
+          description: path of the file in lambda storage
+    ValidatePrerunResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            post_run_file_path:
+              type: string
+              example: dialog_disable/post/httpdialogenable.au3
+        message:
+          type: string
+          example: File exist in our lambda storage and is approved successfully
+        staus:
+          type: string
+          example: success
+    DownloadPrerunPayload:
+      type: object
+      required:
+      - file_path
+      properties:
+        file_path:
+          type: string
+          example: dialog_disable/pre/httpdialog.au3
+          description: file path of pre run file in our lambda storage. You can get file_path from the GET /files API
+    ValidatePrerunPayload:
+      type: object
+      required:
+      - file_path
+      properties:
+        file_path:
+          type: string
+          example: dialog_disable/pre/httpdialog.au3
+          description: file path of pre run file in our lambda storage. You can get file_path from the GET /files API
+    DownloadPrerunPageNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Error in downloading file from lambda storage
+        status:
+          type: string
+          example: fail
+    ListPrerunFileResponse:
+      required:
+      - Meta
+      - data
+      properties:
+        Meta:
+          $ref: '#/components/schemas/ListPrerunFileResponse_Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListPreRunResponse_data'
+    ValidatePageNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: The script is not yet approved by our team
+        status:
+          type: string
+          example: fail
+    ListPrerunFileResponse_Meta:
+      type: object
+      properties:
+        download_url:
+          type: string
+          example: http://api.lambdatest.com/automation/api/v1/files/download
+          description: base download url path
+        org_id:
+          type: number
+          example: 12345
+        total:
+          type: number
+          example: 1
+    UploadPrerunPayload:
+      type: object
+      required:
+      - pre_run_file
+      - name
+      - post_run_file
+      properties:
+        pre_run_file:
+          type: string
+          format: binary
+          description: If your script requires some reference to other file that needs to be present in our machines then you can upload multiple pre_run_file and download those files in your script using download API
+        name:
+          type: string
+          example: MicrosoftEdgeZoom
+          description: Name of your pre run executable
+        post_run_file:
+          type: string
+          format: binary
+          description: script file that will revert the actions performed by pre run file. If there is no post action that needs to performed then you can upload an empty file
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+    DeletePageNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: File doesn't exist in lambda storage
+        status:
+          type: string
+          example: fail
+    DeletePrerunPayload:
+      type: object
+      required:
+      - file_path
+      properties:
+        file_path:
+          type: string
+          example: dialog_disable/pre/httpdialog.au3
+          description: file path of pre run file in our lambda storage. To delete a pre run, you can either specify pre_run or post_run file path. You can get file_path from the GET /files API
+    DeletePrerunResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: File have been successfully deleted from our lambda storage
+        status:
+          type: string
+          example: success
+    UploadPrerunResposeData:
+      type: object
+      properties:
+        file:
+          type: string
+          example: httpdialog.au3
+        error:
+          type: string
+          example: ''
+          description: error message if there is any error in uploading file. If file upload is success, then it will empty
+    CreatePrerunResponse:
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UploadPrerunResposeData'
+        message:
+          type: string
+          example: Files have been uploaded successfully to our lambda storage
+        status:
+          type: string
+          example: success
+    InValidJson:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Oops! The name that you have provided already exists. Please use different name or delete this script first
+        status:
+          type: string
+          example: fail
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

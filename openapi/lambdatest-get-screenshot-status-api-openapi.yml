@@ -1,0 +1,125 @@
+openapi: 3.0.0
+info:
+  title: TestMu AI SmartUI API Documentation Autoheal Command Logs Get Screenshot Status API
+  version: 1.0.1
+servers:
+- url: https://api.lambdatest.com/automation/smart-ui
+- url: https://eu-api.lambdatest.com/automation/smart-ui
+tags:
+- name: Get Screenshot Status
+paths:
+  /screenshot/build/status:
+    get:
+      tags:
+      - Get Screenshot Status
+      summary: Fetch build status by buildId / buildName
+      description: 'This API fetches the status of all screenshots which are uploaded to smartui using either build id or build name. **Note:** When both `buildId` and `buildName` are provided in the request, `buildId` will be given priority over `buildName`.
+
+        '
+      parameters:
+      - name: projectToken
+        in: query
+        description: To validate the project in which you want to map your uploaded screenshots
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: buildId
+        in: query
+        description: You can pass the id of speicifc build if you need to map multiple screenshots of different tests to one build. (Optional)
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: buildName
+        in: query
+        description: You can pass the name of specific build if you need to map multiple screenshots of different tests to one build. (Optional)
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScreenshotStatusBuildResponse'
+        400:
+          description: Either Screenshot don't exist or bad input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScreenshotStatusBuildError'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    ScreenshotStatusBuildResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            Screenshots:
+              type: array
+              items:
+                $ref: '#/components/schemas/ScreenshotProperties'
+            buildId:
+              type: string
+              example: 50af60e1-8709-40b1-981f-19636de5a590
+            buildName:
+              type: string
+              example: 0e1915b
+            projectName:
+              type: string
+              example: FPS-Monterey
+            buildStatus:
+              type: string
+              example: 1 Under Review
+        status:
+          type: string
+          example: success
+    ScreenshotStatusBuildError:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            Screenshots:
+              type: string
+              example: 'null'
+            buildId:
+              type: string
+              example: f3e9bf89-4b61-4eb2-ad60-aaa72150d05e
+            buildName:
+              type: string
+              example: build-1
+            projectName:
+              type: string
+              example: demo-project
+        status:
+          type: string
+          example: success
+    ScreenshotProperties:
+      type: object
+      properties:
+        screenshotId:
+          type: string
+          example: 3137e779-e00a-4d88-8cbe-9ff2eb8cceaf
+        mismatchPercentage:
+          type: number
+          example: 12.65
+        threshold:
+          type: number
+          example: 1200
+        status:
+          type: string
+          example: Under Screening
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

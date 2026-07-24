@@ -1,0 +1,156 @@
+openapi: 3.0.0
+info:
+  title: TestMu AI SmartUI API Documentation Autoheal Command Logs Test API
+  version: 1.0.1
+servers:
+- url: https://api.lambdatest.com/automation/smart-ui
+- url: https://eu-api.lambdatest.com/automation/smart-ui
+tags:
+- name: Test
+paths:
+  /tests/{test_id}/exceptions:
+    post:
+      tags:
+      - Test
+      summary: Upload assertion logs to our lambda storage
+      description: You can upload assertion logs or other logs for a test Id. The logs uploaded can then be viewed in the automation dashboard page under EXCEPTION sections. You can only upload a list of strings
+      operationId: UploadTestExceptionLogs
+      parameters:
+      - name: test_id
+        in: path
+        description: Test ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        description: To upload exception log for a given test Id
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UploadExceptionLog'
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadTerminalFileResposeData'
+        401:
+          description: Access denied. Auth error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadTerminalFileSizeError'
+      security:
+      - basicAuth: []
+  /test/{test_id}/video:
+    get:
+      tags:
+      - Test
+      summary: Fetch recorded video of a test id.
+      description: To fetch video of a recorded test.
+      parameters:
+      - name: test_id
+        in: path
+        description: Test ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: video_generated_status
+        in: query
+        description: Video generated status
+        style: simple
+        schema:
+          type: boolean
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoResponse'
+        401:
+          description: Access denied. Auth error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+        404:
+          description: session id not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionNotFound'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    SessionNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Either resource not found or already deleted
+        status:
+          type: string
+          example: fail
+    UploadExceptionLog:
+      type: object
+      properties:
+        exception:
+          type: array
+          items:
+            type: string
+          example:
+          - exception 1
+          - exception 2
+          - expection 3
+    VideoResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Retrieve video url was successful
+        status:
+          type: string
+          example: success
+        url:
+          type: string
+        view_video_url:
+          type: string
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+    UploadTerminalFileResposeData:
+      type: object
+      properties:
+        data:
+          type: string
+          example: File have been uploaded successfully to our lambda storage
+        status:
+          type: string
+          example: success
+    UploadTerminalFileSizeError:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Oops ! file size too large (> 2MB)
+        status:
+          type: string
+          example: fail
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

@@ -1,0 +1,261 @@
+openapi: 3.0.0
+info:
+  title: TestMu AI SmartUI API Documentation Autoheal Command Logs Session Logs (V2) API
+  version: 1.0.1
+servers:
+- url: https://api.lambdatest.com/automation/smart-ui
+- url: https://eu-api.lambdatest.com/automation/smart-ui
+tags:
+- name: Session Logs (V2)
+paths:
+  /sessions/{session_id}/v2/log/command:
+    get:
+      tags:
+      - Session Logs (V2)
+      summary: command logs of a test session
+      description: Returns a signed URL to download the full commands.zip for the session. The zip contains the per-page command log JSON files at the root, plus per-annotation command log JSON files (when present) under an `annotations/` subdirectory. To fetch a single annotation's commands inline (without downloading the zip), use the v1 endpoint with `annotationId`.
+      operationId: session command logs (V2)
+      parameters:
+      - name: session_id
+        in: path
+        description: Session ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogNewResponse'
+        400:
+          description: session id not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionNotFound'
+        401:
+          description: Access denied. Auth error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+      security:
+      - basicAuth: []
+  /sessions/{session_id}/v2/log/selenium:
+    get:
+      tags:
+      - Session Logs (V2)
+      summary: selenium/appium log of a test session
+      description: To fetch selenum/appium log that contains grid requests and reponses of a test session in plain text.
+      operationId: sessionRawLogs (V2)
+      parameters:
+      - name: session_id
+        in: path
+        description: Session ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogNewResponse'
+        400:
+          description: session id not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionNotFound'
+        401:
+          description: Access denied. Auth error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+      security:
+      - basicAuth: []
+  /sessions/{session_id}/v2/log/network:
+    get:
+      tags:
+      - Session Logs (V2)
+      summary: Network log of a test session
+      description: To fetch Network log that contains all the requested urls of a test session in plain json text.
+      operationId: sessionNetworkLogs (V2)
+      parameters:
+      - name: session_id
+        in: path
+        description: get logs based on session id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogNewResponse'
+        400:
+          description: session id not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionNotFound'
+        401:
+          description: Access denied. Auth error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+      security:
+      - basicAuth: []
+  /sessions/{session_id}/v2/log/console:
+    get:
+      tags:
+      - Session Logs (V2)
+      summary: console/browser log of a test session
+      description: To fetch console/browser log that contains console errors thrown by application during a test session in plain json text.
+      operationId: sessionBrowserLogs (V2)
+      parameters:
+      - name: session_id
+        in: path
+        description: Session ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogNewResponse'
+        400:
+          description: session id not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionNotFound'
+        401:
+          description: Access denied. Auth error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+      security:
+      - basicAuth: []
+  /sessions/{session_id}/v2/log/network.har:
+    get:
+      tags:
+      - Session Logs (V2)
+      summary: Network har log of a test session
+      description: To fetch Network har log that contains all the requested har of a test session in plain json text.
+      operationId: sessionNetworkHarLogs (V2)
+      parameters:
+      - name: session_id
+        in: path
+        description: get network har logs based on session id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogNewResponse'
+        400:
+          description: session id not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionNotFound'
+        401:
+          description: Access denied. Auth error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+      security:
+      - basicAuth: []
+  /sessions/{session_id}/v2/log/full-har:
+    get:
+      tags:
+      - Session Logs (V2)
+      summary: Full har log of a test session
+      description: To fetch Full Network har log that contains all the requested har of a test session along with request and response content.
+      operationId: sessionNetworkFullHarLogs (V2)
+      parameters:
+      - name: session_id
+        in: path
+        description: get network har logs based on session id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogNewResponse'
+        400:
+          description: session id not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionNotFound'
+        401:
+          description: Access denied. Auth error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    LogNewResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: URL is succesfully generated
+        status:
+          type: string
+          example: success
+        url:
+          type: string
+    SessionNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Either resource not found or already deleted
+        status:
+          type: string
+          example: fail
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

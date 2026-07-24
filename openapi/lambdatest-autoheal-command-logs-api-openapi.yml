@@ -1,0 +1,236 @@
+openapi: 3.0.0
+info:
+  title: TestMu AI SmartUI API Documentation Autoheal Command Logs API
+  version: 1.0.1
+servers:
+- url: https://api.lambdatest.com/automation/smart-ui
+- url: https://eu-api.lambdatest.com/automation/smart-ui
+tags:
+- name: Autoheal Command Logs
+paths:
+  /autoheal/test/{test_id}:
+    get:
+      tags:
+      - Autoheal Command Logs
+      summary: Fetch autohealed commands data for a test
+      description: Retrieve all autohealed commands for a specific test session, including original and healed locators with execution duration.
+      operationId: getSeleniumAutohealedData
+      parameters:
+      - name: test_id
+        in: path
+        description: Test ID for which to fetch autohealed commands
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: DA-WIN-160849-1756966096614912604KKM
+      - name: limit
+        in: query
+        description: Maximum number of records to return (default 100)
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 1000
+          default: 100
+          example: 100
+      - name: offset
+        in: query
+        description: Number of records to skip for pagination (default 0)
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+          minimum: 0
+          default: 0
+          example: 0
+      responses:
+        200:
+          description: Successfully retrieved autohealed commands data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AutohealedCommandsResponse'
+              example:
+                status: success
+                message: null
+                data:
+                  total_healed_commands: 11
+                  test_id: DA-WIN-160849-1756966096614912604KKM
+                  healed_commands:
+                  - request_id: LT01K49NG343J2YDNEQ60HQVQY13-6NSZV-US-EAST-1
+                    test_id: DA-WIN-160849-1756966096614912604KKM
+                    original_locator:
+                      using: css selector
+                      value: '[class="list-unstyled"]>:nth-child(4)>input'
+                    healed_locator:
+                      using: css selector
+                      value: input.custom-checkbox.ng-pristine.ng-untouched.ng-valid.ng-empty
+                    duration: 349
+                  - request_id: LT01K49NG2BMVQ50K6XF53K9VZHN-L2V78-US-EAST-1
+                    test_id: DA-WIN-160849-1756966096614912604KKM
+                    original_locator:
+                      using: css selector
+                      value: '[class="list-unstyled"]>:nth-child(3)>input'
+                    healed_locator:
+                      using: css selector
+                      value: input.custom-checkbox.ng-pristine.ng-untouched.ng-valid.ng-empty
+                    duration: 398
+        400:
+          description: Bad request - Invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+              example:
+                status: fail
+                message: Invalid limit parameter
+                data: null
+        401:
+          description: Unauthorized - Authentication failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+        404:
+          description: Test not found or not accessible
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+              example:
+                status: fail
+                message: Test not found
+                data: null
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+              example:
+                status: error
+                message: Failed to fetch autohealed data
+                data: null
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    NotFound:
+      type: object
+      properties:
+        status:
+          type: string
+          example: fail
+        message:
+          type: string
+          example: Test not found
+        data:
+          type: object
+          nullable: true
+          example: null
+    AutohealedCommand:
+      type: object
+      properties:
+        request_id:
+          type: string
+          description: Unique request identifier for the command
+          example: LT01K49NG343J2YDNEQ60HQVQY13-6NSZV-US-EAST-1
+        test_id:
+          type: string
+          description: Test identifier
+          example: DA-WIN-160849-1756966096614912604KKM
+        original_locator:
+          $ref: '#/components/schemas/LocatorData'
+        healed_locator:
+          $ref: '#/components/schemas/LocatorData'
+        duration:
+          type: integer
+          description: Time taken to heal the locator in milliseconds
+          example: 349
+    BadRequest:
+      type: object
+      properties:
+        status:
+          type: string
+          example: fail
+        message:
+          type: string
+          example: Invalid limit parameter
+        data:
+          type: object
+          nullable: true
+          example: null
+    InternalServerError:
+      type: object
+      properties:
+        status:
+          type: string
+          example: error
+        message:
+          type: string
+          example: Failed to fetch autohealed data
+        data:
+          type: object
+          nullable: true
+          example: null
+    AutohealedCommandsData:
+      type: object
+      properties:
+        total_healed_commands:
+          type: integer
+          description: Total number of autohealed commands found
+          example: 11
+        test_id:
+          type: string
+          description: The test ID for which autohealed commands were fetched
+          example: DA-WIN-160849-1756966096614912604KKM
+        healed_commands:
+          type: array
+          description: Array of autohealed command details
+          items:
+            $ref: '#/components/schemas/AutohealedCommand'
+    LocatorData:
+      type: object
+      properties:
+        using:
+          type: string
+          description: The locator strategy used (e.g., css selector, xpath, id)
+          example: css selector
+        value:
+          type: string
+          description: The actual locator value
+          example: input.custom-checkbox.ng-pristine.ng-untouched.ng-valid.ng-empty
+    AutohealedCommandsResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        message:
+          type: string
+          nullable: true
+          example: null
+        data:
+          $ref: '#/components/schemas/AutohealedCommandsData'
+    Unauthorized:
+      type: object
+      properties:
+        status:
+          type: string
+          example: fail
+        message:
+          type: string
+          example: Unauthorized
+        data:
+          type: object
+          nullable: true
+          example: null
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

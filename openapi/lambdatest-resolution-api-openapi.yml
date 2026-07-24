@@ -1,0 +1,86 @@
+openapi: 3.0.0
+info:
+  title: TestMu AI SmartUI API Documentation Autoheal Command Logs Resolution API
+  version: 1.0.1
+servers:
+- url: https://api.lambdatest.com/automation/smart-ui
+- url: https://eu-api.lambdatest.com/automation/smart-ui
+tags:
+- name: Resolution
+paths:
+  /resolutions:
+    get:
+      tags:
+      - Resolution
+      summary: Get Resolutions of Platforms
+      description: This API fetches available supported Platforms Resolution
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetResolutions'
+        400:
+          description: Invalid request to fetch supported resolutions
+        401:
+          description: Access denied. Auth error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    GetResolutions:
+      type: object
+      properties:
+        resolutions:
+          type: object
+          properties:
+            BigSur:
+              type: array
+              items:
+                type: string
+              example:
+              - 1024x768
+              - 1280x960
+              - 1280x1024
+            Catalina:
+              type: array
+              items:
+                type: string
+              example:
+              - 1024x768
+              - 1280x960
+              - 1280x1024
+            Windows11:
+              type: array
+              items:
+                type: string
+              example:
+              - 1024x768
+              - 1280x800
+              - 1280x1024
+            Windows10:
+              type: array
+              items:
+                type: string
+              example:
+              - 1024x768
+              - 1280x800
+              - 1280x1024
+        message:
+          type: string
+          example: Resolutions are retrieved successfully
+        status:
+          type: string
+          example: success
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

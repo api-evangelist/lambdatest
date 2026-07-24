@@ -1,0 +1,101 @@
+openapi: 3.0.0
+info:
+  title: TestMu AI SmartUI API Documentation Autoheal Command Logs Lighthouse API
+  version: 1.0.1
+servers:
+- url: https://api.lambdatest.com/automation/smart-ui
+- url: https://eu-api.lambdatest.com/automation/smart-ui
+tags:
+- name: Lighthouse
+paths:
+  /lighthouse/report/{session_id}:
+    get:
+      tags:
+      - Lighthouse
+      summary: To fetch the Lighthouse performance report data.
+      description: To fetch URL to download the generated Lighthouse performance report JSON data.
+      parameters:
+      - name: session_id
+        in: path
+        description: SESSION ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        200:
+          description: Operation successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LighthouseReportResponse'
+        400:
+          description: Bad Request. Conditional combination of 'chrome' browser & capability 'performance=true' is not there.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Please provide valid inputs. Conditional combination of 'chrome' browser & capability 'performance=true' is not satisfied for the test associated with the given sessionId.
+                  status:
+                    type: string
+                    example: fail
+        401:
+          description: Access denied. Auth error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+        404:
+          description: Resource associated to session_id is not available.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionNotFound'
+        500:
+          description: Unable to get Lighthouse report data.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Unable to get Lighthouse report data.
+                  status:
+                    type: string
+                    example: fail
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    LighthouseReportResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Retrieve Lighthouse Report data was successful.
+        status:
+          type: string
+          example: success
+        data:
+          type: string
+    SessionNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Either resource not found or already deleted
+        status:
+          type: string
+          example: fail
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

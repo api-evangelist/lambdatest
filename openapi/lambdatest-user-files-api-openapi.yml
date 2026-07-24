@@ -1,0 +1,250 @@
+openapi: 3.0.0
+info:
+  title: TestMu AI SmartUI API Documentation Autoheal Command Logs user-files API
+  version: 1.0.1
+servers:
+- url: https://api.lambdatest.com/automation/smart-ui
+- url: https://eu-api.lambdatest.com/automation/smart-ui
+tags:
+- name: user-files
+paths:
+  /user-files:
+    get:
+      tags:
+      - user-files
+      summary: Fetch all user files uploaded by the user
+      description: This API fetches all the user files which are uploaded to our lambda storage.
+      operationId: ListUserFiles
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListUserFileResponse'
+        401:
+          description: Access denied. Auth error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+      security:
+      - basicAuth: []
+    post:
+      tags:
+      - user-files
+      summary: Upload files to our lambda storage
+      description: You can upload multiple files to our lambda storage. A maximum of 150 files can be uploaded per organization. We have limit of 20 MB files size per API. So if you are total file sizes reach the limit, please upload your files in multiple API calls
+      operationId: UploadUserFiles
+      requestBody:
+        description: To upload new user files
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UploadUserFilePayload'
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadUserFilesResposeData'
+        401:
+          description: Access denied. Auth error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InValidJson'
+      security:
+      - basicAuth: []
+  /user-files/delete:
+    delete:
+      tags:
+      - user-files
+      summary: Delete user files from our lambda storage
+      description: This API deletes user file from lambda storage
+      requestBody:
+        description: To delete a user fle
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteUserFilePayload'
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteUserFileResponse'
+        400:
+          description: Invalid file path value
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeletePageNotFound'
+        401:
+          description: Access denied. Auth error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+      security:
+      - basicAuth: []
+  /user-files/download:
+    put:
+      tags:
+      - user-files
+      summary: Download user file from lambda storage.
+      requestBody:
+        description: To download a user file
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DownloadUserFilePayload'
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        400:
+          description: Invalid file path value specified
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DownloadUserFilePageNotFound'
+        401:
+          description: Access denied. Auth error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDenied'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    ListUserFileResponse:
+      required:
+      - Meta
+      - data
+      properties:
+        Meta:
+          $ref: '#/components/schemas/ListUserFileResponse_Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListUserFileResponse_data'
+    UploadUserFilesResposeData:
+      type: object
+      properties:
+        file:
+          type: string
+          example: file_example_JPG_2500kB.jpg
+        error:
+          type: string
+          example: ''
+          description: error message if there is any error in uploading file. If file upload is success, then it will empty
+        message:
+          type: string
+          example: File have been uploaded successfully to our lambda storage
+    ListUserFileResponse_Meta:
+      type: object
+      properties:
+        org_id:
+          type: number
+          example: 12345
+        total:
+          type: number
+          example: 1
+    DownloadUserFilePageNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Error in downloading file from lambda storage
+        status:
+          type: string
+          example: fail
+    DeleteUserFileResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: File have been successfully deleted from our lambda storage
+        status:
+          type: string
+          example: success
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+    DeletePageNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: File doesn't exist in lambda storage
+        status:
+          type: string
+          example: fail
+    UploadUserFilePayload:
+      type: object
+      required:
+      - files
+      properties:
+        files:
+          type: string
+          format: binary
+    DownloadUserFilePayload:
+      type: object
+      required:
+      - key
+      properties:
+        key:
+          type: string
+          example: file_example_JPG_2500kB.jpg
+    DeleteUserFilePayload:
+      type: object
+      required:
+      - key
+      properties:
+        key:
+          type: string
+          example: file_example_JPG_2500kB.jpg
+    ListUserFileResponse_data:
+      type: object
+      properties:
+        key:
+          type: string
+          example: file_example_JPG_2500kB.jpg
+          description: Name of the file
+        last_modified_at:
+          type: string
+          example: '2020-08-02T06:46:08Z'
+        size:
+          type: number
+          example: 104
+          description: file size
+    InValidJson:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Oops! The name that you have provided already exists. Please use different name or delete this script first
+        status:
+          type: string
+          example: fail
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

@@ -1,0 +1,142 @@
+openapi: 3.0.0
+info:
+  title: TestMu AI SmartUI API Documentation Autoheal Command Logs Get Build Status API
+  version: 1.0.1
+servers:
+- url: https://api.lambdatest.com/automation/smart-ui
+- url: https://eu-api.lambdatest.com/automation/smart-ui
+tags:
+- name: Get Build Status
+paths:
+  /build/status:
+    get:
+      tags:
+      - Get Build Status
+      summary: Fetch build status by buildId or buildName
+      description: 'This API fetches the build status along with the count of different screenshot statuses. **Note:** When both `buildId` and `buildName` are provided in the request, `buildId` will be given priority over `buildName`.
+
+        '
+      parameters:
+      - name: projectToken
+        in: query
+        description: Validate and map the project in which the build exists
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: buildId
+        in: query
+        description: Unique ID for the build. You can get it from the URL of build's tests page.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: buildName
+        in: query
+        description: Name of the build. (For storybook project, provide build ID)
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BuildStatusResponse'
+        400:
+          description: Mandatory parameters are missing/empty in request. Please add/correct them in query parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BuildStatusError'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    BuildStatusError:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            data:
+              type: object
+              properties:
+                changesFound:
+                  type: integer
+                  example: 0
+                approved:
+                  type: integer
+                  example: 0
+                underReview:
+                  type: integer
+                  example: 0
+                rejected:
+                  type: integer
+                  example: 0
+                buildId:
+                  type: string
+                  example: ''
+                buildName:
+                  type: string
+                  example: ''
+                projectName:
+                  type: string
+                  example: ''
+                buildStatus:
+                  type: string
+                  example: ''
+                message:
+                  type: string
+                  example: ''
+        message:
+          type: string
+          example: Mandatory parameters are missing/empty in request. Please add/correct them in query parameters
+        status:
+          type: string
+          example: fail
+    BuildStatusResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            changesFound:
+              type: integer
+              example: 2
+            approved:
+              type: integer
+              example: 3
+            underReview:
+              type: integer
+              example: 0
+            rejected:
+              type: integer
+              example: 0
+            buildId:
+              type: string
+              example: 2423e94d-7f12-460c-8de7-e35db3698d8a
+            buildName:
+              type: string
+              example: c24dd3e
+            projectName:
+              type: string
+              example: web-project
+            buildStatus:
+              type: string
+              example: Changes Need Approval
+            message:
+              type: string
+              example: Fetched Build Status Successfully
+        status:
+          type: string
+          example: success
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
