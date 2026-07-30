@@ -13,7 +13,20 @@ description: >-
   The platform serves over 2 million developers and testers across 10,000+
   enterprise customers in 130 countries.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/lambdatest.png
 tags:
   - Testing
   - Cross-Browser Testing
@@ -29,88 +42,294 @@ created: '2026-06-12'
 modified: '2026-06-12'
 specificationVersion: '0.19'
 apis:
-  - aid: lambdatest:web-automation-api
-    name: LambdaTest Web Automation API
-    description: >-
-      REST API for managing Selenium, Cypress, and Playwright test sessions
-      on the LambdaTest cloud grid. Enables retrieval of test builds, test
-      sessions, screenshots, video recordings, and network logs. Uses HTTP
-      Basic Authentication with username and access key credentials.
-    humanURL: https://www.lambdatest.com/support/docs/api-doc/
-    baseURL: https://api.lambdatest.com
-    tags:
-      - Web Automation
-      - Selenium
-      - Cypress
-      - Playwright
-      - Test Sessions
-    properties:
-      - type: Documentation
-        url: https://www.lambdatest.com/support/docs/api-doc/
-      - type: OpenAPI
-        url: https://swagger-api-support.lambdatest.com/index.html
-      - type: OpenAPI
-        url: openapi/lambdatest-web-automation-api-openapi.yml
-
-  - aid: lambdatest:app-automation-api
-    name: LambdaTest App Automation API
-    description: >-
-      REST API for managing mobile app test automation on real devices and
-      emulators/simulators. Supports uploading iOS (.ipa) and Android
-      (.apk/.aab) apps, listing devices by region, managing app versions,
-      and retrieving concurrency details. Base URLs differ between real
-      device and virtual device workflows.
-    humanURL: https://www.lambdatest.com/support/docs/app-testing-apis/
-    baseURL: https://mobile-api.lambdatest.com
-    tags:
-      - Mobile Testing
-      - App Automation
-      - iOS
-      - Android
-      - Real Devices
-    properties:
-      - type: Documentation
-        url: https://www.lambdatest.com/support/docs/app-testing-apis/
-
-  - aid: lambdatest:smartui-api
-    name: LambdaTest SmartUI API
-    description: >-
-      REST API for visual regression testing and screenshot comparison.
-      Allows programmatic control of SmartUI visual testing sessions,
-      baseline management, and comparison results. Swagger/OpenAPI 3.0
-      specification is publicly available.
-    humanURL: https://www.lambdatest.com/support/docs/smart-ui-cypress/
-    baseURL: https://api.lambdatest.com
-    tags:
-      - Visual Regression
-      - Screenshot Testing
-      - SmartUI
-    properties:
-      - type: Documentation
-        url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
-      - type: OpenAPI
-        url: https://swagger-api-support.lambdatest.com/smartui/index.html
-      - type: OpenAPI
-        url: openapi/lambdatest-smartui-api-openapi.yml
-
-  - aid: lambdatest:hyperexecute-api
-    name: LambdaTest HyperExecute API
-    description: >-
-      REST API for the HyperExecute AI-native test orchestration platform.
-      Provides endpoints for triggering distributed test jobs, monitoring
-      job status, fetching artifacts, and retrieving execution analytics.
-      HyperExecute runs test suites up to 70% faster than traditional grids.
-    humanURL: https://www.lambdatest.com/support/docs/hyperexecute-api-testing/
-    baseURL: https://api.lambdatest.com
-    tags:
-      - HyperExecute
-      - Test Orchestration
-      - Parallel Testing
-      - CI/CD
-    properties:
-      - type: Documentation
-        url: https://www.lambdatest.com/support/docs/hyperexecute-api-testing/
-
+- aid: lambdatest:app-automation-api
+  name: LambdaTest App Automation API
+  description: >-
+    REST API for managing mobile app test automation on real devices and emulators/simulators. Supports
+    uploading iOS (.ipa) and Android (.apk/.aab) apps, listing devices by region, managing app versions,
+    and retrieving concurrency details. Base URLs differ between real device and virtual device workflows.
+  humanURL: https://www.lambdatest.com/support/docs/app-testing-apis/
+  baseURL: https://mobile-api.lambdatest.com
+  tags:
+  - Mobile Testing
+  - App Automation
+  - iOS
+  - Android
+  - Real Devices
+  properties:
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/app-testing-apis/
+- aid: lambdatest:hyperexecute-api
+  name: LambdaTest HyperExecute API
+  description: >-
+    REST API for the HyperExecute AI-native test orchestration platform. Provides endpoints for triggering
+    distributed test jobs, monitoring job status, fetching artifacts, and retrieving execution analytics.
+    HyperExecute runs test suites up to 70% faster than traditional grids.
+  humanURL: https://www.lambdatest.com/support/docs/hyperexecute-api-testing/
+  baseURL: https://api.lambdatest.com
+  tags:
+  - HyperExecute
+  - Test Orchestration
+  - Parallel Testing
+  - CI/CD
+  properties:
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/hyperexecute-api-testing/
+- aid: lambdatest:lambdatest-autoheal-command-logs-api
+  name: LambdaTest Autoheal Command Logs API
+  description: >-
+    The Autoheal Command Logs API from LambdaTest — 1 operation(s) for autoheal command logs.
+  humanURL: https://www.lambdatest.com/support/docs/api-doc/
+  baseURL: https://api.lambdatest.com
+  tags:
+  - Autoheal Command Logs
+  properties:
+  - type: OpenAPI
+    url: openapi/lambdatest-autoheal-command-logs-api-openapi.yml
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/api-doc/
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
+- aid: lambdatest:lambdatest-build-api
+  name: LambdaTest Build API
+  description: The Build API from LambdaTest — 3 operation(s) for build.
+  humanURL: https://www.lambdatest.com/support/docs/api-doc/
+  baseURL: https://api.lambdatest.com
+  tags:
+  - Build
+  properties:
+  - type: OpenAPI
+    url: openapi/lambdatest-build-api-openapi.yml
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/api-doc/
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
+- aid: lambdatest:lambdatest-extensions-api
+  name: LambdaTest extensions API
+  description: The extensions API from LambdaTest — 2 operation(s) for extensions.
+  humanURL: https://www.lambdatest.com/support/docs/api-doc/
+  baseURL: https://api.lambdatest.com
+  tags:
+  - extensions
+  properties:
+  - type: OpenAPI
+    url: openapi/lambdatest-extensions-api-openapi.yml
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/api-doc/
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
+- aid: lambdatest:lambdatest-fetch-build-screenshots-api
+  name: LambdaTest Fetch Build Screenshots API
+  description: >-
+    The Fetch Build Screenshots API from LambdaTest — 1 operation(s) for fetch build screenshots.
+  humanURL: https://www.lambdatest.com/support/docs/api-doc/
+  baseURL: https://api.lambdatest.com
+  tags:
+  - Fetch Build Screenshots
+  properties:
+  - type: OpenAPI
+    url: openapi/lambdatest-fetch-build-screenshots-api-openapi.yml
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/api-doc/
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
+- aid: lambdatest:lambdatest-geolocation-api
+  name: LambdaTest Geolocation API
+  description: The Geolocation API from LambdaTest — 1 operation(s) for geolocation.
+  humanURL: https://www.lambdatest.com/support/docs/api-doc/
+  baseURL: https://api.lambdatest.com
+  tags:
+  - Geolocation
+  properties:
+  - type: OpenAPI
+    url: openapi/lambdatest-geolocation-api-openapi.yml
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/api-doc/
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
+- aid: lambdatest:lambdatest-get-build-status-api
+  name: LambdaTest Get Build Status API
+  description: The Get Build Status API from LambdaTest — 1 operation(s) for get build status.
+  humanURL: https://www.lambdatest.com/support/docs/api-doc/
+  baseURL: https://api.lambdatest.com
+  tags:
+  - Get Build Status
+  properties:
+  - type: OpenAPI
+    url: openapi/lambdatest-get-build-status-api-openapi.yml
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/api-doc/
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
+- aid: lambdatest:lambdatest-get-screenshot-status-api
+  name: LambdaTest Get Screenshot Status API
+  description: >-
+    The Get Screenshot Status API from LambdaTest — 1 operation(s) for get screenshot status.
+  humanURL: https://www.lambdatest.com/support/docs/api-doc/
+  baseURL: https://api.lambdatest.com
+  tags:
+  - Get Screenshot Status
+  properties:
+  - type: OpenAPI
+    url: openapi/lambdatest-get-screenshot-status-api-openapi.yml
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/api-doc/
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
+- aid: lambdatest:lambdatest-lighthouse-api
+  name: LambdaTest Lighthouse API
+  description: The Lighthouse API from LambdaTest — 1 operation(s) for lighthouse.
+  humanURL: https://www.lambdatest.com/support/docs/api-doc/
+  baseURL: https://api.lambdatest.com
+  tags:
+  - Lighthouse
+  properties:
+  - type: OpenAPI
+    url: openapi/lambdatest-lighthouse-api-openapi.yml
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/api-doc/
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
+- aid: lambdatest:lambdatest-organisation-api
+  name: LambdaTest Organisation API
+  description: The Organisation API from LambdaTest — 1 operation(s) for organisation.
+  humanURL: https://www.lambdatest.com/support/docs/api-doc/
+  baseURL: https://api.lambdatest.com
+  tags:
+  - Organisation
+  properties:
+  - type: OpenAPI
+    url: openapi/lambdatest-organisation-api-openapi.yml
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/api-doc/
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
+- aid: lambdatest:lambdatest-platforms-api
+  name: LambdaTest platforms API
+  description: The platforms API from LambdaTest — 1 operation(s) for platforms.
+  humanURL: https://www.lambdatest.com/support/docs/api-doc/
+  baseURL: https://api.lambdatest.com
+  tags:
+  - platforms
+  properties:
+  - type: OpenAPI
+    url: openapi/lambdatest-platforms-api-openapi.yml
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/api-doc/
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
+- aid: lambdatest:lambdatest-prerun-api
+  name: LambdaTest prerun API
+  description: The prerun API from LambdaTest — 4 operation(s) for prerun.
+  humanURL: https://www.lambdatest.com/support/docs/api-doc/
+  baseURL: https://api.lambdatest.com
+  tags:
+  - prerun
+  properties:
+  - type: OpenAPI
+    url: openapi/lambdatest-prerun-api-openapi.yml
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/api-doc/
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
+- aid: lambdatest:lambdatest-resolution-api
+  name: LambdaTest Resolution API
+  description: The Resolution API from LambdaTest — 1 operation(s) for resolution.
+  humanURL: https://www.lambdatest.com/support/docs/api-doc/
+  baseURL: https://api.lambdatest.com
+  tags:
+  - Resolution
+  properties:
+  - type: OpenAPI
+    url: openapi/lambdatest-resolution-api-openapi.yml
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/api-doc/
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
+- aid: lambdatest:lambdatest-session-api
+  name: LambdaTest Session API
+  description: The Session API from LambdaTest — 13 operation(s) for session.
+  humanURL: https://www.lambdatest.com/support/docs/api-doc/
+  baseURL: https://api.lambdatest.com
+  tags:
+  - Session
+  properties:
+  - type: OpenAPI
+    url: openapi/lambdatest-session-api-openapi.yml
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/api-doc/
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
+- aid: lambdatest:lambdatest-session-logs-v2-api
+  name: LambdaTest Session Logs (V2) API
+  description: The Session Logs (V2) API from LambdaTest — 6 operation(s) for session logs (v2).
+  humanURL: https://www.lambdatest.com/support/docs/api-doc/
+  baseURL: https://api.lambdatest.com
+  tags:
+  - Session Logs (V2)
+  properties:
+  - type: OpenAPI
+    url: openapi/lambdatest-session-logs-v2-api-openapi.yml
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/api-doc/
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
+- aid: lambdatest:lambdatest-test-api
+  name: LambdaTest Test API
+  description: The Test API from LambdaTest — 2 operation(s) for test.
+  humanURL: https://www.lambdatest.com/support/docs/api-doc/
+  baseURL: https://api.lambdatest.com
+  tags:
+  - Test
+  properties:
+  - type: OpenAPI
+    url: openapi/lambdatest-test-api-openapi.yml
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/api-doc/
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
+- aid: lambdatest:lambdatest-tunnel-api
+  name: LambdaTest tunnel API
+  description: The tunnel API from LambdaTest — 2 operation(s) for tunnel.
+  humanURL: https://www.lambdatest.com/support/docs/api-doc/
+  baseURL: https://api.lambdatest.com
+  tags:
+  - tunnel
+  properties:
+  - type: OpenAPI
+    url: openapi/lambdatest-tunnel-api-openapi.yml
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/api-doc/
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
+- aid: lambdatest:lambdatest-upload-screenshots-api
+  name: LambdaTest Upload Screenshots API
+  description: The Upload Screenshots API from LambdaTest — 1 operation(s) for upload screenshots.
+  humanURL: https://www.lambdatest.com/support/docs/api-doc/
+  baseURL: https://api.lambdatest.com
+  tags:
+  - Upload Screenshots
+  properties:
+  - type: OpenAPI
+    url: openapi/lambdatest-upload-screenshots-api-openapi.yml
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/api-doc/
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
+- aid: lambdatest:lambdatest-user-files-api
+  name: LambdaTest user-files API
+  description: The user-files API from LambdaTest — 3 operation(s) for user-files.
+  humanURL: https://www.lambdatest.com/support/docs/api-doc/
+  baseURL: https://api.lambdatest.com
+  tags:
+  - user-files
+  properties:
+  - type: OpenAPI
+    url: openapi/lambdatest-user-files-api-openapi.yml
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/api-doc/
+  - type: Documentation
+    url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
 common:
   - type: AgenticAccess
     url: agentic-access/lambdatest-agentic-access.yml
