@@ -1,0 +1,34 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs Organisation API",
+    "version": "1.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Organisation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get organisation concurrency",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/org/concurrency",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API fetches the organisation level concurrency"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

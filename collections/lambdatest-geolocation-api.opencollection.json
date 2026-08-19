@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs Geolocation API",
+    "version": "1.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Geolocation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Ips of geolocation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/geoLocation/ips",
+            "params": [
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "query",
+                "description": "To filter ips of specific country."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API fetches all the possible ips of geolocation. It is recommended to filter using two digit country code."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

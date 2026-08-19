@@ -1,0 +1,216 @@
+{
+  "item": [
+    {
+      "id": "b65d3905-7345-413f-aae1-6da48e5ff64d",
+      "name": "Get Screenshot Status",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a4803e70-ead6-4264-a148-5fea2fcf9f25",
+          "name": "Fetch build status by buildId / buildName",
+          "request": {
+            "name": "Fetch build status by buildId / buildName",
+            "description": {
+              "content": "This API fetches the status of all screenshots which are uploaded to smartui using either build id or build name. **Note:** When both `buildId` and `buildName` are provided in the request, `buildId` will be given priority over `buildName`.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "screenshot",
+                "build",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "projectToken",
+                  "value": "<string>",
+                  "description": "(Required) To validate the project in which you want to map your uploaded screenshots"
+                },
+                {
+                  "disabled": false,
+                  "key": "buildId",
+                  "value": "<string>",
+                  "description": "You can pass the id of speicifc build if you need to map multiple screenshots of different tests to one build. (Optional)"
+                },
+                {
+                  "disabled": false,
+                  "key": "buildName",
+                  "value": "<string>",
+                  "description": "You can pass the name of specific build if you need to map multiple screenshots of different tests to one build. (Optional)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "23057157-5b8f-4252-a909-16808605d085",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "screenshot",
+                    "build",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "projectToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "buildId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "buildName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"Screenshots\": [\n      {\n        \"screenshotId\": \"3137e779-e00a-4d88-8cbe-9ff2eb8cceaf\",\n        \"mismatchPercentage\": 12.65,\n        \"threshold\": 1200,\n        \"status\": \"Under Screening\"\n      },\n      {\n        \"screenshotId\": \"3137e779-e00a-4d88-8cbe-9ff2eb8cceaf\",\n        \"mismatchPercentage\": 12.65,\n        \"threshold\": 1200,\n        \"status\": \"Under Screening\"\n      }\n    ],\n    \"buildId\": \"50af60e1-8709-40b1-981f-19636de5a590\",\n    \"buildName\": \"0e1915b\",\n    \"projectName\": \"FPS-Monterey\",\n    \"buildStatus\": \"1 Under Review\"\n  },\n  \"status\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa1a6216-cec9-4e22-a86a-a2f9aeb797b9",
+              "name": "Either Screenshot don't exist or bad input",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "screenshot",
+                    "build",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "projectToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "buildId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "buildName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"Screenshots\": \"null\",\n    \"buildId\": \"f3e9bf89-4b61-4eb2-ad60-aaa72150d05e\",\n    \"buildName\": \"build-1\",\n    \"projectName\": \"demo-project\"\n  },\n  \"status\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.lambdatest.com/automation/smart-ui",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "77c77af1-280f-4306-abd5-79563b298607",
+    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs Get Screenshot Status API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

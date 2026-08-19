@@ -1,0 +1,102 @@
+{
+  "item": [
+    {
+      "id": "4d4f3751-4ee4-43b0-b3c4-d7de7292e2f4",
+      "name": "platforms",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9831dfa3-7c21-494b-8c35-617ff56d5024",
+          "name": "Fetch platforms",
+          "request": {
+            "name": "Fetch platforms",
+            "description": {
+              "content": "Fetch platforms along with browsers and versions supported.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "platforms"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "07b201d3-2bcc-4fb6-a065-945f9ec034bd",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "platforms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Retrieve platforms was successful.\",\n  \"status\": \"success\",\n  \"platforms\": [\n    {\n      \"platform\": \"string\",\n      \"browsers\": [\n        {\n          \"browser_name\": \"string\",\n          \"version\": \"string\",\n          \"type\": \"string\",\n          \"slug\": \"string\"\n        },\n        {\n          \"browser_name\": \"string\",\n          \"version\": \"string\",\n          \"type\": \"string\",\n          \"slug\": \"string\"\n        }\n      ]\n    },\n    {\n      \"platform\": \"string\",\n      \"browsers\": [\n        {\n          \"browser_name\": \"string\",\n          \"version\": \"string\",\n          \"type\": \"string\",\n          \"slug\": \"string\"\n        },\n        {\n          \"browser_name\": \"string\",\n          \"version\": \"string\",\n          \"type\": \"string\",\n          \"slug\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.lambdatest.com/automation/smart-ui",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1d869e37-4234-4938-a49a-f91e4d4d6903",
+    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs platforms API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

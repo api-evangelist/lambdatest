@@ -1,0 +1,412 @@
+{
+  "item": [
+    {
+      "id": "dd872d36-b50d-4ae3-9ecd-147d2c0cd7f6",
+      "name": "Autoheal Command Logs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8afeff57-60ad-496b-9744-bf6bcbeb09f1",
+          "name": "Fetch autohealed commands data for a test",
+          "request": {
+            "name": "Fetch autohealed commands data for a test",
+            "description": {
+              "content": "Retrieve all autohealed commands for a specific test session, including original and healed locators with execution duration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "autoheal",
+                "test",
+                ":test_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum number of records to return (default 100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of records to skip for pagination (default 0)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "test_id",
+                  "description": "(Required) Test ID for which to fetch autohealed commands"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4b6c073d-cf44-478f-a754-77b2012868b1",
+              "name": "Successfully retrieved autohealed commands data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "autoheal",
+                    "test",
+                    ":test_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "test_id",
+                      "description": "(Required) Test ID for which to fetch autohealed commands"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": null,\n  \"data\": {\n    \"total_healed_commands\": 11,\n    \"test_id\": \"DA-WIN-160849-1756966096614912604KKM\",\n    \"healed_commands\": [\n      {\n        \"request_id\": \"LT01K49NG343J2YDNEQ60HQVQY13-6NSZV-US-EAST-1\",\n        \"test_id\": \"DA-WIN-160849-1756966096614912604KKM\",\n        \"original_locator\": {\n          \"using\": \"css selector\",\n          \"value\": \"[class=\\\"list-unstyled\\\"]>:nth-child(4)>input\"\n        },\n        \"healed_locator\": {\n          \"using\": \"css selector\",\n          \"value\": \"input.custom-checkbox.ng-pristine.ng-untouched.ng-valid.ng-empty\"\n        },\n        \"duration\": 349\n      },\n      {\n        \"request_id\": \"LT01K49NG2BMVQ50K6XF53K9VZHN-L2V78-US-EAST-1\",\n        \"test_id\": \"DA-WIN-160849-1756966096614912604KKM\",\n        \"original_locator\": {\n          \"using\": \"css selector\",\n          \"value\": \"[class=\\\"list-unstyled\\\"]>:nth-child(3)>input\"\n        },\n        \"healed_locator\": {\n          \"using\": \"css selector\",\n          \"value\": \"input.custom-checkbox.ng-pristine.ng-untouched.ng-valid.ng-empty\"\n        },\n        \"duration\": 398\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43094df7-151c-4463-9733-20a29d8fa713",
+              "name": "Bad request - Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "autoheal",
+                    "test",
+                    ":test_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "test_id",
+                      "description": "(Required) Test ID for which to fetch autohealed commands"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"fail\",\n  \"message\": \"Invalid limit parameter\",\n  \"data\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc89010f-0f53-4493-95f8-6d42eeff9d49",
+              "name": "Unauthorized - Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "autoheal",
+                    "test",
+                    ":test_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "test_id",
+                      "description": "(Required) Test ID for which to fetch autohealed commands"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"fail\",\n  \"message\": \"Unauthorized\",\n  \"data\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "760b8839-c830-4b45-a991-48fc629c5ef5",
+              "name": "Test not found or not accessible",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "autoheal",
+                    "test",
+                    ":test_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "test_id",
+                      "description": "(Required) Test ID for which to fetch autohealed commands"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"fail\",\n  \"message\": \"Test not found\",\n  \"data\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6c83306c-bd45-4b86-93ab-ee0d62481a8a",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "autoheal",
+                    "test",
+                    ":test_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "test_id",
+                      "description": "(Required) Test ID for which to fetch autohealed commands"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"Failed to fetch autohealed data\",\n  \"data\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.lambdatest.com/automation/smart-ui",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "29e3c9b0-3c76-42ed-80a7-9abf633c488d",
+    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

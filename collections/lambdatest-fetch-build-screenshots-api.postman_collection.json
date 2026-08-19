@@ -1,0 +1,270 @@
+{
+  "item": [
+    {
+      "id": "baedff22-d9c6-497a-b84c-9b484cd6c92e",
+      "name": "Fetch Build Screenshots",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ea1bfa29-e90d-4c94-a0d3-8f438ac4736b",
+          "name": "Fetch SmartUI build screenshots by project_id and build_id",
+          "request": {
+            "name": "Fetch SmartUI build screenshots by project_id and build_id",
+            "description": {
+              "content": "This API fetches all screenshots of a particular build with comparison details. **Note:** When both `build_id` and `build_name` are provided in the request, `buildId` will be given priority over `buildName`.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "smartui",
+                "2.0",
+                "build",
+                "screenshots"
+              ],
+              "host": [
+                "api",
+                "lambdatest",
+                "com"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "project_name",
+                  "value": "<string>",
+                  "description": "(Required) The name of the particular project (project id can also be used)"
+                },
+                {
+                  "disabled": false,
+                  "key": "project_id",
+                  "value": "<string>",
+                  "description": "Unique identifier of the project (project name can also be used)"
+                },
+                {
+                  "disabled": false,
+                  "key": "build_name",
+                  "value": "<string>",
+                  "description": "Build name can also be used instead of build Id (Optional)"
+                },
+                {
+                  "disabled": false,
+                  "key": "build_id",
+                  "value": "<string>",
+                  "description": "Fetches all the screenshots of a particular build"
+                },
+                {
+                  "disabled": false,
+                  "key": "baseline",
+                  "value": "false",
+                  "description": "Fetches the screenshots of the baseline build of the project"
+                },
+                {
+                  "disabled": false,
+                  "key": "screenshot_name",
+                  "value": "<string>",
+                  "description": "Fetches details of a specific screenshot"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "13f700e3-a153-4bd2-8aa8-f824a11f8a88",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "smartui",
+                    "2.0",
+                    "build",
+                    "screenshots"
+                  ],
+                  "host": [
+                    "api",
+                    "lambdatest",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "project_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "build_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "build_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "baseline",
+                      "value": "false"
+                    },
+                    {
+                      "key": "screenshot_name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"screenshots\": [\n    {\n      \"screenshot_name\": \"first\",\n      \"captured_image\": \"URL\",\n      \"baseline_image\": \"URL\",\n      \"compared_image\": \"URL\",\n      \"browser_name\": \"chrome\",\n      \"browser_version\": \"118.0\",\n      \"viewport\": \"1920x1080\",\n      \"os\": \"default\",\n      \"mismatch_percentage\": 0.1,\n      \"status\": \"Approved\",\n      \"approved_by\": \"dummy\",\n      \"captured_image_timestamp\": \"2023-11-10 13:47:24\",\n      \"compared_image_timestamp\": \"2023-11-10 13:47:29\"\n    },\n    {\n      \"screenshot_name\": \"first\",\n      \"captured_image\": \"URL\",\n      \"baseline_image\": \"URL\",\n      \"compared_image\": \"URL\",\n      \"browser_name\": \"chrome\",\n      \"browser_version\": \"118.0\",\n      \"viewport\": \"1920x1080\",\n      \"os\": \"default\",\n      \"mismatch_percentage\": 0.1,\n      \"status\": \"Approved\",\n      \"approved_by\": \"dummy\",\n      \"captured_image_timestamp\": \"2023-11-10 13:47:24\",\n      \"compared_image_timestamp\": \"2023-11-10 13:47:29\"\n    }\n  ],\n  \"build\": {\n    \"build_id\": \"c74f72b5-2dd9-42a4-9478-cd8174a56152\",\n    \"name\": \"build-1\",\n    \"baseline\": false,\n    \"build_status\": \"Approved\"\n  },\n  \"project\": {\n    \"project_id\": \"ed2ee7bc-d90d-4719-91a7-19636de5a590\",\n    \"name\": \"web-project\",\n    \"username\": \"dummy\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "139fca4c-6f6a-4e16-bbf5-14ed846e79f7",
+              "name": "Either Screenshot don't exist or bad input specified",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "smartui",
+                    "2.0",
+                    "build",
+                    "screenshots"
+                  ],
+                  "host": [
+                    "api",
+                    "lambdatest",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "project_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "build_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "build_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "baseline",
+                      "value": "false"
+                    },
+                    {
+                      "key": "screenshot_name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"smartui project not found for specified input\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.lambdatest.com/automation/smart-ui",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "36404634-6cbb-48e4-a129-bfad480e3724",
+    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs Fetch Build Screenshots API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

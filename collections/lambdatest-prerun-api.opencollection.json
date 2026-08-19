@@ -1,0 +1,114 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs prerun API",
+    "version": "1.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "prerun",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch all pre run files uploaded by the user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/files",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API fetches all the pre run executable which are uploaded to our lambda storage."
+        },
+        {
+          "info": {
+            "name": "Upload pre run executable file to our lambda storage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.lambdatest.com/automation/smart-ui/files",
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "In order to use pre run feature you first need to upload your relevant script files to our lambda storage. For every pre run action you need to upload 2 scripts (Pre run file and Post run file). Pre run file will be executed before starting the test and post run file will be executed after test is completed. If you perform any changes in test machine like changing host file, changing windows registry key, installing certificates, then your post run file should undo those changes"
+        },
+        {
+          "info": {
+            "name": "Delete pre run from our lambda storage",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.lambdatest.com/automation/smart-ui/files/delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API deletes a pre run executable script from our lambda storage. Since pre run executable name should be unique, this API is useful if you want to re-upload your updated pre run script with the name same as the previous one."
+        },
+        {
+          "info": {
+            "name": "Check if the file is approved by Lambdatest",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.lambdatest.com/automation/smart-ui/files/validate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Once the pre run executable is successfully uploaded, LambdaTest will check the script and approve it after successful verification. This API will tell if the file is approved or not"
+        },
+        {
+          "info": {
+            "name": "Download pre run executable file.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.lambdatest.com/automation/smart-ui/files/download",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Download pre run executable file."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

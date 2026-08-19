@@ -1,0 +1,162 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs Session Logs (V2) API",
+    "version": "1.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Session Logs (V2)",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "command logs of a test session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/sessions/:session_id/v2/log/command",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "Session ID"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Returns a signed URL to download the full commands.zip for the session. The zip contains the per-page command log JSON files at the root, plus per-annotation command log JSON files (when present) under an `annotations/` subdirectory. To fetch a single annotation's commands inline (without downloading the zip), use the v1 endpoint with `annotationId`."
+        },
+        {
+          "info": {
+            "name": "selenium/appium log of a test session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/sessions/:session_id/v2/log/selenium",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "Session ID"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To fetch selenum/appium log that contains grid requests and reponses of a test session in plain text."
+        },
+        {
+          "info": {
+            "name": "Network log of a test session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/sessions/:session_id/v2/log/network",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "get logs based on session id"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To fetch Network log that contains all the requested urls of a test session in plain json text."
+        },
+        {
+          "info": {
+            "name": "console/browser log of a test session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/sessions/:session_id/v2/log/console",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "Session ID"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To fetch console/browser log that contains console errors thrown by application during a test session in plain json text."
+        },
+        {
+          "info": {
+            "name": "Network har log of a test session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/sessions/:session_id/v2/log/network.har",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "get network har logs based on session id"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To fetch Network har log that contains all the requested har of a test session in plain json text."
+        },
+        {
+          "info": {
+            "name": "Full har log of a test session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/sessions/:session_id/v2/log/full-har",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "get network har logs based on session id"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To fetch Full Network har log that contains all the requested har of a test session along with request and response content."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

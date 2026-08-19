@@ -1,0 +1,213 @@
+{
+  "item": [
+    {
+      "id": "e7fe5127-38ec-41ed-9284-458be0e9f863",
+      "name": "Get Build Status",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "04217876-b2af-4aa8-9dc9-a4263457db28",
+          "name": "Fetch build status by buildId or buildName",
+          "request": {
+            "name": "Fetch build status by buildId or buildName",
+            "description": {
+              "content": "This API fetches the build status along with the count of different screenshot statuses. **Note:** When both `buildId` and `buildName` are provided in the request, `buildId` will be given priority over `buildName`.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "build",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "projectToken",
+                  "value": "<string>",
+                  "description": "(Required) Validate and map the project in which the build exists"
+                },
+                {
+                  "disabled": false,
+                  "key": "buildId",
+                  "value": "<string>",
+                  "description": "Unique ID for the build. You can get it from the URL of build's tests page."
+                },
+                {
+                  "disabled": false,
+                  "key": "buildName",
+                  "value": "<string>",
+                  "description": "Name of the build. (For storybook project, provide build ID)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "54585558-1ea0-479d-b160-19aecfecf652",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "build",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "projectToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "buildId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "buildName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"changesFound\": 2,\n    \"approved\": 3,\n    \"underReview\": 0,\n    \"rejected\": 0,\n    \"buildId\": \"2423e94d-7f12-460c-8de7-e35db3698d8a\",\n    \"buildName\": \"c24dd3e\",\n    \"projectName\": \"web-project\",\n    \"buildStatus\": \"Changes Need Approval\",\n    \"message\": \"Fetched Build Status Successfully\"\n  },\n  \"status\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80921aaf-c193-4260-be7d-06c88ad03873",
+              "name": "Mandatory parameters are missing/empty in request. Please add/correct them in query parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "build",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "projectToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "buildId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "buildName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"data\": {\n      \"changesFound\": 0,\n      \"approved\": 0,\n      \"underReview\": 0,\n      \"rejected\": 0,\n      \"buildId\": \"\",\n      \"buildName\": \"\",\n      \"projectName\": \"\",\n      \"buildStatus\": \"\",\n      \"message\": \"\"\n    }\n  },\n  \"message\": \"Mandatory parameters are missing/empty in request. Please add/correct them in query parameters\",\n  \"status\": \"fail\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.lambdatest.com/automation/smart-ui",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "56c3a1dd-bf9c-430d-8e99-6828350ed6db",
+    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs Get Build Status API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

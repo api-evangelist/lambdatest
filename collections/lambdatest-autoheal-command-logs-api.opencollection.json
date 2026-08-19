@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs API",
+    "version": "1.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Autoheal Command Logs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch autohealed commands data for a test",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/autoheal/test/:test_id",
+            "params": [
+              {
+                "name": "test_id",
+                "value": "",
+                "type": "path",
+                "description": "Test ID for which to fetch autohealed commands"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return (default 100)"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination (default 0)"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve all autohealed commands for a specific test session, including original and healed locators with execution duration."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

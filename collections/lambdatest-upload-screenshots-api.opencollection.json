@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs Upload Screenshots API",
+    "version": "1.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Upload Screenshots",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upload any locally captured images to SmartUI for visual regression testing.Maximum Upload Size:100MB",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.lambdatest.com/automation/smart-ui/v2/upload",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "files",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "projectToken",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "buildName",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "baseline",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "screenshotNames",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "githubURL",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Using this API you can upload any local images to our cloud comparsion. You can upload images and add their meta-data information to map the screenshots for comparsion."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

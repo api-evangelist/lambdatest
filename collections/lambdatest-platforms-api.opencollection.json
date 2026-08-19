@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs platforms API",
+    "version": "1.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "platforms",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch platforms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/platforms"
+          },
+          "docs": "Fetch platforms along with browsers and versions supported."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

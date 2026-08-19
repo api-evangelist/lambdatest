@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs Get Screenshot Status API",
+    "version": "1.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get Screenshot Status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch build status by buildId / buildName",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/screenshot/build/status",
+            "params": [
+              {
+                "name": "projectToken",
+                "value": "",
+                "type": "query",
+                "description": "To validate the project in which you want to map your uploaded screenshots"
+              },
+              {
+                "name": "buildId",
+                "value": "",
+                "type": "query",
+                "description": "You can pass the id of speicifc build if you need to map multiple screenshots of different tests to one build. (Optional)"
+              },
+              {
+                "name": "buildName",
+                "value": "",
+                "type": "query",
+                "description": "You can pass the name of specific build if you need to map multiple screenshots of different tests to one build. (Optional)"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API fetches the status of all screenshots which are uploaded to smartui using either build id or build name. **Note:** When both `buildId` and `buildName` are provided in the request, `buildId` will be given priority over `buildName`.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

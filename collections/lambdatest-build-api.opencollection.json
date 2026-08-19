@@ -1,0 +1,190 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs Build API",
+    "version": "1.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Build",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch all builds of an account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/builds",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "It defines the number of lists on the basis of limit parameter. e.g offset=10"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "To fetch specified number of records. e.g. limit=10"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "To fetch the list of builds with specific statuses. You can pass multiple comma seperated statuses e.g. running,queued,completed,timeout and error."
+              },
+              {
+                "name": "fromdate",
+                "value": "",
+                "type": "query",
+                "description": "To fetch the list of builds that executed from the specified Start Date. The Date format must be YYYY-MM-DD. e.g. \"2018-03-15\"."
+              },
+              {
+                "name": "todate",
+                "value": "",
+                "type": "query",
+                "description": "To fetch the list of builds that executed till the specified End Date. If both fromdate and todate value provided then it works as range filter. The Date format must be YYYY-MM-DD. e.g. \"2018-03-15\"."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "To sort the list in ascending or descending order using multiple keys. e.g. \"asc.user_id,desc.org_id\""
+              },
+              {
+                "name": "publicurl",
+                "value": "",
+                "type": "query",
+                "description": "If true, includes the public URL for each build in the response. If false (default), public URLs are omitted. When true, the limit cannot exceed 20."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "To filter builds by username(s). You can pass a single username or multiple comma-separated usernames (e.g. \"alice,bob\")."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Fetch all builds of an account. You can limit the number of records and apply filter on status,build date range and sort by users,start date and end date in asc and desc order. You can apply sort on multiple columns."
+        },
+        {
+          "info": {
+            "name": "Fetch specified build details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/builds/:build_id",
+            "params": [
+              {
+                "name": "build_id",
+                "value": "",
+                "type": "path",
+                "description": "Build ID that details you want to fetch"
+              },
+              {
+                "name": "shareExpiryLimit",
+                "value": "",
+                "type": "query",
+                "description": "Days after which share link will get expired (3,7,10,30)"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To fetch build details of the buildid specified by the user."
+        },
+        {
+          "info": {
+            "name": "Update Build Name or Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.lambdatest.com/automation/smart-ui/builds/:build_id",
+            "params": [
+              {
+                "name": "build_id",
+                "value": "",
+                "type": "path",
+                "description": "build id that name need to be changed."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To change build name or status"
+        },
+        {
+          "info": {
+            "name": "Delete Build",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.lambdatest.com/automation/smart-ui/builds/:build_id",
+            "params": [
+              {
+                "name": "build_id",
+                "value": "",
+                "type": "path",
+                "description": "Build ID that need to be deleted"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To delete specified Build from dashboard."
+        },
+        {
+          "info": {
+            "name": "Stop tests by BuildID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.lambdatest.com/automation/smart-ui/build/stop",
+            "params": [
+              {
+                "name": "build",
+                "value": "",
+                "type": "query",
+                "description": "build id for which to stop tests"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To stop tests by BuildID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

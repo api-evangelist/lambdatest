@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs Lighthouse API",
+    "version": "1.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Lighthouse",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "To fetch the Lighthouse performance report data.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/lighthouse/report/:session_id",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "SESSION ID"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To fetch URL to download the generated Lighthouse performance report JSON data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

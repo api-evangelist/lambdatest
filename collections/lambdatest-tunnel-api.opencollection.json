@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs tunnel API",
+    "version": "1.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "tunnel",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch running tunnels of your account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/tunnels",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To fetch lists of all tunnels runing in an account."
+        },
+        {
+          "info": {
+            "name": "Stop a running tunnel",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.lambdatest.com/automation/smart-ui/tunnels/:tunnel_id",
+            "params": [
+              {
+                "name": "tunnel_id",
+                "value": "",
+                "type": "path",
+                "description": "Your tunnel id."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To stop a running tunnel in your account. e.g 2345"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

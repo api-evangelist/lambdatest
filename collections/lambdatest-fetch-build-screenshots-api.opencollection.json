@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs Fetch Build Screenshots API",
+    "version": "1.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Fetch Build Screenshots",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch SmartUI build screenshots by project_id and build_id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/build/screenshots",
+            "params": [
+              {
+                "name": "project_name",
+                "value": "",
+                "type": "query",
+                "description": "The name of the particular project (project id can also be used)"
+              },
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "query",
+                "description": "Unique identifier of the project (project name can also be used)"
+              },
+              {
+                "name": "build_name",
+                "value": "",
+                "type": "query",
+                "description": "Build name can also be used instead of build Id (Optional)"
+              },
+              {
+                "name": "build_id",
+                "value": "",
+                "type": "query",
+                "description": "Fetches all the screenshots of a particular build"
+              },
+              {
+                "name": "baseline",
+                "value": "",
+                "type": "query",
+                "description": "Fetches the screenshots of the baseline build of the project"
+              },
+              {
+                "name": "screenshot_name",
+                "value": "",
+                "type": "query",
+                "description": "Fetches details of a specific screenshot"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API fetches all screenshots of a particular build with comparison details. **Note:** When both `build_id` and `build_name` are provided in the request, `buildId` will be given priority over `buildName`.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

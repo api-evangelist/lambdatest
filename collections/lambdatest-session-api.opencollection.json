@@ -1,0 +1,468 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs Session API",
+    "version": "1.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Session",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch list of all sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/sessions",
+            "params": [
+              {
+                "name": "build_id",
+                "value": "",
+                "type": "query",
+                "description": "To filter sessions of specific build."
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "To filter sessions of specific user."
+              },
+              {
+                "name": "test_name",
+                "value": "",
+                "type": "query",
+                "description": "To filter sessions of specific test name."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "It defines the number of lists on the basis of limit parameter. e.g offset=10"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "To fetch specified number of records. e.g. limit=10"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "To fetch the list of sessions with specific statuses. You can pass multiple comma seperated statuses e.g. running,queued,completed,passed,failed,timeout,error and lambda-error."
+              },
+              {
+                "name": "fromdate",
+                "value": "",
+                "type": "query",
+                "description": "To fetch the list of sessions that executed from the specified Start Date. The Date format must be YYYY-MM-DD. e.g. \"2018-03-15\"."
+              },
+              {
+                "name": "todate",
+                "value": "",
+                "type": "query",
+                "description": "To fetch the list of sessions that executed till the specified End Date. If both fromdate and todate value provided then it works as range filter. The Date format must be YYYY-MM-DD. e.g. \"2018-03-15\"."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "To sort the list in ascending or descending order using multiple keys. e.g. \"asc.user_id,desc.duration\""
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query",
+                "description": "To filter basis on test tags. e.g. \"testTag1,testTag2,testTag3\""
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To fetch list of sessions. You can also limit the number of records, and paginate through your data using Parameters."
+        },
+        {
+          "info": {
+            "name": "session specific information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/sessions/:session_id",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "SESSION ID"
+              },
+              {
+                "name": "shareExpiryLimit",
+                "value": "",
+                "type": "query",
+                "description": "Days after which share link will get expired (3,7,10,30)"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To fetch specified session details such as name, status,os,browser,version and all generated logs endpoint."
+        },
+        {
+          "info": {
+            "name": "Update test session details.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.lambdatest.com/automation/smart-ui/sessions/:session_id",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "Session ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To update the test session name, status {\"passed\",\"failed\",\"skipped\", \"ignored\", \"unknown\", \"error\"}, reason, test tags."
+        },
+        {
+          "info": {
+            "name": "Delete test session",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.lambdatest.com/automation/smart-ui/sessions/:session_id",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "SESSION ID"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Delete a session."
+        },
+        {
+          "info": {
+            "name": "Stop session by sessionID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.lambdatest.com/automation/smart-ui/sessions/:session_id/stop",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "Session ID"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To stop session by sessionID."
+        },
+        {
+          "info": {
+            "name": "To fetch all step by step screenshots",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/sessions/:session_id/screenshots",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "Session ID"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To fetch all the step by step screenshots in zip format."
+        },
+        {
+          "info": {
+            "name": "Fetch recorded video of a test session id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/sessions/:session_id/video",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "Session ID"
+              },
+              {
+                "name": "video_generated_status",
+                "value": "",
+                "type": "query",
+                "description": "Video generated status"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To fetch video of a recorded test session."
+        },
+        {
+          "info": {
+            "name": "command logs of a test session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/sessions/:session_id/log/command",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "Session ID"
+              },
+              {
+                "name": "annotationId",
+                "value": "",
+                "type": "query",
+                "description": "Annotation ID (slug) to fetch command logs for a specific annotation. Take this value from the `annotationId` field of a placeholder entry in the full command log response (e.g. `open-homepage_1`). When provided, returns only the command logs for that annotation on the requested page."
+              },
+              {
+                "name": "pageNumber",
+                "value": "",
+                "type": "query",
+                "description": "Page number of the annotation command log to fetch. Only used when `annotationId` is set. Defaults to 1. Annotations spanning multiple pages require separate calls per page."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To fetch the all executed commands of a test session in plain json text. Optionally pass annotationId to fetch annotation-specific command logs."
+        },
+        {
+          "info": {
+            "name": "selenium log of a test session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/sessions/:session_id/log/selenium",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "Session ID"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To fetch selenum log that contains grid requests and reponses of a test session in plain json text."
+        },
+        {
+          "info": {
+            "name": "Network log of a test session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/sessions/:session_id/log/network",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "get logs based on session id"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To fetch Network log that contains all the requested urls of a test session in plain json text."
+        },
+        {
+          "info": {
+            "name": "console log of a test session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/sessions/:session_id/log/console",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "Session ID"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To fetch console log that contains console errors thrown by application during a test session in plain json text."
+        },
+        {
+          "info": {
+            "name": "Network har log of a test session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/sessions/:session_id/log/network.har",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "get network har logs based on session id"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To fetch Network har log that contains all the requested har of a test session in plain json text."
+        },
+        {
+          "info": {
+            "name": "Full har log of a test session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/sessions/:session_id/log/full-har",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "get network har logs based on session id"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To fetch Full Network har log that contains all the requested har of a test session along with request and response content."
+        },
+        {
+          "info": {
+            "name": "Upload terminal logs to our lambda storage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.lambdatest.com/automation/smart-ui/sessions/:session_id/terminal-logs",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "Session ID"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You can upload any test/terminal report generated by the testing framework in json,xml,txt and other common format. The file uploaded can then be viewed in the automation dashboard page under LOGS sections. The file size should not exceed 2MB"
+        },
+        {
+          "info": {
+            "name": "Upload assertion logs to our lambda storage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.lambdatest.com/automation/smart-ui/sessions/:session_id/exceptions",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "Session ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You can upload assertion logs or other logs for a test session. The logs uploaded can then be viewed in the automation dashboard page under EXCEPTION sections. You can only upload a list of strings"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs Test API",
+    "version": "1.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Test",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upload assertion logs to our lambda storage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.lambdatest.com/automation/smart-ui/tests/:test_id/exceptions",
+            "params": [
+              {
+                "name": "test_id",
+                "value": "",
+                "type": "path",
+                "description": "Test ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You can upload assertion logs or other logs for a test Id. The logs uploaded can then be viewed in the automation dashboard page under EXCEPTION sections. You can only upload a list of strings"
+        },
+        {
+          "info": {
+            "name": "Fetch recorded video of a test id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/test/:test_id/video",
+            "params": [
+              {
+                "name": "test_id",
+                "value": "",
+                "type": "path",
+                "description": "Test ID"
+              },
+              {
+                "name": "video_generated_status",
+                "value": "",
+                "type": "query",
+                "description": "Video generated status"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "To fetch video of a recorded test."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

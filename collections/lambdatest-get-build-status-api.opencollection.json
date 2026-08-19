@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs Get Build Status API",
+    "version": "1.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get Build Status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch build status by buildId or buildName",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lambdatest.com/automation/smart-ui/build/status",
+            "params": [
+              {
+                "name": "projectToken",
+                "value": "",
+                "type": "query",
+                "description": "Validate and map the project in which the build exists"
+              },
+              {
+                "name": "buildId",
+                "value": "",
+                "type": "query",
+                "description": "Unique ID for the build. You can get it from the URL of build's tests page."
+              },
+              {
+                "name": "buildName",
+                "value": "",
+                "type": "query",
+                "description": "Name of the build. (For storybook project, provide build ID)"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API fetches the build status along with the count of different screenshot statuses. **Note:** When both `buildId` and `buildName` are provided in the request, `buildId` will be given priority over `buildName`.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
