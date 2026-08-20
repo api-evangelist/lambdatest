@@ -96,6 +96,8 @@ apis:
   humanURL: https://www.lambdatest.com/support/docs/api-doc/
   baseURL: https://api.lambdatest.com
   tags:
+  - Builds
+  tags_raw:
   - Build
   properties:
   - type: OpenAPI
@@ -110,6 +112,8 @@ apis:
   humanURL: https://www.lambdatest.com/support/docs/api-doc/
   baseURL: https://api.lambdatest.com
   tags:
+  - Extensions
+  tags_raw:
   - extensions
   properties:
   - type: OpenAPI
@@ -210,6 +214,8 @@ apis:
   humanURL: https://www.lambdatest.com/support/docs/api-doc/
   baseURL: https://api.lambdatest.com
   tags:
+  - Platforms
+  tags_raw:
   - platforms
   properties:
   - type: OpenAPI
@@ -279,7 +285,8 @@ apis:
   description: The Test API from LambdaTest — 2 operation(s) for test.
   humanURL: https://www.lambdatest.com/support/docs/api-doc/
   baseURL: https://api.lambdatest.com
-  tags:
+  tags: []
+  tags_raw:
   - Test
   properties:
   - type: OpenAPI
@@ -322,6 +329,8 @@ apis:
   humanURL: https://www.lambdatest.com/support/docs/api-doc/
   baseURL: https://api.lambdatest.com
   tags:
+  - User files
+  tags_raw:
   - user-files
   properties:
   - type: OpenAPI
