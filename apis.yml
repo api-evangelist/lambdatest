@@ -341,7 +341,7 @@ apis:
   humanURL: https://www.lambdatest.com/support/docs/api-doc/
   baseURL: https://api.lambdatest.com
   tags:
-  - user-files
+  - User files
   tags_raw:
   - user-files
   properties:
