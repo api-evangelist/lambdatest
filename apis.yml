@@ -228,7 +228,7 @@ apis:
   humanURL: https://www.lambdatest.com/support/docs/api-doc/
   baseURL: https://api.lambdatest.com
   tags:
-  - Platforms
+  - Platform
   tags_raw:
   - platforms
   properties:
@@ -272,6 +272,8 @@ apis:
   humanURL: https://www.lambdatest.com/support/docs/api-doc/
   baseURL: https://api.lambdatest.com
   tags:
+  - Sessions
+  tags_raw:
   - Session
   properties:
   - type: OpenAPI
