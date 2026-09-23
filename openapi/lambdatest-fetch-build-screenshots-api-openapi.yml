@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: TestMu AI SmartUI API Documentation Autoheal Command Logs Fetch Build Screenshots API
+  title: TestMu AI SmartUI API Documentation Fetch Build Screenshots…
   version: 1.0.1
 servers:
 - url: https://api.lambdatest.com/automation/smart-ui
@@ -13,9 +13,7 @@ paths:
       tags:
       - Fetch Build Screenshots
       summary: Fetch SmartUI build screenshots by project_id and build_id
-      description: 'This API fetches all screenshots of a particular build with comparison details. **Note:** When both `build_id` and `build_name` are provided in the request, `buildId` will be given priority over `buildName`.
-
-        '
+      description: This API fetches all screenshots of a particular build with comparison details. **Note:** When both `build_id` and `build_name` are provided in the request, `buildId` will be given priority over `buildName`.
       parameters:
       - name: project_name
         in: query
@@ -83,42 +81,10 @@ paths:
       - basicAuth: []
       servers:
       - url: https://api.lambdatest.com/smartui/2.0
+      operationId: getBuildScreenshots
+      x-operation-id-source: derived
 components:
   schemas:
-    BuildScreenshotResponse:
-      type: object
-      properties:
-        screenshots:
-          type: array
-          items:
-            $ref: '#/components/schemas/BuildScreenshotProperties'
-        build:
-          type: object
-          properties:
-            build_id:
-              type: string
-              example: c74f72b5-2dd9-42a4-9478-cd8174a56152
-            name:
-              type: string
-              example: build-1
-            baseline:
-              type: boolean
-              example: false
-            build_status:
-              type: string
-              example: Approved
-        project:
-          type: object
-          properties:
-            project_id:
-              type: string
-              example: ed2ee7bc-d90d-4719-91a7-19636de5a590
-            name:
-              type: string
-              example: web-project
-            username:
-              type: string
-              example: dummy
     BuildScreenshotError:
       type: object
       properties:
@@ -167,6 +133,40 @@ components:
         compared_image_timestamp:
           type: string
           example: '2023-11-10 13:47:29'
+    BuildScreenshotResponse:
+      type: object
+      properties:
+        screenshots:
+          type: array
+          items:
+            $ref: '#/components/schemas/BuildScreenshotProperties'
+        build:
+          type: object
+          properties:
+            build_id:
+              type: string
+              example: c74f72b5-2dd9-42a4-9478-cd8174a56152
+            name:
+              type: string
+              example: build-1
+            baseline:
+              type: boolean
+              example: false
+            build_status:
+              type: string
+              example: Approved
+        project:
+          type: object
+          properties:
+            project_id:
+              type: string
+              example: ed2ee7bc-d90d-4719-91a7-19636de5a590
+            name:
+              type: string
+              example: web-project
+            username:
+              type: string
+              example: dummy
   securitySchemes:
     basicAuth:
       type: http

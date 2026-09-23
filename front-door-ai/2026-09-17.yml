@@ -1,0 +1,36 @@
+# Front Door AI Index — lambdatest — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: lambdatest
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.lambdatest.com
+  final_host: www.testmuai.com
+  ownership: own
+  owner: lambdatest
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 144
+  host_score: 144
+  density: 62.94
+  words: 2288
+  tiers:
+    agentic: 30
+    core: 112
+    model: 2
+  ambiguous: 54
+  top_terms:
+    AI: 108
+    agent: 29
+    automation: 22
+    AI agent: 11
+    agentic: 8
+    MCP: 5
+    chatbot: 4
+    gen ai: 3
+    OpenAI: 2
+    intelligence: 2
+    autonomous agent: 1
+    generative ai: 1

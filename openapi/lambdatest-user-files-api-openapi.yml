@@ -1,17 +1,20 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: TestMu AI SmartUI API Documentation Autoheal Command Logs user-files API
-  version: 1.0.1
+  title: TestMu AI Selenium Automation API Documentation User Files…
+  version: 1.0.2
 servers:
-- url: https://api.lambdatest.com/automation/smart-ui
-- url: https://eu-api.lambdatest.com/automation/smart-ui
+- url: https://api.lambdatest.com/automation/api/v1
+- url: https://api.lambdatest.com/automation/api/v2
+  description: V2
+- url: https://eu-api.lambdatest.com/automation/api/v1
+- url: https://eu-api.lambdatest.com/automation/api/v2
 tags:
-- name: user-files
+- name: User Files
 paths:
   /user-files:
     get:
       tags:
-      - user-files
+      - User Files
       summary: Fetch all user files uploaded by the user
       description: This API fetches all the user files which are uploaded to our lambda storage.
       operationId: ListUserFiles
@@ -32,7 +35,7 @@ paths:
       - basicAuth: []
     post:
       tags:
-      - user-files
+      - User Files
       summary: Upload files to our lambda storage
       description: You can upload multiple files to our lambda storage. A maximum of 150 files can be uploaded per organization. We have limit of 20 MB files size per API. So if you are total file sizes reach the limit, please upload your files in multiple API calls
       operationId: UploadUserFiles
@@ -67,7 +70,7 @@ paths:
   /user-files/delete:
     delete:
       tags:
-      - user-files
+      - User Files
       summary: Delete user files from our lambda storage
       description: This API deletes user file from lambda storage
       requestBody:
@@ -98,11 +101,13 @@ paths:
                 $ref: '#/components/schemas/AccessDenied'
       security:
       - basicAuth: []
+      operationId: deleteUserFilesDelete
+      x-operation-id-source: derived
   /user-files/download:
     put:
       tags:
-      - user-files
-      summary: Download user file from lambda storage.
+      - User Files
+      summary: Download user file from lambda storage
       requestBody:
         description: To download a user file
         required: true
@@ -132,19 +137,10 @@ paths:
                 $ref: '#/components/schemas/AccessDenied'
       security:
       - basicAuth: []
+      operationId: putUserFilesDownload
+      x-operation-id-source: derived
 components:
   schemas:
-    ListUserFileResponse:
-      required:
-      - Meta
-      - data
-      properties:
-        Meta:
-          $ref: '#/components/schemas/ListUserFileResponse_Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ListUserFileResponse_data'
     UploadUserFilesResposeData:
       type: object
       properties:
@@ -158,24 +154,18 @@ components:
         message:
           type: string
           example: File have been uploaded successfully to our lambda storage
-    ListUserFileResponse_Meta:
-      type: object
-      properties:
-        org_id:
-          type: number
-          example: 12345
-        total:
-          type: number
-          example: 1
-    DownloadUserFilePageNotFound:
+    InValidJson:
       type: object
       properties:
         message:
           type: string
-          example: Error in downloading file from lambda storage
+          example: Oops! The name that you have provided already exists. Please use different name or delete this script first
         status:
           type: string
           example: fail
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
     DeleteUserFileResponse:
       type: object
       properties:
@@ -185,9 +175,17 @@ components:
         status:
           type: string
           example: success
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
+    ListUserFileResponse:
+      required:
+      - Meta
+      - data
+      properties:
+        Meta:
+          $ref: '#/components/schemas/ListUserFileResponse_Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListUserFileResponse_data'
     DeletePageNotFound:
       type: object
       properties:
@@ -197,23 +195,16 @@ components:
         status:
           type: string
           example: fail
-    UploadUserFilePayload:
+    ListUserFileResponse_Meta:
       type: object
-      required:
-      - files
       properties:
-        files:
-          type: string
-          format: binary
+        org_id:
+          type: number
+          example: 12345
+        total:
+          type: number
+          example: 1
     DownloadUserFilePayload:
-      type: object
-      required:
-      - key
-      properties:
-        key:
-          type: string
-          example: file_example_JPG_2500kB.jpg
-    DeleteUserFilePayload:
       type: object
       required:
       - key
@@ -235,15 +226,31 @@ components:
           type: number
           example: 104
           description: file size
-    InValidJson:
+    DownloadUserFilePageNotFound:
       type: object
       properties:
         message:
           type: string
-          example: Oops! The name that you have provided already exists. Please use different name or delete this script first
+          example: Error in downloading file from lambda storage
         status:
           type: string
           example: fail
+    DeleteUserFilePayload:
+      type: object
+      required:
+      - key
+      properties:
+        key:
+          type: string
+          example: file_example_JPG_2500kB.jpg
+    UploadUserFilePayload:
+      type: object
+      required:
+      - files
+      properties:
+        files:
+          type: string
+          format: binary
   securitySchemes:
     basicAuth:
       type: http

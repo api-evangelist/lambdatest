@@ -1,18 +1,21 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: TestMu AI SmartUI API Documentation Autoheal Command Logs tunnel API
-  version: 1.0.1
+  title: TestMu AI Selenium Automation API Documentation Tunnel API
+  version: 1.0.2
 servers:
-- url: https://api.lambdatest.com/automation/smart-ui
-- url: https://eu-api.lambdatest.com/automation/smart-ui
+- url: https://api.lambdatest.com/automation/api/v1
+- url: https://api.lambdatest.com/automation/api/v2
+  description: V2
+- url: https://eu-api.lambdatest.com/automation/api/v1
+- url: https://eu-api.lambdatest.com/automation/api/v2
 tags:
-- name: tunnel
+- name: Tunnel
 paths:
   /tunnels:
     get:
       tags:
-      - tunnel
-      summary: Fetch running tunnels of your account.
+      - Tunnel
+      summary: Fetch running tunnels of your account
       description: To fetch lists of all tunnels runing in an account.
       responses:
         200:
@@ -35,10 +38,12 @@ paths:
                 $ref: '#/components/schemas/SessionNotFound'
       security:
       - basicAuth: []
+      operationId: getTunnels
+      x-operation-id-source: derived
   /tunnels/{tunnel_id}:
     delete:
       tags:
-      - tunnel
+      - Tunnel
       summary: Stop a running tunnel
       description: To stop a running tunnel in your account. e.g 2345
       parameters:
@@ -77,35 +82,13 @@ paths:
                 $ref: '#/components/schemas/TunnelStopBadRequest'
       security:
       - basicAuth: []
+      operationId: deleteTunnelsByTunnelId
+      x-operation-id-source: derived
 components:
   schemas:
-    TunnelStopBadRequest:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Tunnel with specified id not found.
-        status:
-          type: string
-          example: fail
-    SessionNotFound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Either resource not found or already deleted
-        status:
-          type: string
-          example: fail
-    TunnelStopForbidden:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Forbidden! Opertaion not allowed.
-        status:
-          type: string
-          example: fail
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
     GetTunnelsResponse:
       type: object
       properties:
@@ -119,6 +102,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TunnelData'
+    TunnelStopForbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Forbidden! Opertaion not allowed.
+        status:
+          type: string
+          example: fail
     TunnelData:
       type: object
       properties:
@@ -146,9 +138,24 @@ components:
           type: string
         user_id:
           type: integer
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
+    SessionNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Either resource not found or already deleted
+        status:
+          type: string
+          example: fail
+    TunnelStopBadRequest:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Tunnel with specified id not found.
+        status:
+          type: string
+          example: fail
     TunnelsDeleteResponse:
       type: object
       properties:

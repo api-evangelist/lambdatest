@@ -1,10 +1,13 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: TestMu AI SmartUI API Documentation Autoheal Command Logs Build API
-  version: 1.0.1
+  title: TestMu AI Selenium Automation API Documentation Build API
+  version: 1.0.2
 servers:
-- url: https://api.lambdatest.com/automation/smart-ui
-- url: https://eu-api.lambdatest.com/automation/smart-ui
+- url: https://api.lambdatest.com/automation/api/v1
+- url: https://api.lambdatest.com/automation/api/v2
+  description: V2
+- url: https://eu-api.lambdatest.com/automation/api/v1
+- url: https://eu-api.lambdatest.com/automation/api/v2
 tags:
 - name: Build
 paths:
@@ -12,7 +15,7 @@ paths:
     get:
       tags:
       - Build
-      summary: Fetch all builds of an account.
+      summary: Fetch all builds of an account
       description: Fetch all builds of an account. You can limit the number of records and apply filter on status,build date range and sort by users,start date and end date in asc and desc order. You can apply sort on multiple columns.
       operationId: builds
       parameters:
@@ -258,60 +261,10 @@ paths:
                 $ref: '#/components/schemas/BuildNotFound'
       security:
       - basicAuth: []
+      operationId: putBuildStop
+      x-operation-id-source: derived
 components:
   schemas:
-    BuildInvalidQueryParams:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid Query Params provided
-        status:
-          type: string
-          example: fail
-    BuildNotFound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Could not find any build in running state
-        status:
-          type: string
-          example: fail
-    EditBuildResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Build updated successfully
-        status:
-          type: string
-          example: success
-        data:
-          $ref: '#/components/schemas/EditBuildResponse_data'
-    ListsTestsResponse_Meta_attributes:
-      type: object
-      properties:
-        org_id:
-          type: number
-    BuildActionForbidden:
-      type: object
-      properties:
-        message:
-          example: Cannot stop more than 10 builds through this API
-        status:
-          example: fail
-    DeleteBuildResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Build deleted successfully
-        status:
-          type: string
-          example: success
-        data:
-          $ref: '#/components/schemas/EditBuildResponse_data'
     ListBuildResponse_data:
       type: object
       properties:
@@ -353,37 +306,6 @@ components:
         duration:
           type: number
           example: 719
-    EditBuild:
-      type: object
-      properties:
-        name:
-          type: string
-          format: string
-        status:
-          type: string
-          format: string
-    ListsTestsResponse_Meta_result_set:
-      type: object
-      properties:
-        count:
-          type: number
-        limit:
-          type: number
-        offset:
-          type: number
-        total:
-          type: number
-    ListBuildResponse:
-      required:
-      - Meta
-      - data
-      properties:
-        Meta:
-          $ref: '#/components/schemas/ListsTestsResponse_Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ListBuildResponse_data'
     SingleBuildResponse:
       properties:
         data:
@@ -391,6 +313,42 @@ components:
         message:
           type: string
           example: Retrieve build list was successful
+        status:
+          type: string
+          example: success
+    BuildActionForbidden:
+      type: object
+      properties:
+        message:
+          example: Cannot stop more than 10 builds through this API
+        status:
+          example: fail
+    EditBuildResponse_data:
+      type: object
+      properties:
+        result:
+          type: string
+          example: '1'
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+    StopBuildResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            builds:
+              type: array
+              items:
+                type: string
+              example:
+              - buildId1
+              - buildId2
+              - buildId3
+        message:
+          type: string
+          example: Initiated build stop
         status:
           type: string
           example: success
@@ -441,35 +399,82 @@ components:
         dashboard_url:
           type: string
           example: https://automation.lambdatest.com/build?&build=1
-    StopBuildResponse:
+    BuildInvalidQueryParams:
       type: object
       properties:
-        data:
-          type: object
-          properties:
-            builds:
-              type: array
-              items:
-                type: string
-              example:
-              - buildId1
-              - buildId2
-              - buildId3
         message:
           type: string
-          example: Initiated build stop
+          example: Invalid Query Params provided
+        status:
+          type: string
+          example: fail
+    EditBuild:
+      type: object
+      properties:
+        name:
+          type: string
+          format: string
+        status:
+          type: string
+          format: string
+    ListsTestsResponse_Meta_result_set:
+      type: object
+      properties:
+        count:
+          type: number
+        limit:
+          type: number
+        offset:
+          type: number
+        total:
+          type: number
+    EditBuildResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Build updated successfully
         status:
           type: string
           example: success
-    EditBuildResponse_data:
+        data:
+          $ref: '#/components/schemas/EditBuildResponse_data'
+    DeleteBuildResponse:
       type: object
       properties:
-        result:
+        message:
           type: string
-          example: '1'
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
+          example: Build deleted successfully
+        status:
+          type: string
+          example: success
+        data:
+          $ref: '#/components/schemas/EditBuildResponse_data'
+    BuildNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Could not find any build in running state
+        status:
+          type: string
+          example: fail
+    ListsTestsResponse_Meta_attributes:
+      type: object
+      properties:
+        org_id:
+          type: number
+    ListBuildResponse:
+      required:
+      - Meta
+      - data
+      properties:
+        Meta:
+          $ref: '#/components/schemas/ListsTestsResponse_Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListBuildResponse_data'
     ListsTestsResponse_Meta:
       type: object
       properties:

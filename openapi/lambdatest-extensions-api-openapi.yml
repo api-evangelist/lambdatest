@@ -1,17 +1,20 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: TestMu AI SmartUI API Documentation Autoheal Command Logs extensions API
-  version: 1.0.1
+  title: TestMu AI Selenium Automation API Documentation Extensions…
+  version: 1.0.2
 servers:
-- url: https://api.lambdatest.com/automation/smart-ui
-- url: https://eu-api.lambdatest.com/automation/smart-ui
+- url: https://api.lambdatest.com/automation/api/v1
+- url: https://api.lambdatest.com/automation/api/v2
+  description: V2
+- url: https://eu-api.lambdatest.com/automation/api/v1
+- url: https://eu-api.lambdatest.com/automation/api/v2
 tags:
-- name: extensions
+- name: Extensions
 paths:
   /files/extensions:
     get:
       tags:
-      - extensions
+      - Extensions
       summary: Fetch all extensions uploaded by the user
       description: This API fetches all the extensions which are uploaded to our lambda storage.
       operationId: List extension
@@ -32,7 +35,7 @@ paths:
       - basicAuth: []
     post:
       tags:
-      - extensions
+      - Extensions
       summary: Upload new extensions in zip format to our lambda storage
       description: ''
       operationId: UploadExtensions
@@ -67,7 +70,7 @@ paths:
   /files/extensions/delete:
     delete:
       tags:
-      - extensions
+      - Extensions
       summary: Delete extension from our lambda storage
       description: This API deletes extension from lambda storage
       requestBody:
@@ -98,16 +101,49 @@ paths:
                 $ref: '#/components/schemas/AccessDenied'
       security:
       - basicAuth: []
+      operationId: deleteFilesExtensionsDelete
+      x-operation-id-source: derived
 components:
   schemas:
-    UploadExtensionPayload:
+    InValidJson:
       type: object
-      required:
-      - extensions
       properties:
-        extensions:
+        message:
           type: string
-          format: binary
+          example: Oops! The name that you have provided already exists. Please use different name or delete this script first
+        status:
+          type: string
+          example: fail
+    ListExtensionResponse_Meta:
+      type: object
+      properties:
+        org_id:
+          type: number
+          example: 12345
+        total:
+          type: number
+          example: 1
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+    DeleteExtensionResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: File have been successfully deleted from our lambda storage
+        status:
+          type: string
+          example: success
+    DeletePageNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: File doesn't exist in lambda storage
+        status:
+          type: string
+          example: fail
     ListExtensionResponse:
       required:
       - Meta
@@ -119,37 +155,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ListExtensionResponse_data'
-    UploadExtensionResponseData:
+    DeleteExtensionPayload:
       type: object
+      required:
+      - key
       properties:
-        error:
+        key:
           type: string
-          example: ''
-          description: error message if there is any error in uploading file. If file upload is success, then it will empty
-        s3_url:
-          type: string
-          example: https://automation-prod-user-files.s3.amazonaws.com/extensions/orgId-123456/extension_1.zip
-        message:
-          type: string
-          example: File have been uploaded successfully to our lambda storage
-    DeleteExtensionResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: File have been successfully deleted from our lambda storage
-        status:
-          type: string
-          example: success
-    ListExtensionResponse_Meta:
-      type: object
-      properties:
-        org_id:
-          type: number
-          example: 12345
-        total:
-          type: number
-          example: 1
+          example: extension_1.zip
     ListExtensionResponse_data:
       type: object
       properties:
@@ -168,35 +181,27 @@ components:
           type: string
           example: https://automation-prod-user-files.s3.amazonaws.com/extensions/orgId-123456/extension_1.zip
           description: url of the uploaded extension
-    DeleteExtensionPayload:
+    UploadExtensionResponseData:
+      type: object
+      properties:
+        error:
+          type: string
+          example: ''
+          description: error message if there is any error in uploading file. If file upload is success, then it will empty
+        s3_url:
+          type: string
+          example: https://automation-prod-user-files.s3.amazonaws.com/extensions/orgId-123456/extension_1.zip
+        message:
+          type: string
+          example: File have been uploaded successfully to our lambda storage
+    UploadExtensionPayload:
       type: object
       required:
-      - key
+      - extensions
       properties:
-        key:
+        extensions:
           type: string
-          example: extension_1.zip
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
-    DeletePageNotFound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: File doesn't exist in lambda storage
-        status:
-          type: string
-          example: fail
-    InValidJson:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Oops! The name that you have provided already exists. Please use different name or delete this script first
-        status:
-          type: string
-          example: fail
+          format: binary
   securitySchemes:
     basicAuth:
       type: http

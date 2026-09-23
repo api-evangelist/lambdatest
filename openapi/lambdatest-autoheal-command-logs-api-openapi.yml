@@ -1,10 +1,13 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: TestMu AI SmartUI API Documentation Autoheal Command Logs API
-  version: 1.0.1
+  title: TestMu AI Selenium Automation API Documentation Autoheal…
+  version: 1.0.2
 servers:
-- url: https://api.lambdatest.com/automation/smart-ui
-- url: https://eu-api.lambdatest.com/automation/smart-ui
+- url: https://api.lambdatest.com/automation/api/v1
+- url: https://api.lambdatest.com/automation/api/v2
+  description: V2
+- url: https://eu-api.lambdatest.com/automation/api/v1
+- url: https://eu-api.lambdatest.com/automation/api/v2
 tags:
 - name: Autoheal Command Logs
 paths:
@@ -120,19 +123,17 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    NotFound:
+    LocatorData:
       type: object
       properties:
-        status:
+        using:
           type: string
-          example: fail
-        message:
+          description: The locator strategy used (e.g., css selector, xpath, id)
+          example: css selector
+        value:
           type: string
-          example: Test not found
-        data:
-          type: object
-          nullable: true
-          example: null
+          description: The actual locator value
+          example: input.custom-checkbox.ng-pristine.ng-untouched.ng-valid.ng-empty
     AutohealedCommand:
       type: object
       properties:
@@ -152,7 +153,20 @@ components:
           type: integer
           description: Time taken to heal the locator in milliseconds
           example: 349
-    BadRequest:
+    AutohealedCommandsResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        message:
+          type:
+          - string
+          - 'null'
+          example: null
+        data:
+          $ref: '#/components/schemas/AutohealedCommandsData'
+    Unauthorized:
       type: object
       properties:
         status:
@@ -160,10 +174,11 @@ components:
           example: fail
         message:
           type: string
-          example: Invalid limit parameter
+          example: Unauthorized
         data:
-          type: object
-          nullable: true
+          type:
+          - object
+          - 'null'
           example: null
     InternalServerError:
       type: object
@@ -175,8 +190,23 @@ components:
           type: string
           example: Failed to fetch autohealed data
         data:
-          type: object
-          nullable: true
+          type:
+          - object
+          - 'null'
+          example: null
+    BadRequest:
+      type: object
+      properties:
+        status:
+          type: string
+          example: fail
+        message:
+          type: string
+          example: Invalid limit parameter
+        data:
+          type:
+          - object
+          - 'null'
           example: null
     AutohealedCommandsData:
       type: object
@@ -194,30 +224,7 @@ components:
           description: Array of autohealed command details
           items:
             $ref: '#/components/schemas/AutohealedCommand'
-    LocatorData:
-      type: object
-      properties:
-        using:
-          type: string
-          description: The locator strategy used (e.g., css selector, xpath, id)
-          example: css selector
-        value:
-          type: string
-          description: The actual locator value
-          example: input.custom-checkbox.ng-pristine.ng-untouched.ng-valid.ng-empty
-    AutohealedCommandsResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: success
-        message:
-          type: string
-          nullable: true
-          example: null
-        data:
-          $ref: '#/components/schemas/AutohealedCommandsData'
-    Unauthorized:
+    NotFound:
       type: object
       properties:
         status:
@@ -225,10 +232,11 @@ components:
           example: fail
         message:
           type: string
-          example: Unauthorized
+          example: Test not found
         data:
-          type: object
-          nullable: true
+          type:
+          - object
+          - 'null'
           example: null
   securitySchemes:
     basicAuth:

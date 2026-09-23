@@ -1,10 +1,13 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: TestMu AI SmartUI API Documentation Autoheal Command Logs Lighthouse API
-  version: 1.0.1
+  title: TestMu AI Selenium Automation API Documentation Lighthouse…
+  version: 1.0.2
 servers:
-- url: https://api.lambdatest.com/automation/smart-ui
-- url: https://eu-api.lambdatest.com/automation/smart-ui
+- url: https://api.lambdatest.com/automation/api/v1
+- url: https://api.lambdatest.com/automation/api/v2
+  description: V2
+- url: https://eu-api.lambdatest.com/automation/api/v1
+- url: https://eu-api.lambdatest.com/automation/api/v2
 tags:
 - name: Lighthouse
 paths:
@@ -12,7 +15,7 @@ paths:
     get:
       tags:
       - Lighthouse
-      summary: To fetch the Lighthouse performance report data.
+      summary: To fetch the Lighthouse performance report data
       description: To fetch URL to download the generated Lighthouse performance report JSON data.
       parameters:
       - name: session_id
@@ -70,19 +73,10 @@ paths:
                     example: fail
       security:
       - basicAuth: []
+      operationId: getLighthouseReportBySessionId
+      x-operation-id-source: derived
 components:
   schemas:
-    LighthouseReportResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Retrieve Lighthouse Report data was successful.
-        status:
-          type: string
-          example: success
-        data:
-          type: string
     SessionNotFound:
       type: object
       properties:
@@ -95,6 +89,17 @@ components:
     AccessDenied:
       type: string
       example: 'HTTP Basic: Access denied.'
+    LighthouseReportResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Retrieve Lighthouse Report data was successful.
+        status:
+          type: string
+          example: success
+        data:
+          type: string
   securitySchemes:
     basicAuth:
       type: http

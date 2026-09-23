@@ -1,10 +1,13 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: TestMu AI SmartUI API Documentation Autoheal Command Logs Session API
-  version: 1.0.1
+  title: TestMu AI Selenium Automation API Documentation Session API
+  version: 1.0.2
 servers:
-- url: https://api.lambdatest.com/automation/smart-ui
-- url: https://eu-api.lambdatest.com/automation/smart-ui
+- url: https://api.lambdatest.com/automation/api/v1
+- url: https://api.lambdatest.com/automation/api/v2
+  description: V2
+- url: https://eu-api.lambdatest.com/automation/api/v1
+- url: https://eu-api.lambdatest.com/automation/api/v2
 tags:
 - name: Session
 paths:
@@ -161,6 +164,8 @@ paths:
                 $ref: '#/components/schemas/SessionNotFound'
       security:
       - basicAuth: []
+      operationId: getSessionsBySessionId
+      x-operation-id-source: derived
     delete:
       tags:
       - Session
@@ -202,10 +207,12 @@ paths:
                 $ref: '#/components/schemas/SessionNotFound'
       security:
       - basicAuth: []
+      operationId: deleteSessionsBySessionId
+      x-operation-id-source: derived
     patch:
       tags:
       - Session
-      summary: Update test session details.
+      summary: Update test session details
       description: To update the test session name, status {"passed","failed","skipped", "ignored", "unknown", "error"}, reason, test tags.
       parameters:
       - name: session_id
@@ -256,6 +263,8 @@ paths:
                 $ref: '#/components/schemas/SessionNotFound'
       security:
       - basicAuth: []
+      operationId: patchSessionsBySessionId
+      x-operation-id-source: derived
   /sessions/{session_id}/stop:
     put:
       tags:
@@ -298,6 +307,8 @@ paths:
                 $ref: '#/components/schemas/SessionNotFound'
       security:
       - basicAuth: []
+      operationId: putSessionsBySessionIdStop
+      x-operation-id-source: derived
   /sessions/{session_id}/screenshots:
     get:
       tags:
@@ -334,11 +345,13 @@ paths:
                 $ref: '#/components/schemas/SessionNotFound'
       security:
       - basicAuth: []
+      operationId: getSessionsBySessionIdScreenshots
+      x-operation-id-source: derived
   /sessions/{session_id}/video:
     get:
       tags:
       - Session
-      summary: Fetch recorded video of a test session id.
+      summary: Fetch recorded video of a test session id
       description: To fetch video of a recorded test session.
       parameters:
       - name: session_id
@@ -376,6 +389,8 @@ paths:
                 $ref: '#/components/schemas/SessionNotFound'
       security:
       - basicAuth: []
+      operationId: getSessionsBySessionIdVideo
+      x-operation-id-source: derived
   /sessions/{session_id}/log/command:
     get:
       tags:
@@ -702,17 +717,120 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    StopSessionResponse:
+    SessionDeleteSuccess:
       type: object
       properties:
         message:
           type: string
-          example: Session stopped successfully.
+          example: Session deleted successfully
+        status:
+          type: string
+          example: success
+    SeleniumLogResponse_data:
+      type: object
+      properties:
+        logType:
+          type: string
+          example: server
+        testID:
+          type: string
+          example: 5HLCQ-HPCWH-UOE2O-2CUFA
+        status:
+          type: number
+          example: 0
+        timestamp:
+          type: number
+          example: 1551356378609
+        Value:
+          $ref: '#/components/schemas/SeleniumLogResponse_Value'
+    LogResponse_Value:
+      type: object
+      properties:
+        requestId:
+          type: string
+          example: 82e3b7cd-3b04-4bc8-9d2b-567aff450fe4
+        RequestStartTime:
+          type: number
+          example: 1551356385
+        requestMethod:
+          type: string
+          example: POST
+        requestPath:
+          type: string
+          example: /wd/hub/session/2F42BCCC-BF43-426A-A72F-F58F58167496/element/node-DF5D363E-84A2-4CA4-9AC4-0F398C606082/click
+        duration:
+          type: number
+          example: 8
+        requestBody:
+          type: string
+          example: '{"sessionId": "2F42BCCC-BF43-426A-A72F-F58F58167496", "id": "node-DF5D363E-84A2-4CA4-9AC4-0F398C606082"}'
+        responseBody:
+          type: string
+          example: '{"status":0,"sessionId":"2F42BCCC-BF43-426A-A72F-F58F58167496","value":{}}'
+        responseStatus:
+          type: string
+          example: 200 OK
+        screenshotId:
+          type: string
+    ListsTestsResponse_Meta:
+      type: object
+      properties:
+        attributes:
+          $ref: '#/components/schemas/ListsTestsResponse_Meta_attributes'
+        result_set:
+          $ref: '#/components/schemas/ListsTestsResponse_Meta_result_set'
+    UploadTerminalFileSizeError:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Oops ! file size too large (> 2MB)
+        status:
+          type: string
+          example: fail
+    SessionUpdateSuccess:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Session updated successfully
+        status:
+          type: string
+          example: success
+    ScreenshotResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Retrieve screenshot url was successful
         status:
           type: string
           example: success
         url:
           type: string
+    SessionBadResquest:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Please provide a valid payload
+        status:
+          type: string
+          example: fail
+    Session:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/SessionData'
+        message:
+          type: string
+          example: Retrieve session was successful
+        status:
+          type: string
+          description: pet status in the store
+          enum:
+          - success
+          - failed
     SeleniumLogResponse_Value:
       type: object
       properties:
@@ -725,6 +843,72 @@ components:
         timestamp:
           type: number
           example: 1551356378609
+    VideoResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Retrieve video url was successful
+        status:
+          type: string
+          example: success
+        url:
+          type: string
+        view_video_url:
+          type: string
+    StopSessionResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Session stopped successfully.
+        status:
+          type: string
+          example: success
+        url:
+          type: string
+    SeleniumLogResponse:
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SeleniumLogResponse_data'
+    ListsTestsResponse:
+      required:
+      - Meta
+      - data
+      properties:
+        Meta:
+          $ref: '#/components/schemas/ListsTestsResponse_Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListsTestsResponse_data'
+    UploadTerminalFilePayload:
+      type: object
+      required:
+      - files
+      properties:
+        file:
+          type: string
+          format: binary
+    LogResponse_data:
+      type: object
+      properties:
+        logType:
+          type: string
+          example: requestLog
+        testID:
+          type: string
+          example: 5HLCQ-HPCWH-UOE2O-2CUFA
+        status:
+          type: number
+          example: 0
+        timestamp:
+          type: number
+          example: 1551356385
+        Value:
+          $ref: '#/components/schemas/LogResponse_Value'
     SessionData:
       type: object
       properties:
@@ -797,11 +981,20 @@ components:
           example: https://d15x9hjibri3lt.cloudfront.net/00HIR-IQNLL-SDVHV-KDTBM/screenshots.zip
         customData:
           type: object
-    ListsTestsResponse_Meta_attributes:
+    UploadExceptionLog:
       type: object
       properties:
-        org_id:
-          type: number
+        exception:
+          type: array
+          items:
+            type: string
+          example:
+          - exception 1
+          - exception 2
+          - expection 3
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
     SeleniumHarLogResponse_data:
       type: object
       properties:
@@ -814,88 +1007,6 @@ components:
         status:
           type: string
           example: success
-    UploadTerminalFilePayload:
-      type: object
-      required:
-      - files
-      properties:
-        file:
-          type: string
-          format: binary
-    Session:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/SessionData'
-        message:
-          type: string
-          example: Retrieve session was successful
-        status:
-          type: string
-          description: pet status in the store
-          enum:
-          - success
-          - failed
-    VideoResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Retrieve video url was successful
-        status:
-          type: string
-          example: success
-        url:
-          type: string
-        view_video_url:
-          type: string
-    SeleniumHarLogResponse:
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/SeleniumHarLogResponse_data'
-    SeleniumLogResponse:
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/SeleniumLogResponse_data'
-    LogResponse_data:
-      type: object
-      properties:
-        logType:
-          type: string
-          example: requestLog
-        testID:
-          type: string
-          example: 5HLCQ-HPCWH-UOE2O-2CUFA
-        status:
-          type: number
-          example: 0
-        timestamp:
-          type: number
-          example: 1551356385
-        Value:
-          $ref: '#/components/schemas/LogResponse_Value'
-    SessionNotFound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Either resource not found or already deleted
-        status:
-          type: string
-          example: fail
-    SessionForbidden:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Forbidden! Operation not allowed.
-        status:
-          type: string
-          example: fail
     UpdateSessionPayload:
       type: object
       properties:
@@ -918,163 +1029,6 @@ components:
           - tag1
           - tag2
           - tag3
-    LogResponse_Value:
-      type: object
-      properties:
-        requestId:
-          type: string
-          example: 82e3b7cd-3b04-4bc8-9d2b-567aff450fe4
-        RequestStartTime:
-          type: number
-          example: 1551356385
-        requestMethod:
-          type: string
-          example: POST
-        requestPath:
-          type: string
-          example: /wd/hub/session/2F42BCCC-BF43-426A-A72F-F58F58167496/element/node-DF5D363E-84A2-4CA4-9AC4-0F398C606082/click
-        duration:
-          type: number
-          example: 8
-        requestBody:
-          type: string
-          example: '{"sessionId": "2F42BCCC-BF43-426A-A72F-F58F58167496", "id": "node-DF5D363E-84A2-4CA4-9AC4-0F398C606082"}'
-        responseBody:
-          type: string
-          example: '{"status":0,"sessionId":"2F42BCCC-BF43-426A-A72F-F58F58167496","value":{}}'
-        responseStatus:
-          type: string
-          example: 200 OK
-        screenshotId:
-          type: string
-    ListsTestsResponse:
-      required:
-      - Meta
-      - data
-      properties:
-        Meta:
-          $ref: '#/components/schemas/ListsTestsResponse_Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ListsTestsResponse_data'
-    UploadTerminalFileResposeData:
-      type: object
-      properties:
-        data:
-          type: string
-          example: File have been uploaded successfully to our lambda storage
-        status:
-          type: string
-          example: success
-    LogResponse:
-      required:
-      - data
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/LogResponse_data'
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
-    AlreadyStoppedSessionResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Oops! Looks like session is already stopped
-        status:
-          type: string
-          example: fail
-        url:
-          type: string
-    UploadTerminalFileSizeError:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Oops ! file size too large (> 2MB)
-        status:
-          type: string
-          example: fail
-    SessionBadResquest:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Please provide a valid payload
-        status:
-          type: string
-          example: fail
-    ScreenshotResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Retrieve screenshot url was successful
-        status:
-          type: string
-          example: success
-        url:
-          type: string
-    SessionUpdateSuccess:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Session updated successfully
-        status:
-          type: string
-          example: success
-    SeleniumLogResponse_data:
-      type: object
-      properties:
-        logType:
-          type: string
-          example: server
-        testID:
-          type: string
-          example: 5HLCQ-HPCWH-UOE2O-2CUFA
-        status:
-          type: number
-          example: 0
-        timestamp:
-          type: number
-          example: 1551356378609
-        Value:
-          $ref: '#/components/schemas/SeleniumLogResponse_Value'
-    SessionDeleteSuccess:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Session deleted successfully
-        status:
-          type: string
-          example: success
-    UploadExceptionLog:
-      type: object
-      properties:
-        exception:
-          type: array
-          items:
-            type: string
-          example:
-          - exception 1
-          - exception 2
-          - expection 3
-    ListsTestsResponse_Meta_result_set:
-      type: object
-      properties:
-        count:
-          type: number
-        limit:
-          type: number
-        offset:
-          type: number
-        total:
-          type: number
     ListsTestsResponse_data:
       type: object
       properties:
@@ -1153,13 +1107,74 @@ components:
         command_logs:
           type: string
           example: http://api.lambdatest.com/automation/api/v1/sessions/bc02fd99593f14e37850745d66197f89/log/command
-    ListsTestsResponse_Meta:
+    ListsTestsResponse_Meta_result_set:
       type: object
       properties:
-        attributes:
-          $ref: '#/components/schemas/ListsTestsResponse_Meta_attributes'
-        result_set:
-          $ref: '#/components/schemas/ListsTestsResponse_Meta_result_set'
+        count:
+          type: number
+        limit:
+          type: number
+        offset:
+          type: number
+        total:
+          type: number
+    AlreadyStoppedSessionResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Oops! Looks like session is already stopped
+        status:
+          type: string
+          example: fail
+        url:
+          type: string
+    SessionForbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Forbidden! Operation not allowed.
+        status:
+          type: string
+          example: fail
+    UploadTerminalFileResposeData:
+      type: object
+      properties:
+        data:
+          type: string
+          example: File have been uploaded successfully to our lambda storage
+        status:
+          type: string
+          example: success
+    LogResponse:
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/LogResponse_data'
+    SeleniumHarLogResponse:
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SeleniumHarLogResponse_data'
+    SessionNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Either resource not found or already deleted
+        status:
+          type: string
+          example: fail
+    ListsTestsResponse_Meta_attributes:
+      type: object
+      properties:
+        org_id:
+          type: number
   securitySchemes:
     basicAuth:
       type: http

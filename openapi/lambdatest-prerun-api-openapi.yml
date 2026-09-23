@@ -1,10 +1,13 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: TestMu AI SmartUI API Documentation Autoheal Command Logs prerun API
-  version: 1.0.1
+  title: TestMu AI Selenium Automation API Documentation Prerun API
+  version: 1.0.2
 servers:
-- url: https://api.lambdatest.com/automation/smart-ui
-- url: https://eu-api.lambdatest.com/automation/smart-ui
+- url: https://api.lambdatest.com/automation/api/v1
+- url: https://api.lambdatest.com/automation/api/v2
+  description: V2
+- url: https://eu-api.lambdatest.com/automation/api/v1
+- url: https://eu-api.lambdatest.com/automation/api/v2
 tags:
 - name: prerun
 paths:
@@ -98,6 +101,8 @@ paths:
                 $ref: '#/components/schemas/AccessDenied'
       security:
       - basicAuth: []
+      operationId: deleteFilesDelete
+      x-operation-id-source: derived
   /files/validate:
     post:
       tags:
@@ -132,11 +137,13 @@ paths:
                 $ref: '#/components/schemas/AccessDenied'
       security:
       - basicAuth: []
+      operationId: postFilesValidate
+      x-operation-id-source: derived
   /files/download:
     put:
       tags:
       - prerun
-      summary: Download pre run executable file.
+      summary: Download pre run executable file
       requestBody:
         description: To download a pre run executable
         required: true
@@ -166,8 +173,19 @@ paths:
                 $ref: '#/components/schemas/AccessDenied'
       security:
       - basicAuth: []
+      operationId: putFilesDownload
+      x-operation-id-source: derived
 components:
   schemas:
+    InValidJson:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Oops! The name that you have provided already exists. Please use different name or delete this script first
+        status:
+          type: string
+          example: fail
     ListPreRunResponse_data:
       type: object
       properties:
@@ -190,6 +208,47 @@ components:
           type: string
           example: dialog_disable/pre/httpdialog.au3
           description: path of the file in lambda storage
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+    DownloadPrerunPayload:
+      type: object
+      required:
+      - file_path
+      properties:
+        file_path:
+          type: string
+          example: dialog_disable/pre/httpdialog.au3
+          description: file path of pre run file in our lambda storage. You can get file_path from the GET /files API
+    ListPrerunFileResponse:
+      required:
+      - Meta
+      - data
+      properties:
+        Meta:
+          $ref: '#/components/schemas/ListPrerunFileResponse_Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListPreRunResponse_data'
+    DeletePrerunResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: File have been successfully deleted from our lambda storage
+        status:
+          type: string
+          example: success
+    DeletePageNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: File doesn't exist in lambda storage
+        status:
+          type: string
+          example: fail
     ValidatePrerunResponse:
       type: object
       properties:
@@ -205,7 +264,26 @@ components:
         staus:
           type: string
           example: success
-    DownloadPrerunPayload:
+    UploadPrerunPayload:
+      type: object
+      required:
+      - pre_run_file
+      - name
+      - post_run_file
+      properties:
+        pre_run_file:
+          type: string
+          format: binary
+          description: If your script requires some reference to other file that needs to be present in our machines then you can upload multiple pre_run_file and download those files in your script using download API
+        name:
+          type: string
+          example: MicrosoftEdgeZoom
+          description: Name of your pre run executable
+        post_run_file:
+          type: string
+          format: binary
+          description: script file that will revert the actions performed by pre run file. If there is no post action that needs to performed then you can upload an empty file
+    DeletePrerunPayload:
       type: object
       required:
       - file_path
@@ -213,36 +291,7 @@ components:
         file_path:
           type: string
           example: dialog_disable/pre/httpdialog.au3
-          description: file path of pre run file in our lambda storage. You can get file_path from the GET /files API
-    ValidatePrerunPayload:
-      type: object
-      required:
-      - file_path
-      properties:
-        file_path:
-          type: string
-          example: dialog_disable/pre/httpdialog.au3
-          description: file path of pre run file in our lambda storage. You can get file_path from the GET /files API
-    DownloadPrerunPageNotFound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Error in downloading file from lambda storage
-        status:
-          type: string
-          example: fail
-    ListPrerunFileResponse:
-      required:
-      - Meta
-      - data
-      properties:
-        Meta:
-          $ref: '#/components/schemas/ListPrerunFileResponse_Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ListPreRunResponse_data'
+          description: file path of pre run file in our lambda storage. To delete a pre run, you can either specify pre_run or post_run file path. You can get file_path from the GET /files API
     ValidatePageNotFound:
       type: object
       properties:
@@ -265,38 +314,7 @@ components:
         total:
           type: number
           example: 1
-    UploadPrerunPayload:
-      type: object
-      required:
-      - pre_run_file
-      - name
-      - post_run_file
-      properties:
-        pre_run_file:
-          type: string
-          format: binary
-          description: If your script requires some reference to other file that needs to be present in our machines then you can upload multiple pre_run_file and download those files in your script using download API
-        name:
-          type: string
-          example: MicrosoftEdgeZoom
-          description: Name of your pre run executable
-        post_run_file:
-          type: string
-          format: binary
-          description: script file that will revert the actions performed by pre run file. If there is no post action that needs to performed then you can upload an empty file
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
-    DeletePageNotFound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: File doesn't exist in lambda storage
-        status:
-          type: string
-          example: fail
-    DeletePrerunPayload:
+    ValidatePrerunPayload:
       type: object
       required:
       - file_path
@@ -304,16 +322,16 @@ components:
         file_path:
           type: string
           example: dialog_disable/pre/httpdialog.au3
-          description: file path of pre run file in our lambda storage. To delete a pre run, you can either specify pre_run or post_run file path. You can get file_path from the GET /files API
-    DeletePrerunResponse:
+          description: file path of pre run file in our lambda storage. You can get file_path from the GET /files API
+    DownloadPrerunPageNotFound:
       type: object
       properties:
         message:
           type: string
-          example: File have been successfully deleted from our lambda storage
+          example: Error in downloading file from lambda storage
         status:
           type: string
-          example: success
+          example: fail
     UploadPrerunResposeData:
       type: object
       properties:
@@ -336,15 +354,6 @@ components:
         status:
           type: string
           example: success
-    InValidJson:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Oops! The name that you have provided already exists. Please use different name or delete this script first
-        status:
-          type: string
-          example: fail
   securitySchemes:
     basicAuth:
       type: http

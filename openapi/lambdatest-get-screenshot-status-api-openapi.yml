@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: TestMu AI SmartUI API Documentation Autoheal Command Logs Get Screenshot Status API
+  title: TestMu AI SmartUI API Documentation Get Screenshot Status…
   version: 1.0.1
 servers:
 - url: https://api.lambdatest.com/automation/smart-ui
@@ -13,9 +13,7 @@ paths:
       tags:
       - Get Screenshot Status
       summary: Fetch build status by buildId / buildName
-      description: 'This API fetches the status of all screenshots which are uploaded to smartui using either build id or build name. **Note:** When both `buildId` and `buildName` are provided in the request, `buildId` will be given priority over `buildName`.
-
-        '
+      description: This API fetches the status of all screenshots which are uploaded to smartui using either build id or build name. **Note:** When both `buildId` and `buildName` are provided in the request, `buildId` will be given priority over `buildName`.
       parameters:
       - name: projectToken
         in: query
@@ -56,6 +54,8 @@ paths:
                 $ref: '#/components/schemas/ScreenshotStatusBuildError'
       security:
       - basicAuth: []
+      operationId: getScreenshotBuildStatus
+      x-operation-id-source: derived
 components:
   schemas:
     ScreenshotStatusBuildResponse:
@@ -83,6 +83,21 @@ components:
         status:
           type: string
           example: success
+    ScreenshotProperties:
+      type: object
+      properties:
+        screenshotId:
+          type: string
+          example: 3137e779-e00a-4d88-8cbe-9ff2eb8cceaf
+        mismatchPercentage:
+          type: number
+          example: 12.65
+        threshold:
+          type: number
+          example: 1200
+        status:
+          type: string
+          example: Under Screening
     ScreenshotStatusBuildError:
       type: object
       properties:
@@ -104,21 +119,6 @@ components:
         status:
           type: string
           example: success
-    ScreenshotProperties:
-      type: object
-      properties:
-        screenshotId:
-          type: string
-          example: 3137e779-e00a-4d88-8cbe-9ff2eb8cceaf
-        mismatchPercentage:
-          type: number
-          example: 12.65
-        threshold:
-          type: number
-          example: 1200
-        status:
-          type: string
-          example: Under Screening
   securitySchemes:
     basicAuth:
       type: http

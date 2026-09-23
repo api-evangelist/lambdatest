@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: TestMu AI SmartUI API Documentation Autoheal Command Logs Get Build Status API
+  title: TestMu AI SmartUI API Documentation Get Build Status API
   version: 1.0.1
 servers:
 - url: https://api.lambdatest.com/automation/smart-ui
@@ -13,9 +13,7 @@ paths:
       tags:
       - Get Build Status
       summary: Fetch build status by buildId or buildName
-      description: 'This API fetches the build status along with the count of different screenshot statuses. **Note:** When both `buildId` and `buildName` are provided in the request, `buildId` will be given priority over `buildName`.
-
-        '
+      description: This API fetches the build status along with the count of different screenshot statuses. **Note:** When both `buildId` and `buildName` are provided in the request, `buildId` will be given priority over `buildName`.
       parameters:
       - name: projectToken
         in: query
@@ -56,6 +54,8 @@ paths:
                 $ref: '#/components/schemas/BuildStatusError'
       security:
       - basicAuth: []
+      operationId: getBuildStatus
+      x-operation-id-source: derived
 components:
   schemas:
     BuildStatusError:
