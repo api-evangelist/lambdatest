@@ -17,7 +17,7 @@ paths:
       - Extensions
       summary: Fetch all extensions uploaded by the user
       description: This API fetches all the extensions which are uploaded to our lambda storage.
-      operationId: List extension
+      operationId: ListExtension
       responses:
         200:
           description: Successful operation
@@ -33,6 +33,8 @@ paths:
                 $ref: '#/components/schemas/AccessDenied'
       security:
       - basicAuth: []
+      x-operation-id-source: normalized
+      x-operation-id-original: List extension
     post:
       tags:
       - Extensions
@@ -105,45 +107,14 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    InValidJson:
+    UploadExtensionPayload:
       type: object
+      required:
+      - extensions
       properties:
-        message:
+        extensions:
           type: string
-          example: Oops! The name that you have provided already exists. Please use different name or delete this script first
-        status:
-          type: string
-          example: fail
-    ListExtensionResponse_Meta:
-      type: object
-      properties:
-        org_id:
-          type: number
-          example: 12345
-        total:
-          type: number
-          example: 1
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
-    DeleteExtensionResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: File have been successfully deleted from our lambda storage
-        status:
-          type: string
-          example: success
-    DeletePageNotFound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: File doesn't exist in lambda storage
-        status:
-          type: string
-          example: fail
+          format: binary
     ListExtensionResponse:
       required:
       - Meta
@@ -155,6 +126,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ListExtensionResponse_data'
+    ListExtensionResponse_Meta:
+      type: object
+      properties:
+        org_id:
+          type: number
+          example: 12345
+        total:
+          type: number
+          example: 1
     DeleteExtensionPayload:
       type: object
       required:
@@ -163,6 +143,36 @@ components:
         key:
           type: string
           example: extension_1.zip
+    DeletePageNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: File doesn't exist in lambda storage
+        status:
+          type: string
+          example: fail
+    InValidJson:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Oops! The name that you have provided already exists. Please use different name or delete this script first
+        status:
+          type: string
+          example: fail
+    DeleteExtensionResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: File have been successfully deleted from our lambda storage
+        status:
+          type: string
+          example: success
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
     ListExtensionResponse_data:
       type: object
       properties:
@@ -194,14 +204,6 @@ components:
         message:
           type: string
           example: File have been uploaded successfully to our lambda storage
-    UploadExtensionPayload:
-      type: object
-      required:
-      - extensions
-      properties:
-        extensions:
-          type: string
-          format: binary
   securitySchemes:
     basicAuth:
       type: http

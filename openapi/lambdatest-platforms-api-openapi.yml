@@ -39,15 +39,6 @@ components:
           type: string
         slug:
           type: string
-    PlatformResponse_data:
-      type: object
-      properties:
-        platform:
-          type: string
-        browsers:
-          type: array
-          items:
-            $ref: '#/components/schemas/BrowserResponse_data'
     GetPlatformResponse:
       type: object
       properties:
@@ -61,6 +52,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PlatformResponse_data'
+    PlatformResponse_data:
+      type: object
+      properties:
+        platform:
+          type: string
+        browsers:
+          type: array
+          items:
+            $ref: '#/components/schemas/BrowserResponse_data'
   securitySchemes:
     basicAuth:
       type: http

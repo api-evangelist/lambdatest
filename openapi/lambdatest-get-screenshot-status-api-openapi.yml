@@ -58,6 +58,21 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ScreenshotProperties:
+      type: object
+      properties:
+        screenshotId:
+          type: string
+          example: 3137e779-e00a-4d88-8cbe-9ff2eb8cceaf
+        mismatchPercentage:
+          type: number
+          example: 12.65
+        threshold:
+          type: number
+          example: 1200
+        status:
+          type: string
+          example: Under Screening
     ScreenshotStatusBuildResponse:
       type: object
       properties:
@@ -83,21 +98,6 @@ components:
         status:
           type: string
           example: success
-    ScreenshotProperties:
-      type: object
-      properties:
-        screenshotId:
-          type: string
-          example: 3137e779-e00a-4d88-8cbe-9ff2eb8cceaf
-        mismatchPercentage:
-          type: number
-          example: 12.65
-        threshold:
-          type: number
-          example: 1200
-        status:
-          type: string
-          example: Under Screening
     ScreenshotStatusBuildError:
       type: object
       properties:

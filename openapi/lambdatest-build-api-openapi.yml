@@ -265,93 +265,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ListBuildResponse_data:
-      type: object
-      properties:
-        build_id:
-          type: number
-          example: 1782
-        name:
-          type: string
-          example: shivam-video-test
-        user_id:
-          type: number
-          example: 1212
-        username:
-          type: string
-          example: shivam
-        status_ind:
-          type: string
-          example: completed
-        create_timestamp:
-          type: string
-          example: 2019-02-05 08:24:36+00:00
-        end_timestamp:
-          type: string
-          example: 2019-02-05 08:27:22+00:00
-        project_id:
-          type: string
-          example: ML
-        project_name:
-          type: string
-          example: magicleap
-        tags:
-          type: array
-          items:
-            type: string
-          example:
-          - tag1
-          - tag2
-          - tag3
-        duration:
-          type: number
-          example: 719
-    SingleBuildResponse:
-      properties:
-        data:
-          $ref: '#/components/schemas/SingleBuildResponse_data'
-        message:
-          type: string
-          example: Retrieve build list was successful
-        status:
-          type: string
-          example: success
-    BuildActionForbidden:
-      type: object
-      properties:
-        message:
-          example: Cannot stop more than 10 builds through this API
-        status:
-          example: fail
-    EditBuildResponse_data:
-      type: object
-      properties:
-        result:
-          type: string
-          example: '1'
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
-    StopBuildResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            builds:
-              type: array
-              items:
-                type: string
-              example:
-              - buildId1
-              - buildId2
-              - buildId3
-        message:
-          type: string
-          example: Initiated build stop
-        status:
-          type: string
-          example: success
     SingleBuildResponse_data:
       type: object
       properties:
@@ -408,6 +321,26 @@ components:
         status:
           type: string
           example: fail
+    StopBuildResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            builds:
+              type: array
+              items:
+                type: string
+              example:
+              - buildId1
+              - buildId2
+              - buildId3
+        message:
+          type: string
+          example: Initiated build stop
+        status:
+          type: string
+          example: success
     EditBuild:
       type: object
       properties:
@@ -417,53 +350,16 @@ components:
         status:
           type: string
           format: string
-    ListsTestsResponse_Meta_result_set:
-      type: object
+    SingleBuildResponse:
       properties:
-        count:
-          type: number
-        limit:
-          type: number
-        offset:
-          type: number
-        total:
-          type: number
-    EditBuildResponse:
-      type: object
-      properties:
+        data:
+          $ref: '#/components/schemas/SingleBuildResponse_data'
         message:
           type: string
-          example: Build updated successfully
+          example: Retrieve build list was successful
         status:
           type: string
           example: success
-        data:
-          $ref: '#/components/schemas/EditBuildResponse_data'
-    DeleteBuildResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Build deleted successfully
-        status:
-          type: string
-          example: success
-        data:
-          $ref: '#/components/schemas/EditBuildResponse_data'
-    BuildNotFound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Could not find any build in running state
-        status:
-          type: string
-          example: fail
-    ListsTestsResponse_Meta_attributes:
-      type: object
-      properties:
-        org_id:
-          type: number
     ListBuildResponse:
       required:
       - Meta
@@ -482,6 +378,110 @@ components:
           $ref: '#/components/schemas/ListsTestsResponse_Meta_attributes'
         result_set:
           $ref: '#/components/schemas/ListsTestsResponse_Meta_result_set'
+    BuildActionForbidden:
+      type: object
+      properties:
+        message:
+          example: Cannot stop more than 10 builds through this API
+        status:
+          example: fail
+    ListsTestsResponse_Meta_result_set:
+      type: object
+      properties:
+        count:
+          type: number
+        limit:
+          type: number
+        offset:
+          type: number
+        total:
+          type: number
+    BuildNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Could not find any build in running state
+        status:
+          type: string
+          example: fail
+    EditBuildResponse_data:
+      type: object
+      properties:
+        result:
+          type: string
+          example: '1'
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+    EditBuildResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Build updated successfully
+        status:
+          type: string
+          example: success
+        data:
+          $ref: '#/components/schemas/EditBuildResponse_data'
+    ListsTestsResponse_Meta_attributes:
+      type: object
+      properties:
+        org_id:
+          type: number
+    ListBuildResponse_data:
+      type: object
+      properties:
+        build_id:
+          type: number
+          example: 1782
+        name:
+          type: string
+          example: shivam-video-test
+        user_id:
+          type: number
+          example: 1212
+        username:
+          type: string
+          example: shivam
+        status_ind:
+          type: string
+          example: completed
+        create_timestamp:
+          type: string
+          example: 2019-02-05 08:24:36+00:00
+        end_timestamp:
+          type: string
+          example: 2019-02-05 08:27:22+00:00
+        project_id:
+          type: string
+          example: ML
+        project_name:
+          type: string
+          example: magicleap
+        tags:
+          type: array
+          items:
+            type: string
+          example:
+          - tag1
+          - tag2
+          - tag3
+        duration:
+          type: number
+          example: 719
+    DeleteBuildResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Build deleted successfully
+        status:
+          type: string
+          example: success
+        data:
+          $ref: '#/components/schemas/EditBuildResponse_data'
   securitySchemes:
     basicAuth:
       type: http

@@ -121,7 +121,7 @@ apis:
   - type: Documentation
     url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
 - aid: lambdatest:lambdatest-extensions-api
-  name: LambdaTest extensions API
+  name: LambdaTest Extensions API
   description: The extensions API from LambdaTest — 2 operation(s) for extensions.
   humanURL: https://www.lambdatest.com/support/docs/api-doc/
   baseURL: https://api.lambdatest.com
@@ -223,7 +223,7 @@ apis:
   - type: Documentation
     url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
 - aid: lambdatest:lambdatest-platforms-api
-  name: LambdaTest platforms API
+  name: LambdaTest Platforms API
   description: The platforms API from LambdaTest — 1 operation(s) for platforms.
   humanURL: https://www.lambdatest.com/support/docs/api-doc/
   baseURL: https://api.lambdatest.com
@@ -239,7 +239,7 @@ apis:
   - type: Documentation
     url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
 - aid: lambdatest:lambdatest-prerun-api
-  name: LambdaTest prerun API
+  name: LambdaTest Prerun API
   description: The prerun API from LambdaTest — 4 operation(s) for prerun.
   humanURL: https://www.lambdatest.com/support/docs/api-doc/
   baseURL: https://api.lambdatest.com
@@ -312,7 +312,7 @@ apis:
   - type: Documentation
     url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
 - aid: lambdatest:lambdatest-tunnel-api
-  name: LambdaTest tunnel API
+  name: LambdaTest Tunnel API
   description: The tunnel API from LambdaTest — 2 operation(s) for tunnel.
   humanURL: https://www.lambdatest.com/support/docs/api-doc/
   baseURL: https://api.lambdatest.com
@@ -340,7 +340,7 @@ apis:
   - type: Documentation
     url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
 - aid: lambdatest:lambdatest-user-files-api
-  name: LambdaTest user-files API
+  name: LambdaTest User Files API
   description: The user-files API from LambdaTest — 3 operation(s) for user-files.
   humanURL: https://www.lambdatest.com/support/docs/api-doc/
   baseURL: https://api.lambdatest.com

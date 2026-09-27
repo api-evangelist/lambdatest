@@ -86,6 +86,33 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    SessionNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Either resource not found or already deleted
+        status:
+          type: string
+          example: fail
+    TunnelStopBadRequest:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Tunnel with specified id not found.
+        status:
+          type: string
+          example: fail
+    TunnelsDeleteResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Delete tunnel was successful.
+        status:
+          type: string
+          example: success
     AccessDenied:
       type: string
       example: 'HTTP Basic: Access denied.'
@@ -138,33 +165,6 @@ components:
           type: string
         user_id:
           type: integer
-    SessionNotFound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Either resource not found or already deleted
-        status:
-          type: string
-          example: fail
-    TunnelStopBadRequest:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Tunnel with specified id not found.
-        status:
-          type: string
-          example: fail
-    TunnelsDeleteResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Delete tunnel was successful.
-        status:
-          type: string
-          example: success
   securitySchemes:
     basicAuth:
       type: http

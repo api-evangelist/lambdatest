@@ -141,70 +141,7 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    UploadUserFilesResposeData:
-      type: object
-      properties:
-        file:
-          type: string
-          example: file_example_JPG_2500kB.jpg
-        error:
-          type: string
-          example: ''
-          description: error message if there is any error in uploading file. If file upload is success, then it will empty
-        message:
-          type: string
-          example: File have been uploaded successfully to our lambda storage
-    InValidJson:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Oops! The name that you have provided already exists. Please use different name or delete this script first
-        status:
-          type: string
-          example: fail
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
-    DeleteUserFileResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: File have been successfully deleted from our lambda storage
-        status:
-          type: string
-          example: success
-    ListUserFileResponse:
-      required:
-      - Meta
-      - data
-      properties:
-        Meta:
-          $ref: '#/components/schemas/ListUserFileResponse_Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ListUserFileResponse_data'
-    DeletePageNotFound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: File doesn't exist in lambda storage
-        status:
-          type: string
-          example: fail
-    ListUserFileResponse_Meta:
-      type: object
-      properties:
-        org_id:
-          type: number
-          example: 12345
-        total:
-          type: number
-          example: 1
-    DownloadUserFilePayload:
+    DeleteUserFilePayload:
       type: object
       required:
       - key
@@ -226,6 +163,15 @@ components:
           type: number
           example: 104
           description: file size
+    ListUserFileResponse_Meta:
+      type: object
+      properties:
+        org_id:
+          type: number
+          example: 12345
+        total:
+          type: number
+          example: 1
     DownloadUserFilePageNotFound:
       type: object
       properties:
@@ -235,14 +181,6 @@ components:
         status:
           type: string
           example: fail
-    DeleteUserFilePayload:
-      type: object
-      required:
-      - key
-      properties:
-        key:
-          type: string
-          example: file_example_JPG_2500kB.jpg
     UploadUserFilePayload:
       type: object
       required:
@@ -251,6 +189,68 @@ components:
         files:
           type: string
           format: binary
+    DeletePageNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: File doesn't exist in lambda storage
+        status:
+          type: string
+          example: fail
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+    UploadUserFilesResposeData:
+      type: object
+      properties:
+        file:
+          type: string
+          example: file_example_JPG_2500kB.jpg
+        error:
+          type: string
+          example: ''
+          description: error message if there is any error in uploading file. If file upload is success, then it will empty
+        message:
+          type: string
+          example: File have been uploaded successfully to our lambda storage
+    DeleteUserFileResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: File have been successfully deleted from our lambda storage
+        status:
+          type: string
+          example: success
+    DownloadUserFilePayload:
+      type: object
+      required:
+      - key
+      properties:
+        key:
+          type: string
+          example: file_example_JPG_2500kB.jpg
+    InValidJson:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Oops! The name that you have provided already exists. Please use different name or delete this script first
+        status:
+          type: string
+          example: fail
+    ListUserFileResponse:
+      required:
+      - Meta
+      - data
+      properties:
+        Meta:
+          $ref: '#/components/schemas/ListUserFileResponse_Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListUserFileResponse_data'
   securitySchemes:
     basicAuth:
       type: http

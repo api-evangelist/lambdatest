@@ -101,38 +101,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    UploadExceptionLog:
-      type: object
-      properties:
-        exception:
-          type: array
-          items:
-            type: string
-          example:
-          - exception 1
-          - exception 2
-          - expection 3
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
-    UploadTerminalFileSizeError:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Oops ! file size too large (> 2MB)
-        status:
-          type: string
-          example: fail
-    SessionNotFound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Either resource not found or already deleted
-        status:
-          type: string
-          example: fail
     VideoResponse:
       type: object
       properties:
@@ -146,6 +114,38 @@ components:
           type: string
         view_video_url:
           type: string
+    UploadTerminalFileSizeError:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Oops ! file size too large (> 2MB)
+        status:
+          type: string
+          example: fail
+    UploadExceptionLog:
+      type: object
+      properties:
+        exception:
+          type: array
+          items:
+            type: string
+          example:
+          - exception 1
+          - exception 2
+          - expection 3
+    SessionNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Either resource not found or already deleted
+        status:
+          type: string
+          example: fail
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
     UploadTerminalFileResposeData:
       type: object
       properties:

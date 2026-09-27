@@ -123,17 +123,33 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    LocatorData:
+    BadRequest:
       type: object
       properties:
-        using:
+        status:
           type: string
-          description: The locator strategy used (e.g., css selector, xpath, id)
-          example: css selector
-        value:
+          example: fail
+        message:
           type: string
-          description: The actual locator value
-          example: input.custom-checkbox.ng-pristine.ng-untouched.ng-valid.ng-empty
+          example: Invalid limit parameter
+        data:
+          type:
+          - object
+          - 'null'
+          example: null
+    AutohealedCommandsResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        message:
+          type:
+          - string
+          - 'null'
+          example: null
+        data:
+          $ref: '#/components/schemas/AutohealedCommandsData'
     AutohealedCommand:
       type: object
       properties:
@@ -153,20 +169,7 @@ components:
           type: integer
           description: Time taken to heal the locator in milliseconds
           example: 349
-    AutohealedCommandsResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: success
-        message:
-          type:
-          - string
-          - 'null'
-          example: null
-        data:
-          $ref: '#/components/schemas/AutohealedCommandsData'
-    Unauthorized:
+    NotFound:
       type: object
       properties:
         status:
@@ -174,40 +177,23 @@ components:
           example: fail
         message:
           type: string
-          example: Unauthorized
+          example: Test not found
         data:
           type:
           - object
           - 'null'
           example: null
-    InternalServerError:
+    LocatorData:
       type: object
       properties:
-        status:
+        using:
           type: string
-          example: error
-        message:
+          description: The locator strategy used (e.g., css selector, xpath, id)
+          example: css selector
+        value:
           type: string
-          example: Failed to fetch autohealed data
-        data:
-          type:
-          - object
-          - 'null'
-          example: null
-    BadRequest:
-      type: object
-      properties:
-        status:
-          type: string
-          example: fail
-        message:
-          type: string
-          example: Invalid limit parameter
-        data:
-          type:
-          - object
-          - 'null'
-          example: null
+          description: The actual locator value
+          example: input.custom-checkbox.ng-pristine.ng-untouched.ng-valid.ng-empty
     AutohealedCommandsData:
       type: object
       properties:
@@ -224,7 +210,21 @@ components:
           description: Array of autohealed command details
           items:
             $ref: '#/components/schemas/AutohealedCommand'
-    NotFound:
+    InternalServerError:
+      type: object
+      properties:
+        status:
+          type: string
+          example: error
+        message:
+          type: string
+          example: Failed to fetch autohealed data
+        data:
+          type:
+          - object
+          - 'null'
+          example: null
+    Unauthorized:
       type: object
       properties:
         status:
@@ -232,7 +232,7 @@ components:
           example: fail
         message:
           type: string
-          example: Test not found
+          example: Unauthorized
         data:
           type:
           - object
