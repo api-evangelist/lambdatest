@@ -86,58 +86,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    SessionNotFound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Either resource not found or already deleted
-        status:
-          type: string
-          example: fail
-    TunnelStopBadRequest:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Tunnel with specified id not found.
-        status:
-          type: string
-          example: fail
-    TunnelsDeleteResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Delete tunnel was successful.
-        status:
-          type: string
-          example: success
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
-    GetTunnelsResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Retrieve tunnel was successful
-        status:
-          type: string
-          example: success
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/TunnelData'
-    TunnelStopForbidden:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Forbidden! Opertaion not allowed.
-        status:
-          type: string
-          example: fail
     TunnelData:
       type: object
       properties:
@@ -165,6 +113,58 @@ components:
           type: string
         user_id:
           type: integer
+    TunnelStopBadRequest:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Tunnel with specified id not found.
+        status:
+          type: string
+          example: fail
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+    TunnelsDeleteResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Delete tunnel was successful.
+        status:
+          type: string
+          example: success
+    GetTunnelsResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Retrieve tunnel was successful
+        status:
+          type: string
+          example: success
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TunnelData'
+    TunnelStopForbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Forbidden! Opertaion not allowed.
+        status:
+          type: string
+          example: fail
+    SessionNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Either resource not found or already deleted
+        status:
+          type: string
+          example: fail
   securitySchemes:
     basicAuth:
       type: http

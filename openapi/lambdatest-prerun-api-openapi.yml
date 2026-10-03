@@ -177,6 +177,54 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    DeletePrerunPayload:
+      type: object
+      required:
+      - file_path
+      properties:
+        file_path:
+          type: string
+          example: dialog_disable/pre/httpdialog.au3
+          description: file path of pre run file in our lambda storage. To delete a pre run, you can either specify pre_run or post_run file path. You can get file_path from the GET /files API
+    CreatePrerunResponse:
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UploadPrerunResposeData'
+        message:
+          type: string
+          example: Files have been uploaded successfully to our lambda storage
+        status:
+          type: string
+          example: success
+    DownloadPrerunPageNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Error in downloading file from lambda storage
+        status:
+          type: string
+          example: fail
+    ValidatePrerunPayload:
+      type: object
+      required:
+      - file_path
+      properties:
+        file_path:
+          type: string
+          example: dialog_disable/pre/httpdialog.au3
+          description: file path of pre run file in our lambda storage. You can get file_path from the GET /files API
+    DeletePrerunResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: File have been successfully deleted from our lambda storage
+        status:
+          type: string
+          example: success
     ListPrerunFileResponse_Meta:
       type: object
       properties:
@@ -190,12 +238,24 @@ components:
         total:
           type: number
           example: 1
-    DownloadPrerunPageNotFound:
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+    InValidJson:
       type: object
       properties:
         message:
           type: string
-          example: Error in downloading file from lambda storage
+          example: Oops! The name that you have provided already exists. Please use different name or delete this script first
+        status:
+          type: string
+          example: fail
+    DeletePageNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: File doesn't exist in lambda storage
         status:
           type: string
           example: fail
@@ -227,66 +287,21 @@ components:
           type: string
           format: binary
           description: script file that will revert the actions performed by pre run file. If there is no post action that needs to performed then you can upload an empty file
-    UploadPrerunResposeData:
+    ValidatePrerunResponse:
       type: object
       properties:
-        file:
-          type: string
-          example: httpdialog.au3
-        error:
-          type: string
-          example: ''
-          description: error message if there is any error in uploading file. If file upload is success, then it will empty
-    ValidatePageNotFound:
-      type: object
-      properties:
+        data:
+          type: object
+          properties:
+            post_run_file_path:
+              type: string
+              example: dialog_disable/post/httpdialogenable.au3
         message:
           type: string
-          example: The script is not yet approved by our team
-        status:
-          type: string
-          example: fail
-    DeletePageNotFound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: File doesn't exist in lambda storage
-        status:
-          type: string
-          example: fail
-    DeletePrerunPayload:
-      type: object
-      required:
-      - file_path
-      properties:
-        file_path:
-          type: string
-          example: dialog_disable/pre/httpdialog.au3
-          description: file path of pre run file in our lambda storage. To delete a pre run, you can either specify pre_run or post_run file path. You can get file_path from the GET /files API
-    DeletePrerunResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: File have been successfully deleted from our lambda storage
-        status:
+          example: File exist in our lambda storage and is approved successfully
+        staus:
           type: string
           example: success
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
-    ListPrerunFileResponse:
-      required:
-      - Meta
-      - data
-      properties:
-        Meta:
-          $ref: '#/components/schemas/ListPrerunFileResponse_Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ListPreRunResponse_data'
     ListPreRunResponse_data:
       type: object
       properties:
@@ -309,51 +324,36 @@ components:
           type: string
           example: dialog_disable/pre/httpdialog.au3
           description: path of the file in lambda storage
-    CreatePrerunResponse:
+    ListPrerunFileResponse:
+      required:
+      - Meta
+      - data
       properties:
+        Meta:
+          $ref: '#/components/schemas/ListPrerunFileResponse_Meta'
         data:
           type: array
           items:
-            $ref: '#/components/schemas/UploadPrerunResposeData'
-        message:
-          type: string
-          example: Files have been uploaded successfully to our lambda storage
-        status:
-          type: string
-          example: success
-    ValidatePrerunResponse:
+            $ref: '#/components/schemas/ListPreRunResponse_data'
+    UploadPrerunResposeData:
       type: object
       properties:
-        data:
-          type: object
-          properties:
-            post_run_file_path:
-              type: string
-              example: dialog_disable/post/httpdialogenable.au3
-        message:
+        file:
           type: string
-          example: File exist in our lambda storage and is approved successfully
-        staus:
+          example: httpdialog.au3
+        error:
           type: string
-          example: success
-    InValidJson:
+          example: ''
+          description: error message if there is any error in uploading file. If file upload is success, then it will empty
+    ValidatePageNotFound:
       type: object
       properties:
         message:
           type: string
-          example: Oops! The name that you have provided already exists. Please use different name or delete this script first
+          example: The script is not yet approved by our team
         status:
           type: string
           example: fail
-    ValidatePrerunPayload:
-      type: object
-      required:
-      - file_path
-      properties:
-        file_path:
-          type: string
-          example: dialog_disable/pre/httpdialog.au3
-          description: file path of pre run file in our lambda storage. You can get file_path from the GET /files API
   securitySchemes:
     basicAuth:
       type: http

@@ -265,6 +265,72 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    BuildNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Could not find any build in running state
+        status:
+          type: string
+          example: fail
+    EditBuildResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Build updated successfully
+        status:
+          type: string
+          example: success
+        data:
+          $ref: '#/components/schemas/EditBuildResponse_data'
+    ListBuildResponse:
+      required:
+      - Meta
+      - data
+      properties:
+        Meta:
+          $ref: '#/components/schemas/ListsTestsResponse_Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListBuildResponse_data'
+    EditBuildResponse_data:
+      type: object
+      properties:
+        result:
+          type: string
+          example: '1'
+    BuildActionForbidden:
+      type: object
+      properties:
+        message:
+          example: Cannot stop more than 10 builds through this API
+        status:
+          example: fail
+    SingleBuildResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/SingleBuildResponse_data'
+        message:
+          type: string
+          example: Retrieve build list was successful
+        status:
+          type: string
+          example: success
+    BuildInvalidQueryParams:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Query Params provided
+        status:
+          type: string
+          example: fail
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
     SingleBuildResponse_data:
       type: object
       properties:
@@ -312,15 +378,6 @@ components:
         dashboard_url:
           type: string
           example: https://automation.lambdatest.com/build?&build=1
-    BuildInvalidQueryParams:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid Query Params provided
-        status:
-          type: string
-          example: fail
     StopBuildResponse:
       type: object
       properties:
@@ -341,95 +398,22 @@ components:
         status:
           type: string
           example: success
-    EditBuild:
-      type: object
-      properties:
-        name:
-          type: string
-          format: string
-        status:
-          type: string
-          format: string
-    SingleBuildResponse:
-      properties:
-        data:
-          $ref: '#/components/schemas/SingleBuildResponse_data'
-        message:
-          type: string
-          example: Retrieve build list was successful
-        status:
-          type: string
-          example: success
-    ListBuildResponse:
-      required:
-      - Meta
-      - data
-      properties:
-        Meta:
-          $ref: '#/components/schemas/ListsTestsResponse_Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ListBuildResponse_data'
-    ListsTestsResponse_Meta:
-      type: object
-      properties:
-        attributes:
-          $ref: '#/components/schemas/ListsTestsResponse_Meta_attributes'
-        result_set:
-          $ref: '#/components/schemas/ListsTestsResponse_Meta_result_set'
-    BuildActionForbidden:
-      type: object
-      properties:
-        message:
-          example: Cannot stop more than 10 builds through this API
-        status:
-          example: fail
-    ListsTestsResponse_Meta_result_set:
-      type: object
-      properties:
-        count:
-          type: number
-        limit:
-          type: number
-        offset:
-          type: number
-        total:
-          type: number
-    BuildNotFound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Could not find any build in running state
-        status:
-          type: string
-          example: fail
-    EditBuildResponse_data:
-      type: object
-      properties:
-        result:
-          type: string
-          example: '1'
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
-    EditBuildResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Build updated successfully
-        status:
-          type: string
-          example: success
-        data:
-          $ref: '#/components/schemas/EditBuildResponse_data'
     ListsTestsResponse_Meta_attributes:
       type: object
       properties:
         org_id:
           type: number
+    DeleteBuildResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Build deleted successfully
+        status:
+          type: string
+          example: success
+        data:
+          $ref: '#/components/schemas/EditBuildResponse_data'
     ListBuildResponse_data:
       type: object
       properties:
@@ -471,17 +455,33 @@ components:
         duration:
           type: number
           example: 719
-    DeleteBuildResponse:
+    ListsTestsResponse_Meta:
       type: object
       properties:
-        message:
+        attributes:
+          $ref: '#/components/schemas/ListsTestsResponse_Meta_attributes'
+        result_set:
+          $ref: '#/components/schemas/ListsTestsResponse_Meta_result_set'
+    ListsTestsResponse_Meta_result_set:
+      type: object
+      properties:
+        count:
+          type: number
+        limit:
+          type: number
+        offset:
+          type: number
+        total:
+          type: number
+    EditBuild:
+      type: object
+      properties:
+        name:
           type: string
-          example: Build deleted successfully
+          format: string
         status:
           type: string
-          example: success
-        data:
-          $ref: '#/components/schemas/EditBuildResponse_data'
+          format: string
   securitySchemes:
     basicAuth:
       type: http

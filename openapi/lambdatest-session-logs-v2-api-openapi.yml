@@ -258,9 +258,6 @@ components:
           example: success
         url:
           type: string
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
     SessionNotFound:
       type: object
       properties:
@@ -270,6 +267,9 @@ components:
         status:
           type: string
           example: fail
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
   securitySchemes:
     basicAuth:
       type: http

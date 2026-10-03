@@ -77,9 +77,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
     SessionNotFound:
       type: object
       properties:
@@ -100,6 +97,9 @@ components:
           example: success
         data:
           type: string
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
   securitySchemes:
     basicAuth:
       type: http

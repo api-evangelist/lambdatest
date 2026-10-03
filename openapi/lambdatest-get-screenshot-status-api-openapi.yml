@@ -58,6 +58,27 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ScreenshotStatusBuildError:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            Screenshots:
+              type: string
+              example: 'null'
+            buildId:
+              type: string
+              example: f3e9bf89-4b61-4eb2-ad60-aaa72150d05e
+            buildName:
+              type: string
+              example: build-1
+            projectName:
+              type: string
+              example: demo-project
+        status:
+          type: string
+          example: success
     ScreenshotProperties:
       type: object
       properties:
@@ -95,27 +116,6 @@ components:
             buildStatus:
               type: string
               example: 1 Under Review
-        status:
-          type: string
-          example: success
-    ScreenshotStatusBuildError:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            Screenshots:
-              type: string
-              example: 'null'
-            buildId:
-              type: string
-              example: f3e9bf89-4b61-4eb2-ad60-aaa72150d05e
-            buildName:
-              type: string
-              example: build-1
-            projectName:
-              type: string
-              example: demo-project
         status:
           type: string
           example: success

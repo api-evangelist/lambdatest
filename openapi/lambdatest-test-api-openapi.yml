@@ -114,15 +114,18 @@ components:
           type: string
         view_video_url:
           type: string
-    UploadTerminalFileSizeError:
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+    UploadTerminalFileResposeData:
       type: object
       properties:
-        message:
+        data:
           type: string
-          example: Oops ! file size too large (> 2MB)
+          example: File have been uploaded successfully to our lambda storage
         status:
           type: string
-          example: fail
+          example: success
     UploadExceptionLog:
       type: object
       properties:
@@ -143,18 +146,15 @@ components:
         status:
           type: string
           example: fail
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
-    UploadTerminalFileResposeData:
+    UploadTerminalFileSizeError:
       type: object
       properties:
-        data:
+        message:
           type: string
-          example: File have been uploaded successfully to our lambda storage
+          example: Oops ! file size too large (> 2MB)
         status:
           type: string
-          example: success
+          example: fail
   securitySchemes:
     basicAuth:
       type: http
