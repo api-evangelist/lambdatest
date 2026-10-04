@@ -1,0 +1,88 @@
+slug: lambdatest
+provider: LambdaTest
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 7
+edges:
+- tag: Upload Screenshots
+  spec_file: lambdatest-upload-screenshots-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.8
+  evidence: POST /v2/upload  Upload any locally captured images to SmartUI for visual regression…
+  reason: Uploading captured images for visual regression comparison is automated test execution/verification,
+    i.e. Software Quality Engineering.
+- tag: Session
+  spec_file: lambdatest-session-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.78
+  evidence: GET /sessions/{session_id}/log/selenium  selenium log of a test session; PUT /sessions/{session_id}/stop  Stop
+    session by sessionID; schema UpdateSessionPayload
+  reason: Operations manage automated test-execution sessions (stop, screenshots, video, selenium/command
+    logs) on a cloud test platform — this is test suite execution and defect diagnosis, i.e. Software
+    Quality Engineering, not generic session/identity handling.
+- tag: Test
+  spec_file: lambdatest-test-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.78
+  evidence: POST /tests/{test_id}/exceptions  Upload assertion logs; GET /test/{test_id}/video  Fetch
+    recorded video of a test id
+  reason: Assertion/exception log upload and test recording retrieval are automated-test artefact management,
+    squarely Software Quality Engineering.
+- tag: Autoheal Command Logs
+  spec_file: lambdatest-autoheal-command-logs-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.75
+  evidence: GET /autoheal/test/{test_id} 'Fetch autohealed commands data for a test' with schemas AutohealedCommandsResponse,
+    AutohealedCommand, LocatorData
+  reason: Operations expose data about automated test commands whose locators were self-healed during
+    a Selenium run. That is stewardship of automated test suites, i.e. software quality engineering, for
+    this test-execution vendor. Some ambiguity because it is a read-only diagnostic feed rather than full
+    test management.
+- tag: Fetch Build Screenshots
+  spec_file: lambdatest-fetch-build-screenshots-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.75
+  evidence: GET /build/screenshots 'Fetch SmartUI build screenshots by project_id and build_id' with schema
+    BuildScreenshotProperties
+  reason: SmartUI is the vendor's visual regression testing product; retrieving build screenshots is part
+    of automated visual test evidence and defect detection, i.e. software quality engineering. Read-only
+    retrieval keeps confidence moderate.
+- tag: Session Logs (V2)
+  spec_file: lambdatest-session-logs-v2-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.72
+  evidence: GET /sessions/{session_id}/v2/log/command  command logs of a test session
+  reason: Retrieval of command, selenium/appium, console and network logs for a test session supports
+    automated test diagnosis; it is test tooling output rather than production service observability.
+- tag: Build
+  spec_file: lambdatest-build-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.7
+  evidence: GET /builds 'Fetch all builds of an account', PUT /build/stop 'Stop tests by BuildID', ListsTestsResponse_Meta
+  reason: In this vendor's model a 'build' is a grouping of automation test sessions — the operations
+    list, rename, delete and stop tests by build id. That is management of automated test execution (quality
+    engineering) rather than CI artefact production, though the word 'build' makes a continuous-integration
+    reading plausible, hence moderate confidence.

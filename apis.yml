@@ -356,6 +356,9 @@ apis:
   - type: Documentation
     url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
 common:
+  - type: CapabilityMap
+    url: capabilities/lambdatest-capability-edges.yml
+    name: LambdaTest Business Capability Map
   - type: AgenticAccess
     url: agentic-access/lambdatest-agentic-access.yml
   - type: TrustCenter
