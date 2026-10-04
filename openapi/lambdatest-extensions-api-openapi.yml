@@ -107,31 +107,17 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ListExtensionResponse_Meta:
-      type: object
-      properties:
-        org_id:
-          type: number
-          example: 12345
-        total:
-          type: number
-          example: 1
-    UploadExtensionPayload:
-      type: object
+    ListExtensionResponse:
       required:
-      - extensions
+      - Meta
+      - data
       properties:
-        extensions:
-          type: string
-          format: binary
-    DeleteExtensionPayload:
-      type: object
-      required:
-      - key
-      properties:
-        key:
-          type: string
-          example: extension_1.zip
+        Meta:
+          $ref: '#/components/schemas/ListExtensionResponse_Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListExtensionResponse_data'
     UploadExtensionResponseData:
       type: object
       properties:
@@ -145,9 +131,32 @@ components:
         message:
           type: string
           example: File have been uploaded successfully to our lambda storage
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
+    ListExtensionResponse_Meta:
+      type: object
+      properties:
+        org_id:
+          type: number
+          example: 12345
+        total:
+          type: number
+          example: 1
+    DeleteExtensionResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: File have been successfully deleted from our lambda storage
+        status:
+          type: string
+          example: success
+    UploadExtensionPayload:
+      type: object
+      required:
+      - extensions
+      properties:
+        extensions:
+          type: string
+          format: binary
     InValidJson:
       type: object
       properties:
@@ -157,26 +166,6 @@ components:
         status:
           type: string
           example: fail
-    DeletePageNotFound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: File doesn't exist in lambda storage
-        status:
-          type: string
-          example: fail
-    ListExtensionResponse:
-      required:
-      - Meta
-      - data
-      properties:
-        Meta:
-          $ref: '#/components/schemas/ListExtensionResponse_Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ListExtensionResponse_data'
     ListExtensionResponse_data:
       type: object
       properties:
@@ -195,15 +184,26 @@ components:
           type: string
           example: https://automation-prod-user-files.s3.amazonaws.com/extensions/orgId-123456/extension_1.zip
           description: url of the uploaded extension
-    DeleteExtensionResponse:
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+    DeletePageNotFound:
       type: object
       properties:
         message:
           type: string
-          example: File have been successfully deleted from our lambda storage
+          example: File doesn't exist in lambda storage
         status:
           type: string
-          example: success
+          example: fail
+    DeleteExtensionPayload:
+      type: object
+      required:
+      - key
+      properties:
+        key:
+          type: string
+          example: extension_1.zip
   securitySchemes:
     basicAuth:
       type: http

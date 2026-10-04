@@ -58,6 +58,42 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    BuildStatusResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            changesFound:
+              type: integer
+              example: 2
+            approved:
+              type: integer
+              example: 3
+            underReview:
+              type: integer
+              example: 0
+            rejected:
+              type: integer
+              example: 0
+            buildId:
+              type: string
+              example: 2423e94d-7f12-460c-8de7-e35db3698d8a
+            buildName:
+              type: string
+              example: c24dd3e
+            projectName:
+              type: string
+              example: web-project
+            buildStatus:
+              type: string
+              example: Changes Need Approval
+            message:
+              type: string
+              example: Fetched Build Status Successfully
+        status:
+          type: string
+          example: success
     BuildStatusError:
       type: object
       properties:
@@ -100,42 +136,6 @@ components:
         status:
           type: string
           example: fail
-    BuildStatusResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            changesFound:
-              type: integer
-              example: 2
-            approved:
-              type: integer
-              example: 3
-            underReview:
-              type: integer
-              example: 0
-            rejected:
-              type: integer
-              example: 0
-            buildId:
-              type: string
-              example: 2423e94d-7f12-460c-8de7-e35db3698d8a
-            buildName:
-              type: string
-              example: c24dd3e
-            projectName:
-              type: string
-              example: web-project
-            buildStatus:
-              type: string
-              example: Changes Need Approval
-            message:
-              type: string
-              example: Fetched Build Status Successfully
-        status:
-          type: string
-          example: success
   securitySchemes:
     basicAuth:
       type: http

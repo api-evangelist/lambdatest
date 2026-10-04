@@ -77,15 +77,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    SessionNotFound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Either resource not found or already deleted
-        status:
-          type: string
-          example: fail
     LighthouseReportResponse:
       type: object
       properties:
@@ -97,6 +88,15 @@ components:
           example: success
         data:
           type: string
+    SessionNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Either resource not found or already deleted
+        status:
+          type: string
+          example: fail
     AccessDenied:
       type: string
       example: 'HTTP Basic: Access denied.'

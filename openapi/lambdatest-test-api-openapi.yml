@@ -101,6 +101,17 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    UploadExceptionLog:
+      type: object
+      properties:
+        exception:
+          type: array
+          items:
+            type: string
+          example:
+          - exception 1
+          - exception 2
+          - expection 3
     VideoResponse:
       type: object
       properties:
@@ -114,29 +125,6 @@ components:
           type: string
         view_video_url:
           type: string
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
-    UploadTerminalFileResposeData:
-      type: object
-      properties:
-        data:
-          type: string
-          example: File have been uploaded successfully to our lambda storage
-        status:
-          type: string
-          example: success
-    UploadExceptionLog:
-      type: object
-      properties:
-        exception:
-          type: array
-          items:
-            type: string
-          example:
-          - exception 1
-          - exception 2
-          - expection 3
     SessionNotFound:
       type: object
       properties:
@@ -155,6 +143,18 @@ components:
         status:
           type: string
           example: fail
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+    UploadTerminalFileResposeData:
+      type: object
+      properties:
+        data:
+          type: string
+          example: File have been uploaded successfully to our lambda storage
+        status:
+          type: string
+          example: success
   securitySchemes:
     basicAuth:
       type: http

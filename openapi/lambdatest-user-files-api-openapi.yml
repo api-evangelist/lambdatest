@@ -141,23 +141,14 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    UploadUserFilePayload:
+    DeleteUserFilePayload:
       type: object
       required:
-      - files
+      - key
       properties:
-        files:
+        key:
           type: string
-          format: binary
-    ListUserFileResponse_Meta:
-      type: object
-      properties:
-        org_id:
-          type: number
-          example: 12345
-        total:
-          type: number
-          example: 1
+          example: file_example_JPG_2500kB.jpg
     DownloadUserFilePageNotFound:
       type: object
       properties:
@@ -167,6 +158,14 @@ components:
         status:
           type: string
           example: fail
+    DownloadUserFilePayload:
+      type: object
+      required:
+      - key
+      properties:
+        key:
+          type: string
+          example: file_example_JPG_2500kB.jpg
     UploadUserFilesResposeData:
       type: object
       properties:
@@ -180,6 +179,41 @@ components:
         message:
           type: string
           example: File have been uploaded successfully to our lambda storage
+    DeleteUserFileResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: File have been successfully deleted from our lambda storage
+        status:
+          type: string
+          example: success
+    InValidJson:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Oops! The name that you have provided already exists. Please use different name or delete this script first
+        status:
+          type: string
+          example: fail
+    ListUserFileResponse_Meta:
+      type: object
+      properties:
+        org_id:
+          type: number
+          example: 12345
+        total:
+          type: number
+          example: 1
+    UploadUserFilePayload:
+      type: object
+      required:
+      - files
+      properties:
+        files:
+          type: string
+          format: binary
     ListUserFileResponse_data:
       type: object
       properties:
@@ -194,14 +228,6 @@ components:
           type: number
           example: 104
           description: file size
-    DeleteUserFilePayload:
-      type: object
-      required:
-      - key
-      properties:
-        key:
-          type: string
-          example: file_example_JPG_2500kB.jpg
     ListUserFileResponse:
       required:
       - Meta
@@ -216,15 +242,6 @@ components:
     AccessDenied:
       type: string
       example: 'HTTP Basic: Access denied.'
-    InValidJson:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Oops! The name that you have provided already exists. Please use different name or delete this script first
-        status:
-          type: string
-          example: fail
     DeletePageNotFound:
       type: object
       properties:
@@ -234,23 +251,6 @@ components:
         status:
           type: string
           example: fail
-    DownloadUserFilePayload:
-      type: object
-      required:
-      - key
-      properties:
-        key:
-          type: string
-          example: file_example_JPG_2500kB.jpg
-    DeleteUserFileResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: File have been successfully deleted from our lambda storage
-        status:
-          type: string
-          example: success
   securitySchemes:
     basicAuth:
       type: http
