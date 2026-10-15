@@ -3,6 +3,7 @@ method: searched
 checked:
 - https://github.com/marketplace?type=apps
 - https://registry.modelcontextprotocol.io/v0/servers
+- https://zapier.com/api/v4/apps/
 marketplace_apps: []
 edges:
 - partner_name: GitHub Marketplace (apps)
@@ -39,7 +40,7 @@ edges:
     registered_name: io.github.LambdaTest/mcp
     register_id: io.github.LambdaTest/mcp
     detected_by: sweep-agent-tools.py
-    detected: '2026-10-14'
+    detected: '2026-10-15'
   mcp_registry:
     servers:
     - io.github.LambdaTest/mcp
@@ -55,5 +56,30 @@ edges:
   - remote-domain
   detected_by: sweep-agent-tools.py
   first_seen: '2026-10-14'
+- partner_name: Zapier
+  partner: zapier
+  partner_match: aggregator
+  type: marketplace
+  marketplace: zapier-directory
+  channel: ipaas-listing
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://zapier.com/apps/lambdatest/integrations
+  category: null
+  contract_reference:
+    register: Zapier app directory (zapier.com/api/v4/apps)
+    spec_file: null
+    role: ipaas-connector:zapier
+    registered_name: LambdaTest
+    matched_domain: lambdatest.com
+    matched_by: domain
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: lambdatest
+    beta: false
+    builder: unknown (not in the directory record)
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-15'
 source:
 - https://github.com/marketplace?type=apps
