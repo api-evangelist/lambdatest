@@ -45,6 +45,9 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
     GetGeolocationIps:
       properties:
         data:
@@ -71,9 +74,6 @@ components:
         status:
           type: string
           example: success
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
   securitySchemes:
     basicAuth:
       type: http

@@ -247,6 +247,18 @@ paths:
       x-operation-id-original: sessionNetworkFullHarLogs (V2)
 components:
   schemas:
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+    SessionNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Either resource not found or already deleted
+        status:
+          type: string
+          example: fail
     LogNewResponse:
       type: object
       properties:
@@ -258,18 +270,6 @@ components:
           example: success
         url:
           type: string
-    SessionNotFound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Either resource not found or already deleted
-        status:
-          type: string
-          example: fail
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
   securitySchemes:
     basicAuth:
       type: http

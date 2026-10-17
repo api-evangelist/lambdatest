@@ -58,6 +58,31 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ScreenshotStatusBuildResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            Screenshots:
+              type: array
+              items:
+                $ref: '#/components/schemas/ScreenshotProperties'
+            buildId:
+              type: string
+              example: 50af60e1-8709-40b1-981f-19636de5a590
+            buildName:
+              type: string
+              example: 0e1915b
+            projectName:
+              type: string
+              example: FPS-Monterey
+            buildStatus:
+              type: string
+              example: 1 Under Review
+        status:
+          type: string
+          example: success
     ScreenshotStatusBuildError:
       type: object
       properties:
@@ -94,31 +119,6 @@ components:
         status:
           type: string
           example: Under Screening
-    ScreenshotStatusBuildResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            Screenshots:
-              type: array
-              items:
-                $ref: '#/components/schemas/ScreenshotProperties'
-            buildId:
-              type: string
-              example: 50af60e1-8709-40b1-981f-19636de5a590
-            buildName:
-              type: string
-              example: 0e1915b
-            projectName:
-              type: string
-              example: FPS-Monterey
-            buildStatus:
-              type: string
-              example: 1 Under Review
-        status:
-          type: string
-          example: success
   securitySchemes:
     basicAuth:
       type: http

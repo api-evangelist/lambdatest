@@ -62,6 +62,18 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    UploadScreenshotError:
+      type: object
+      properties:
+        data:
+          type: string
+          example: Please Specify Project Token. It is a mandatory parameter
+        message:
+          type: string
+          example: error
+        status:
+          type: string
+          example: fail
     UploadScreenshotResponseV2:
       type: object
       properties:
@@ -101,18 +113,6 @@ components:
         status:
           type: string
           example: success
-    UploadScreenshotError:
-      type: object
-      properties:
-        data:
-          type: string
-          example: Please Specify Project Token. It is a mandatory parameter
-        message:
-          type: string
-          example: error
-        status:
-          type: string
-          example: fail
   securitySchemes:
     basicAuth:
       type: http

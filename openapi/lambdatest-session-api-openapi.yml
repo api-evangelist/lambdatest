@@ -717,38 +717,28 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    LogResponse_data:
-      type: object
+    ListsTestsResponse:
+      required:
+      - Meta
+      - data
       properties:
-        logType:
-          type: string
-          example: requestLog
-        testID:
-          type: string
-          example: 5HLCQ-HPCWH-UOE2O-2CUFA
-        status:
-          type: number
-          example: 0
-        timestamp:
-          type: number
-          example: 1551356385
-        Value:
-          $ref: '#/components/schemas/LogResponse_Value'
-    SeleniumHarLogResponse:
-      properties:
+        Meta:
+          $ref: '#/components/schemas/ListsTestsResponse_Meta'
         data:
           type: array
           items:
-            $ref: '#/components/schemas/SeleniumHarLogResponse_data'
-    SessionForbidden:
+            $ref: '#/components/schemas/ListsTestsResponse_data'
+    ListsTestsResponse_Meta_result_set:
       type: object
       properties:
-        message:
-          type: string
-          example: Forbidden! Operation not allowed.
-        status:
-          type: string
-          example: fail
+        count:
+          type: number
+        limit:
+          type: number
+        offset:
+          type: number
+        total:
+          type: number
     AlreadyStoppedSessionResponse:
       type: object
       properties:
@@ -760,6 +750,156 @@ components:
           example: fail
         url:
           type: string
+    ListsTestsResponse_Meta_attributes:
+      type: object
+      properties:
+        org_id:
+          type: number
+    ScreenshotResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Retrieve screenshot url was successful
+        status:
+          type: string
+          example: success
+        url:
+          type: string
+    SeleniumLogResponse_Value:
+      type: object
+      properties:
+        level:
+          type: string
+          example: INFO
+        message:
+          type: string
+          example: Started new session 2F42BCCC-BF43-426A-A72F-F58F58167496 (org.openqa.selenium.safari.SafariDriverService)
+        timestamp:
+          type: number
+          example: 1551356378609
+    SessionUpdateSuccess:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Session updated successfully
+        status:
+          type: string
+          example: success
+    UploadTerminalFileResposeData:
+      type: object
+      properties:
+        data:
+          type: string
+          example: File have been uploaded successfully to our lambda storage
+        status:
+          type: string
+          example: success
+    VideoResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Retrieve video url was successful
+        status:
+          type: string
+          example: success
+        url:
+          type: string
+        view_video_url:
+          type: string
+    SessionNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Either resource not found or already deleted
+        status:
+          type: string
+          example: fail
+    SeleniumLogResponse_data:
+      type: object
+      properties:
+        logType:
+          type: string
+          example: server
+        testID:
+          type: string
+          example: 5HLCQ-HPCWH-UOE2O-2CUFA
+        status:
+          type: number
+          example: 0
+        timestamp:
+          type: number
+          example: 1551356378609
+        Value:
+          $ref: '#/components/schemas/SeleniumLogResponse_Value'
+    SessionBadResquest:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Please provide a valid payload
+        status:
+          type: string
+          example: fail
+    Session:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/SessionData'
+        message:
+          type: string
+          example: Retrieve session was successful
+        status:
+          type: string
+          description: pet status in the store
+          enum:
+          - success
+          - failed
+    SessionDeleteSuccess:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Session deleted successfully
+        status:
+          type: string
+          example: success
+    LogResponse:
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/LogResponse_data'
+    SessionForbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Forbidden! Operation not allowed.
+        status:
+          type: string
+          example: fail
+    SeleniumLogResponse:
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SeleniumLogResponse_data'
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+    ListsTestsResponse_Meta:
+      type: object
+      properties:
+        attributes:
+          $ref: '#/components/schemas/ListsTestsResponse_Meta_attributes'
+        result_set:
+          $ref: '#/components/schemas/ListsTestsResponse_Meta_result_set'
     LogResponse_Value:
       type: object
       properties:
@@ -789,104 +929,6 @@ components:
           example: 200 OK
         screenshotId:
           type: string
-    SessionDeleteSuccess:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Session deleted successfully
-        status:
-          type: string
-          example: success
-    ListsTestsResponse_Meta_attributes:
-      type: object
-      properties:
-        org_id:
-          type: number
-    ListsTestsResponse_Meta:
-      type: object
-      properties:
-        attributes:
-          $ref: '#/components/schemas/ListsTestsResponse_Meta_attributes'
-        result_set:
-          $ref: '#/components/schemas/ListsTestsResponse_Meta_result_set'
-    SeleniumLogResponse_Value:
-      type: object
-      properties:
-        level:
-          type: string
-          example: INFO
-        message:
-          type: string
-          example: Started new session 2F42BCCC-BF43-426A-A72F-F58F58167496 (org.openqa.selenium.safari.SafariDriverService)
-        timestamp:
-          type: number
-          example: 1551356378609
-    SeleniumHarLogResponse_data:
-      type: object
-      properties:
-        data:
-          type: object
-          example: object
-        message:
-          type: string
-          example: Downloaded network.har file successfully
-        status:
-          type: string
-          example: success
-    UploadExceptionLog:
-      type: object
-      properties:
-        exception:
-          type: array
-          items:
-            type: string
-          example:
-          - exception 1
-          - exception 2
-          - expection 3
-    UpdateSessionPayload:
-      type: object
-      properties:
-        name:
-          type: string
-          example: mytest
-        status_ind:
-          type: string
-          example: passed
-        reason:
-          type: string
-          example: all checks passed
-        custom_data:
-          type: object
-        tags:
-          type: array
-          items:
-            type: string
-          example:
-          - tag1
-          - tag2
-          - tag3
-    ListsTestsResponse:
-      required:
-      - Meta
-      - data
-      properties:
-        Meta:
-          $ref: '#/components/schemas/ListsTestsResponse_Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ListsTestsResponse_data'
-    UploadTerminalFileSizeError:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Oops ! file size too large (> 2MB)
-        status:
-          type: string
-          example: fail
     SessionData:
       type: object
       properties:
@@ -959,63 +1001,58 @@ components:
           example: https://d15x9hjibri3lt.cloudfront.net/00HIR-IQNLL-SDVHV-KDTBM/screenshots.zip
         customData:
           type: object
-    Session:
+    UploadExceptionLog:
       type: object
       properties:
-        data:
-          $ref: '#/components/schemas/SessionData'
-        message:
-          type: string
-          example: Retrieve session was successful
-        status:
-          type: string
-          description: pet status in the store
-          enum:
-          - success
-          - failed
-    LogResponse:
+        exception:
+          type: array
+          items:
+            type: string
+          example:
+          - exception 1
+          - exception 2
+          - expection 3
+    UploadTerminalFilePayload:
+      type: object
       required:
-      - data
+      - files
       properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/LogResponse_data'
-    ListsTestsResponse_Meta_result_set:
+        file:
+          type: string
+          format: binary
+    UpdateSessionPayload:
       type: object
       properties:
-        count:
-          type: number
-        limit:
-          type: number
-        offset:
-          type: number
-        total:
-          type: number
-    SessionUpdateSuccess:
+        name:
+          type: string
+          example: mytest
+        status_ind:
+          type: string
+          example: passed
+        reason:
+          type: string
+          example: all checks passed
+        custom_data:
+          type: object
+        tags:
+          type: array
+          items:
+            type: string
+          example:
+          - tag1
+          - tag2
+          - tag3
+    StopSessionResponse:
       type: object
       properties:
         message:
           type: string
-          example: Session updated successfully
+          example: Session stopped successfully.
         status:
           type: string
           example: success
-    UploadTerminalFileResposeData:
-      type: object
-      properties:
-        data:
+        url:
           type: string
-          example: File have been uploaded successfully to our lambda storage
-        status:
-          type: string
-          example: success
-    SeleniumLogResponse:
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/SeleniumLogResponse_data'
     ListsTestsResponse_data:
       type: object
       properties:
@@ -1094,73 +1131,24 @@ components:
         command_logs:
           type: string
           example: http://api.lambdatest.com/automation/api/v1/sessions/bc02fd99593f14e37850745d66197f89/log/command
-    SessionBadResquest:
+    SeleniumHarLogResponse_data:
       type: object
       properties:
+        data:
+          type: object
+          example: object
         message:
           type: string
-          example: Please provide a valid payload
-        status:
-          type: string
-          example: fail
-    UploadTerminalFilePayload:
-      type: object
-      required:
-      - files
-      properties:
-        file:
-          type: string
-          format: binary
-    VideoResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Retrieve video url was successful
+          example: Downloaded network.har file successfully
         status:
           type: string
           example: success
-        url:
-          type: string
-        view_video_url:
-          type: string
-    SessionNotFound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Either resource not found or already deleted
-        status:
-          type: string
-          example: fail
-    StopSessionResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Session stopped successfully.
-        status:
-          type: string
-          example: success
-        url:
-          type: string
-    ScreenshotResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Retrieve screenshot url was successful
-        status:
-          type: string
-          example: success
-        url:
-          type: string
-    SeleniumLogResponse_data:
+    LogResponse_data:
       type: object
       properties:
         logType:
           type: string
-          example: server
+          example: requestLog
         testID:
           type: string
           example: 5HLCQ-HPCWH-UOE2O-2CUFA
@@ -1169,12 +1157,24 @@ components:
           example: 0
         timestamp:
           type: number
-          example: 1551356378609
+          example: 1551356385
         Value:
-          $ref: '#/components/schemas/SeleniumLogResponse_Value'
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
+          $ref: '#/components/schemas/LogResponse_Value'
+    SeleniumHarLogResponse:
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SeleniumHarLogResponse_data'
+    UploadTerminalFileSizeError:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Oops ! file size too large (> 2MB)
+        status:
+          type: string
+          example: fail
   securitySchemes:
     basicAuth:
       type: http

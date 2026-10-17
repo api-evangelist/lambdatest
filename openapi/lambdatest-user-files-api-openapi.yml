@@ -141,31 +141,26 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    DeleteUserFilePayload:
-      type: object
-      required:
-      - key
-      properties:
-        key:
-          type: string
-          example: file_example_JPG_2500kB.jpg
-    DownloadUserFilePageNotFound:
+    DeletePageNotFound:
       type: object
       properties:
         message:
           type: string
-          example: Error in downloading file from lambda storage
+          example: File doesn't exist in lambda storage
         status:
           type: string
           example: fail
-    DownloadUserFilePayload:
-      type: object
+    ListUserFileResponse:
       required:
-      - key
+      - Meta
+      - data
       properties:
-        key:
-          type: string
-          example: file_example_JPG_2500kB.jpg
+        Meta:
+          $ref: '#/components/schemas/ListUserFileResponse_Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListUserFileResponse_data'
     UploadUserFilesResposeData:
       type: object
       properties:
@@ -179,24 +174,6 @@ components:
         message:
           type: string
           example: File have been uploaded successfully to our lambda storage
-    DeleteUserFileResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: File have been successfully deleted from our lambda storage
-        status:
-          type: string
-          example: success
-    InValidJson:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Oops! The name that you have provided already exists. Please use different name or delete this script first
-        status:
-          type: string
-          example: fail
     ListUserFileResponse_Meta:
       type: object
       properties:
@@ -206,6 +183,15 @@ components:
         total:
           type: number
           example: 1
+    DownloadUserFilePageNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Error in downloading file from lambda storage
+        status:
+          type: string
+          example: fail
     UploadUserFilePayload:
       type: object
       required:
@@ -214,6 +200,26 @@ components:
         files:
           type: string
           format: binary
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+    DeleteUserFileResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: File have been successfully deleted from our lambda storage
+        status:
+          type: string
+          example: success
+    DownloadUserFilePayload:
+      type: object
+      required:
+      - key
+      properties:
+        key:
+          type: string
+          example: file_example_JPG_2500kB.jpg
     ListUserFileResponse_data:
       type: object
       properties:
@@ -228,26 +234,20 @@ components:
           type: number
           example: 104
           description: file size
-    ListUserFileResponse:
+    DeleteUserFilePayload:
+      type: object
       required:
-      - Meta
-      - data
+      - key
       properties:
-        Meta:
-          $ref: '#/components/schemas/ListUserFileResponse_Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ListUserFileResponse_data'
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
-    DeletePageNotFound:
+        key:
+          type: string
+          example: file_example_JPG_2500kB.jpg
+    InValidJson:
       type: object
       properties:
         message:
           type: string
-          example: File doesn't exist in lambda storage
+          example: Oops! The name that you have provided already exists. Please use different name or delete this script first
         status:
           type: string
           example: fail

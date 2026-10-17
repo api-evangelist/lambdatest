@@ -107,30 +107,15 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ListExtensionResponse:
-      required:
-      - Meta
-      - data
-      properties:
-        Meta:
-          $ref: '#/components/schemas/ListExtensionResponse_Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ListExtensionResponse_data'
-    UploadExtensionResponseData:
+    DeletePageNotFound:
       type: object
       properties:
-        error:
-          type: string
-          example: ''
-          description: error message if there is any error in uploading file. If file upload is success, then it will empty
-        s3_url:
-          type: string
-          example: https://automation-prod-user-files.s3.amazonaws.com/extensions/orgId-123456/extension_1.zip
         message:
           type: string
-          example: File have been uploaded successfully to our lambda storage
+          example: File doesn't exist in lambda storage
+        status:
+          type: string
+          example: fail
     ListExtensionResponse_Meta:
       type: object
       properties:
@@ -140,15 +125,6 @@ components:
         total:
           type: number
           example: 1
-    DeleteExtensionResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: File have been successfully deleted from our lambda storage
-        status:
-          type: string
-          example: success
     UploadExtensionPayload:
       type: object
       required:
@@ -166,6 +142,20 @@ components:
         status:
           type: string
           example: fail
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+    ListExtensionResponse:
+      required:
+      - Meta
+      - data
+      properties:
+        Meta:
+          $ref: '#/components/schemas/ListExtensionResponse_Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListExtensionResponse_data'
     ListExtensionResponse_data:
       type: object
       properties:
@@ -184,18 +174,19 @@ components:
           type: string
           example: https://automation-prod-user-files.s3.amazonaws.com/extensions/orgId-123456/extension_1.zip
           description: url of the uploaded extension
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
-    DeletePageNotFound:
+    UploadExtensionResponseData:
       type: object
       properties:
+        error:
+          type: string
+          example: ''
+          description: error message if there is any error in uploading file. If file upload is success, then it will empty
+        s3_url:
+          type: string
+          example: https://automation-prod-user-files.s3.amazonaws.com/extensions/orgId-123456/extension_1.zip
         message:
           type: string
-          example: File doesn't exist in lambda storage
-        status:
-          type: string
-          example: fail
+          example: File have been uploaded successfully to our lambda storage
     DeleteExtensionPayload:
       type: object
       required:
@@ -204,6 +195,15 @@ components:
         key:
           type: string
           example: extension_1.zip
+    DeleteExtensionResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: File have been successfully deleted from our lambda storage
+        status:
+          type: string
+          example: success
   securitySchemes:
     basicAuth:
       type: http

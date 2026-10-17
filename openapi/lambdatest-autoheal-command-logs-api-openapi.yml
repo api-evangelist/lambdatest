@@ -123,6 +123,20 @@ paths:
       - basicAuth: []
 components:
   schemas:
+    Unauthorized:
+      type: object
+      properties:
+        status:
+          type: string
+          example: fail
+        message:
+          type: string
+          example: Unauthorized
+        data:
+          type:
+          - object
+          - 'null'
+          example: null
     BadRequest:
       type: object
       properties:
@@ -137,6 +151,19 @@ components:
           - object
           - 'null'
           example: null
+    AutohealedCommandsResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        message:
+          type:
+          - string
+          - 'null'
+          example: null
+        data:
+          $ref: '#/components/schemas/AutohealedCommandsData'
     AutohealedCommand:
       type: object
       properties:
@@ -156,58 +183,6 @@ components:
           type: integer
           description: Time taken to heal the locator in milliseconds
           example: 349
-    NotFound:
-      type: object
-      properties:
-        status:
-          type: string
-          example: fail
-        message:
-          type: string
-          example: Test not found
-        data:
-          type:
-          - object
-          - 'null'
-          example: null
-    AutohealedCommandsResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: success
-        message:
-          type:
-          - string
-          - 'null'
-          example: null
-        data:
-          $ref: '#/components/schemas/AutohealedCommandsData'
-    LocatorData:
-      type: object
-      properties:
-        using:
-          type: string
-          description: The locator strategy used (e.g., css selector, xpath, id)
-          example: css selector
-        value:
-          type: string
-          description: The actual locator value
-          example: input.custom-checkbox.ng-pristine.ng-untouched.ng-valid.ng-empty
-    Unauthorized:
-      type: object
-      properties:
-        status:
-          type: string
-          example: fail
-        message:
-          type: string
-          example: Unauthorized
-        data:
-          type:
-          - object
-          - 'null'
-          example: null
     AutohealedCommandsData:
       type: object
       properties:
@@ -224,6 +199,20 @@ components:
           description: Array of autohealed command details
           items:
             $ref: '#/components/schemas/AutohealedCommand'
+    NotFound:
+      type: object
+      properties:
+        status:
+          type: string
+          example: fail
+        message:
+          type: string
+          example: Test not found
+        data:
+          type:
+          - object
+          - 'null'
+          example: null
     InternalServerError:
       type: object
       properties:
@@ -238,6 +227,17 @@ components:
           - object
           - 'null'
           example: null
+    LocatorData:
+      type: object
+      properties:
+        using:
+          type: string
+          description: The locator strategy used (e.g., css selector, xpath, id)
+          example: css selector
+        value:
+          type: string
+          description: The actual locator value
+          example: input.custom-checkbox.ng-pristine.ng-untouched.ng-valid.ng-empty
   securitySchemes:
     basicAuth:
       type: http

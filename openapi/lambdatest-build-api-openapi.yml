@@ -265,75 +265,17 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ListsTestsResponse_Meta:
+    ListsTestsResponse_Meta_result_set:
       type: object
       properties:
-        attributes:
-          $ref: '#/components/schemas/ListsTestsResponse_Meta_attributes'
-        result_set:
-          $ref: '#/components/schemas/ListsTestsResponse_Meta_result_set'
-    EditBuild:
-      type: object
-      properties:
-        name:
-          type: string
-          format: string
-        status:
-          type: string
-          format: string
-    EditBuildResponse_data:
-      type: object
-      properties:
-        result:
-          type: string
-          example: '1'
-    StopBuildResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            builds:
-              type: array
-              items:
-                type: string
-              example:
-              - buildId1
-              - buildId2
-              - buildId3
-        message:
-          type: string
-          example: Initiated build stop
-        status:
-          type: string
-          example: success
-    BuildInvalidQueryParams:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid Query Params provided
-        status:
-          type: string
-          example: fail
-    EditBuildResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Build updated successfully
-        status:
-          type: string
-          example: success
-        data:
-          $ref: '#/components/schemas/EditBuildResponse_data'
-    BuildActionForbidden:
-      type: object
-      properties:
-        message:
-          example: Cannot stop more than 10 builds through this API
-        status:
-          example: fail
+        count:
+          type: number
+        limit:
+          type: number
+        offset:
+          type: number
+        total:
+          type: number
     ListBuildResponse_data:
       type: object
       properties:
@@ -375,17 +317,26 @@ components:
         duration:
           type: number
           example: 719
-    ListsTestsResponse_Meta_result_set:
+    BuildNotFound:
       type: object
       properties:
-        count:
-          type: number
-        limit:
-          type: number
-        offset:
-          type: number
-        total:
-          type: number
+        message:
+          type: string
+          example: Could not find any build in running state
+        status:
+          type: string
+          example: fail
+    DeleteBuildResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Build deleted successfully
+        status:
+          type: string
+          example: success
+        data:
+          $ref: '#/components/schemas/EditBuildResponse_data'
     SingleBuildResponse:
       properties:
         data:
@@ -396,15 +347,11 @@ components:
         status:
           type: string
           example: success
-    BuildNotFound:
+    ListsTestsResponse_Meta_attributes:
       type: object
       properties:
-        message:
-          type: string
-          example: Could not find any build in running state
-        status:
-          type: string
-          example: fail
+        org_id:
+          type: number
     SingleBuildResponse_data:
       type: object
       properties:
@@ -452,17 +399,54 @@ components:
         dashboard_url:
           type: string
           example: https://automation.lambdatest.com/build?&build=1
-    DeleteBuildResponse:
+    BuildInvalidQueryParams:
       type: object
       properties:
         message:
           type: string
-          example: Build deleted successfully
+          example: Invalid Query Params provided
+        status:
+          type: string
+          example: fail
+    BuildActionForbidden:
+      type: object
+      properties:
+        message:
+          example: Cannot stop more than 10 builds through this API
+        status:
+          example: fail
+    StopBuildResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            builds:
+              type: array
+              items:
+                type: string
+              example:
+              - buildId1
+              - buildId2
+              - buildId3
+        message:
+          type: string
+          example: Initiated build stop
         status:
           type: string
           example: success
-        data:
-          $ref: '#/components/schemas/EditBuildResponse_data'
+    AccessDenied:
+      type: string
+      example: 'HTTP Basic: Access denied.'
+    EditBuild:
+      type: object
+      properties:
+        name:
+          type: string
+          format: string
+        status:
+          type: string
+          format: string
     ListBuildResponse:
       required:
       - Meta
@@ -474,14 +458,30 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ListBuildResponse_data'
-    AccessDenied:
-      type: string
-      example: 'HTTP Basic: Access denied.'
-    ListsTestsResponse_Meta_attributes:
+    ListsTestsResponse_Meta:
       type: object
       properties:
-        org_id:
-          type: number
+        attributes:
+          $ref: '#/components/schemas/ListsTestsResponse_Meta_attributes'
+        result_set:
+          $ref: '#/components/schemas/ListsTestsResponse_Meta_result_set'
+    EditBuildResponse_data:
+      type: object
+      properties:
+        result:
+          type: string
+          example: '1'
+    EditBuildResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Build updated successfully
+        status:
+          type: string
+          example: success
+        data:
+          $ref: '#/components/schemas/EditBuildResponse_data'
   securitySchemes:
     basicAuth:
       type: http
