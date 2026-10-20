@@ -32,3 +32,30 @@ rfc9728:
     - https://auth.lambdatest.com
     bearer_methods_supported:
     - header
+tool_quality:
+  tool_count: 88
+  tokens_total: 24717
+  tokens_per_tool_median: 231
+  heavy_tools:
+  - name: generateHyperExecuteYAML
+    tokens: 2077
+  heavy_tool_count: 1
+  params_total: 325
+  params_undescribed: 0
+  params_described_pct: 100.0
+  tools_with_undescribed_params: 0
+  tools_annotated: 88
+  annotated_pct: 100.0
+  state_changing_unhinted: []
+  tools_missing_schema: 0
+  short_descriptions: 0
+  duplicate_descriptions: 0
+  duplicate_names: 0
+  nonportable_names: []
+  output_schema_count: 3
+  token_estimate: chars/3.6 of each compact tool definition
+  source: mcp/lambdatest-mcp-tools.json
+  measured: '2026-10-20'
+  scored: false
+  note: Facts from the saved tools/list capture (mcp_tool_quality.py); recorded, not scored. Checks learned
+    from Glimind's agent-readiness audit.
