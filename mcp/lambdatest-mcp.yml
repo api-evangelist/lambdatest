@@ -59,3 +59,390 @@ tool_quality:
   scored: false
   note: Facts from the saved tools/list capture (mcp_tool_quality.py); recorded, not scored. Checks learned
     from Glimind's agent-readiness audit.
+tools:
+- name: upload_app
+  description: Uploads an app to LambdaTest for mobile testing and displays upload status.
+- name: generateHyperExecuteYAML
+  description: 'Generates a HyperExecute YAML configuration for running tests on LambdaTest''s HyperExecute
+    platform.
+
+
+    REQUIRED fields: project (language, framework) and testing (testDiscovery.command, testRunnerCommand)
+
+    All other fields are OPTIONAL.
+
+
+    Supports multiple languages and frameworks:
+
+    - JavaScript/TypeScript: Playwright, Cypress, WebDriverIO, Puppeteer, Taiko
+
+    - Python: Pytest, Behave, Robot Framework
+
+    - Java: TestNG, JUnit, Cucumber
+
+    - Ruby: RSpec, Capybara
+
+    - C#: NUnit, xUnit, MSTest
+
+    - Mobile (ONLY use appTesting for these): XCUI (iOS), Espresso (Android), Appium
+
+
+    Features:
+
+    - Smart framework defaults for common configurations
+
+    - Input validation with security checks
+
+    - Caching and artifact upload configuration
+
+    - Git integration via sourcePayload
+
+    - Mobile app testing support (via optional appTesting field)
+
+
+    The appTesting field applies to mobile app testing only; web automation (Selenium, Playwright, Cypress,
+    etc.) leaves it out.'
+- name: answerHyperExecuteQuery
+  description: Answers questions about HyperExecute features, configuration, usage, troubleshooting, and
+    best practices by searching through documentation.
+- name: getHyperExecuteJobInfo
+  description: Fetches and displays information about a HyperExecute job including status, test results,
+    and progress.
+- name: getHyperExecuteJobSessions
+  description: Fetches and displays session information for a HyperExecute job.
+- name: getAccessibilityReport
+  description: 'Runs an accessibility scan on the given URLs and returns the issues found. Pass urls to
+    start a scan, or testId to re-read a scan that already ran; exactly one of the two. Results arrive
+    in issueDetails: allIssues (most-severe-first, one page at a time), rules (name and reference link
+    per rule id, listed once), pages (every scanned page with its score and issue count), failedRules
+    (per-rule totals for the whole scan) and pagination. Each issue carries its own howToFix and criteria,
+    measured for that element - two issues sharing a rule can have different causes and fixes. While pagination.nextOffset
+    is not null the results are incomplete: call again with the testId from the response plus that offset,
+    keeping the same filters, until it is null. Page with testId, never by passing urls again - that starts
+    a new scan, costs another run, and can return a different set of issues whose offsets do not line
+    up. a11yReportLink is the dashboard URL and needs a login; shareableLink is public and is only returned
+    by the original scan.'
+- name: analyzeAppViaTunnel
+  description: Analyzes a locally running app for accessibility via LambdaTest tunnel.
+- name: buildLocalAppForAnalysis
+  description: Returns step-by-step instructions to build and serve a local web app and open a LambdaTest
+    tunnel to it, so its accessibility can then be scanned with analyzeAppViaTunnel. It does not build,
+    run or scan anything itself, and never includes the access key.
+- name: getAutomationTestDetails
+  description: Fetches detailed information about an automation test by ID
+- name: getAutomationTestCommandLogs
+  description: Fetches command logs for a specific automation test
+- name: getAutomationTestNetworkLogs
+  description: Fetches network logs for a specific automation test
+- name: getAutomationTestBrowserConsoleLogs
+  description: 'Fetches Browser Console logs for a specific automation test. Note: Not available for mobile
+    app automation tests.'
+- name: getAutomationTestSeleniumLogs
+  description: Fetches Selenium logs (web), Appium logs (mobile/Appium), or instrumentation logs (mobile/XCUI/Espresso)
+    for a specific automation test. Automatically detects XCUI and Espresso tests and fetches the correct
+    log type.
+- name: automationQuery
+  description: 'Read-only query of LambdaTest automation resources: list builds, get one build, list the
+    sessions in a build, fetch test details, and retrieve test logs (command, network, console, selenium,
+    instrumentation). Every combination works on platform "web" or "app": build list or get, session list
+    or get, test get, and logs get with a logType. List results carry a pagination object; trust it, not
+    result_set.total, which also counts older builds the list no longer returns. logType "instrumentation"
+    returns XCUI and Espresso test logs. Renaming, stopping and deleting builds are separate tools: updateBuild,
+    stopBuild and deleteBuild.'
+- name: updateBuild
+  description: Renames a LambdaTest web automation build. Overwrites the current build name.
+- name: stopBuild
+  description: Stops every running test in a LambdaTest web automation build. Running sessions end immediately.
+- name: deleteBuild
+  description: Permanently deletes a LambdaTest web automation build and its test results. Cannot be undone.
+- name: triggerSuiteRun
+  description: Triggers a phone call test run for a specific suite. This will initiate phone calls for
+    all scenarios configured in the suite.
+- name: getSuiteOverview
+  description: Gets comprehensive suite overview for a project including run counts, latest status, scores,
+    schedule information, and active calls.
+- name: getSupportedPlatforms
+  description: 'Lists the OS, browser and device combinations LambdaTest supports, to find valid os, browser
+    and version values for a test configuration. With no filters it returns a compact summary: each desktop
+    OS with its browsers (version count, newest and oldest) and resolutions, and each mobile platform
+    with its device count and OS versions. Set os (and optionally browser) for the full version list,
+    or os=ios / os=android for device names.'
+- name: listTunnels
+  description: Retrieve all active LambdaTest tunnel connections for the account. Useful for checking
+    which tunnels are running before starting a new one or debugging local testing connectivity.
+- name: stopTunnel
+  description: Terminate a specific active tunnel connection by tunnel ID. Use this to clean up tunnels
+    that are no longer needed.
+- name: deleteSession
+  description: Permanently delete a specific automation test session from LambdaTest by session ID.
+- name: updateSession
+  description: Update the name or pass/fail status of a test session. Use status_ind to mark tests as
+    passed, failed, error, or skipped from your test framework.
+- name: stopSession
+  description: Stop an active running test session on LambdaTest.
+- name: getSessionScreenshots
+  description: 'Retrieve command-by-command screenshots captured during a test session. Returns screenshot
+    URLs for each step. Web automation (Selenium, Playwright, Cypress) only: an app automation session
+    returns not found; listMobileSessions carries the video and screenshot links of app sessions.'
+- name: getSessionVideo
+  description: 'Retrieve the video recording URL for a completed test session. Web automation (Selenium,
+    Playwright, Cypress) only: an app automation session returns not found; listMobileSessions carries
+    the video and screenshot links of app sessions.'
+- name: getSessionV2CommandLogs
+  description: 'Retrieve v2 command execution logs for a test session. Returns structured JSON with enhanced
+    detail compared to v1 logs. Web automation (Selenium, Playwright, Cypress) only: an app automation
+    session returns not found; listMobileSessions carries the video and screenshot links of app sessions.'
+- name: getSessionV2SeleniumLogs
+  description: 'Retrieve v2 Selenium/WebDriver grid request and response logs for a test session. Web
+    automation (Selenium, Playwright, Cypress) only: an app automation session returns not found; listMobileSessions
+    carries the video and screenshot links of app sessions.'
+- name: postSessionExceptions
+  description: Upload exception/error logs from the client machine for a test session, by session ID.
+    Use this to attach assertion failures or unexpected errors to a session. The result reads the test's
+    exceptions back to confirm they were stored. The automation dashboard may not show exceptions uploaded
+    this way after the test ended.
+- name: postTestExceptions
+  description: Upload exception logs for a specific test (by test ID) rather than by session ID. The result
+    reads the test's exceptions back to confirm they were stored. The automation dashboard may not show
+    exceptions uploaded this way after the test ended.
+- name: getLiveSessionLogs
+  description: 'Retrieve the request and response log of a test session, while it runs or after it ends.
+    Web automation (Selenium, Playwright, Cypress) only: an app automation session returns not found;
+    listMobileSessions carries the video and screenshot links of app sessions.'
+- name: getOrgConcurrency
+  description: Retrieve the current concurrency usage and limits for the organization on web automation
+    (Selenium/Cypress).
+- name: getAnalyticsData
+  description: 'Summarises web automation test results in a date range: total tests, passed, failed, completed
+    without a pass/fail mark, pass rate (passed over all tests, as the Insights page shows it), pass rate
+    over tests marked passed or failed, average duration and distinct builds, grouped by status, browser,
+    os, build, device or day. Computed from the automation test list (up to 5000 tests per call; the total
+    is always exact).'
+- name: getFlakyTests
+  description: Lists tests that the insights engine marks as flaky (passing and failing intermittently)
+    in a date range, with each test's flake rate, build and environment. Returns only flaky tests, plus
+    how many tests were scanned. Flakiness is only computed for about the last 7 days of tests; the response
+    says how many tests in the range had it.
+- name: getTestTrends
+  description: 'Daily trend of web automation test results in a date range: for each day, total tests,
+    passed, failed, completed without a pass/fail mark, pass rate (passed over all tests), pass rate over
+    tests marked passed or failed, and average duration.'
+- name: getAnalyticsErrors
+  description: 'Summarises failed and errored web automation tests in a date range: counts by failure
+    category and by status, and the failing tests themselves with build and environment. Failure categories
+    exist only for about the last 7 days of tests; older failures are counted as uncategorised.'
+- name: deletePrerunFile
+  description: Delete an uploaded prerun file by stored LambdaTest file path.
+- name: deleteUserFile
+  description: Delete an uploaded user file by stored LambdaTest file path.
+- name: listUploadedApps
+  description: Retrieve all apps uploaded to LambdaTest for mobile testing. Use type=android/ios for real
+    devices, emulator/simulator for virtual devices.
+- name: deleteUploadedApps
+  description: Delete one or more uploaded apps from LambdaTest by their app IDs.
+- name: uploadAppVirtualDevice
+  description: Upload an app (APK for emulator, IPA for simulator) to LambdaTest for virtual device (emulator/simulator)
+    testing.
+- name: listDevicesForTesting
+  description: Lists the real devices available on LambdaTest for mobile app testing, 50 per page by default.
+    Filter by region, OS, device name or OS version, and page with limit and offset. The text gives the
+    total that matched.
+- name: getMobileCapabilityGenerator
+  description: Retrieve capability generation data for mobile automation test configuration.
+- name: listMobileBuilds
+  description: Lists mobile app automation builds, newest first, 10 per page by default. Page with limit
+    and offset; the result gives the total the API reports. The API returns only builds from the last
+    90 days, so total can be higher than the builds you can page through.
+- name: listMobileSessions
+  description: Lists mobile app automation sessions (tests), newest first, 10 per page by default, with
+    their video, screenshot and log links. Page with limit and offset, or filter by buildId or status;
+    the result gives the total the API reports.
+- name: getMobileConcurrency
+  description: Retrieve the current concurrency usage and limits for mobile automation (real device testing).
+- name: checkAppProcessingStatus
+  description: 'Check whether an uploaded app has been processed and is ready for features like image
+    injection, network logs, and screenshot unblock on real devices. The LambdaTest API has no read-only
+    status call: this one starts or refreshes the processing for the requested features, so the app''s
+    last-updated time changes. An app id that is not among your uploaded apps returns an error.'
+- name: tm_list_projects
+  description: List all Test Manager projects the authenticated user is allowed to see. Supports keyword
+    search and pagination.
+- name: tm_get_test_cases
+  description: Find test cases in a project by filters (folder, priority, automation status, type, tags)
+    and/or search (matches test case ID like TC-123, or title; minimum 3 characters) — returns summaries.
+    Filters combine (AND). Pass case_id instead to get one case's full detail (steps, BDD scenarios, field
+    values).
+- name: tm_list_folders
+  description: 'Get a folder tree. Test Manager keeps three folder types: Test Cases and Test Runs folders
+    (per project — pass project_id) and Modules folders (organization-level, since modules are shared
+    across projects — no project_id needed). Pick with the tree parameter (default: test-cases). New test-case/test-run
+    folders can be created with tm_create_folder.'
+- name: tm_list_modules
+  description: List the organization's reusable step Modules (modules are org-level, shared across projects
+    — the same list as the Modules page). Supports name search and pagination. Reference a module by id
+    when creating or editing a test case to include its steps (the Module itself is never changed).
+- name: tm_list_configurations
+  description: 'List saved run Configurations (reusable platform / browser / OS / device setups). To apply
+    one to a run, pass the configuration''s TOP-LEVEL id to tm_create_test_run or tm_update_test_run as
+    configuration_id (NOT the nested environments[].environment_id). Pass run_type to see only the configurations
+    usable for that run type (kaneai vs manual). Each test instance carries exactly one configuration.
+    Configurations are created by humans in the Test Manager UI. They are organization-level (shared by
+    every project), so there is no project filter. Results are paged: the response says how many exist
+    in total; page through them or raise limit to see all.'
+- name: tm_get_test_runs
+  description: Pass run_id to get one test run's detail plus its result summary (instance counts by status
+    — passed / failed / skipped / not started / in progress — and pass rate). Otherwise pass project_id
+    to list runs with optional filters. Every returned run carries run_type ("kaneai" or "manual") identifying
+    KaneAI runs — the backend stores KaneAI runs with type "Manual" (result-entry mode), so use run_type,
+    not type, to tell them apart.
+- name: tm_get_milestone
+  description: Pass milestone_id to get one milestone's detail and live completion progress. Otherwise
+    pass project_id to list the project's milestones.
+- name: tm_get_coverage_summary
+  description: 'Test coverage for a project, overall and per folder, computed live from the project''s
+    test cases (matches the Test Cases screen). Also answers requirement and traceability coverage: pass
+    jira_id (any Jira issue key, e.g. TE-123: a requirement, user story, epic, ticket or bug) to get that
+    item''s test coverage (the test cases linked to it and how many are automated; zero linked cases means
+    uncovered). For a set of requirements, call once per Jira key. A scope with no test cases returns
+    all zeros; a Jira key that does not exist in the connected Jira returns an error.'
+- name: tm_create_project
+  description: Create a new Test Manager project. Project & Org Instructions (Memory Layer) stay managed
+    in the UI. Deleting projects is not available through this connection.
+- name: tm_update_project
+  description: Update a project's name, description or tags (fields are merged — only what you pass changes).
+    Project & Org Instructions stay managed in the UI.
+- name: tm_create_folder
+  description: Create a folder — in a project's Test Cases tree (default) or Test Runs tree (pass project_id),
+    or in the organization-level Modules tree (no project_id needed; module folders are shared across
+    projects). Optionally nest it under an existing parent folder to build folder trees. Deleting folders
+    is not available through this connection.
+- name: tm_update_folder
+  description: 'Rename a folder, change its description, or move it under a different parent folder. Works
+    on all three folder types: per-project Test Cases (default) and Test Runs trees, and the organization-level
+    Modules tree. Moves of test-cases/test-runs folders require project_id; module folders need none.'
+- name: tm_generate_test_cases
+  description: 'Generate structured test cases from a requirement or prompt using the Test Manager AI
+    generator (applies the project''s Memory Layer — Project & Org Instructions — automatically) and file
+    them into the chosen folder. Requirement documents, specs, spreadsheets or screenshots can be attached
+    via files to ground the generation. Volume = test_scenario_limit × per_scenario_test_cases_limit,
+    capped at 50 per call. By default all generated cases are saved into the folder (one sub-folder per
+    scenario); pass auto_save=false to review before saving. The call returns FAST with a request_id (and
+    a browser progress URL) — generation takes ~30-90s in the background; call this tool again with just
+    request_id to check progress, fetch results, or save. Note: consumes AI generation credits.'
+- name: tm_create_test_case
+  description: Create a single test case in a project folder, with optional steps and references to existing
+    step Modules (module steps are included; the Module itself is unchanged). For creating many cases
+    from a requirement, prefer tm_generate_test_cases.
+- name: tm_update_test_case
+  description: Edit an existing test case (fields are merged — only what you pass changes). test_steps,
+    when given, REPLACE the case's steps; module_ids append module reference steps. Deleting test cases
+    is not available through this connection.
+- name: tm_create_test_run
+  description: 'Create a test run from chosen test cases — manual (default) or KaneAI (run_type: "kaneai").
+    Each included test case becomes a TEST RUN INSTANCE — the executable copy of that test inside the
+    run, which carries its own status, remarks and exactly one Configuration. The cases must match the
+    run type: KaneAI runs only take KaneAI-authored cases with completed code generation; manual runs
+    only take manual cases. Optionally attach existing milestones, file into a run folder, and apply a
+    Configuration to all instances (KaneAI configurations must be compatible with each case''s platform
+    — web/mobile-app/mobile-browser and iOS/Android).'
+- name: tm_update_test_run
+  description: Update an open test run — overall status (Passed / Failed / Skipped / In Progress), title,
+    objective, milestones, folder, add test cases (each added case becomes a new test run instance; cases
+    must match the run's type — KaneAI or manual), apply a Configuration to the run's instances (configuration_id;
+    on KaneAI runs it must be kane-supported and platform-compatible with the targeted cases), toggle
+    sequential execution (KaneAI runs), or archive it. Only open (active) runs can be updated; a closed/archived
+    run returns a clear message. Adding cases/milestones appends, never replaces.
+- name: tm_record_test_results
+  description: 'Record execution results on a MANUAL run''s TEST RUN INSTANCES (the per-run copies of
+    each test case) — max 500 per request, all-or-nothing (larger requests are rejected with nothing recorded).
+    Manual runs only: KaneAI run results are recorded by KaneAI executions, so manual entry on a KaneAI
+    run is rejected. Target an instance by instance_id, or just pass test_case_id and the instance is
+    resolved automatically. Valid statuses: Passed, Failed, Skipped, Not Started (terminal — run-level
+    "In Progress" is set via tm_update_test_run). Re-recording a step status replaces its result: an omitted
+    step remark is cleared; response echoes per-step outcomes. Optional remarks and assignee per result,
+    and per-step results via steps[] (mark individual test steps / BDD scenario rows Passed/Failed/Skipped
+    with remarks, like the UI''s per-step Mark Status). Note: this sets INSTANCE statuses; the run''s
+    overall status is set separately via tm_update_test_run.'
+- name: tm_create_milestone
+  description: 'Create a milestone in a project (status: Open), optionally with description, start/end
+    dates, tags, and existing runs attached.'
+- name: tm_update_milestone
+  description: Update a milestone — title, description, dates, tags — or change its status (e.g. mark
+    it Completed). Deleting milestones is not available through this connection.
+- name: tm_link_jira_issue
+  description: Link a test case, test run, or a run result (instance) to a Jira issue (requirement / user
+    story / epic / bug) — linked test cases are what give the issue its test coverage and traceability.
+    Linking a result also links its case and run. Requires the Jira integration to be set up for the organization
+    — otherwise a clear "set up Jira first" message is returned.
+- name: tm_link_ado_issue
+  description: Link a test case, test run, or a run result (instance) to an Azure DevOps work item (requirement
+    / user story / bug) by its URL — linked test cases are what give the work item its test coverage and
+    traceability. Requires the Azure DevOps integration to be set up for the organization — otherwise
+    a clear "set up Azure DevOps first" message is returned.
+- name: smartui_project_query
+  description: List SmartUI projects, or get one project with its settings — action=get returns baseline_branch,
+    approvers[], smart_baseline, auto_approval_branch, overwrite_screenshot and project_category alongside
+    platform and project_type. Start here when you do not have a project_id. Read-only.
+- name: smartui_build_query
+  description: 'List SmartUI builds in a project, get one build, or get the CI gate verdict for a build.
+    Use action=gate in pipelines: it returns verdict (passed|failed|pending_approval|running|error), totals
+    (including missing screenshots the baseline has), blocking_comparison_ids, and blocking[] with per-item
+    detail. verdict=failed covers rejections AND builds that dropped baseline screenshots. Read-only.'
+- name: smartui_comparison_query
+  description: List all comparisons in a SmartUI build (each row returns comparison_id AND ss_id), or
+    get one comparison's detail (mismatch %, status, correctly-labelled baseline/current/compared asset
+    URLs). This is how you obtain a comparison_id — you never need the dashboard. Read-only.
+- name: smartui_comparison_analyze
+  description: 'Analyze one SmartUI comparison through a lens: consolidated (default), pixel, or dom.
+    Returns the comparison data (mismatch %, verdict, correctly-labelled asset URLs) plus, for lens=dom,
+    a real DOM byte delta when the artefact is served — no local filesystem needed. consolidated and pixel
+    report upstream numbers and point at the assets; they do not run their own image analysis. lens=dom
+    degrades to a structured error when DOM artefacts are not served. Read-only.'
+- name: smartui_screenshot_upload
+  description: Upload screenshots to a SmartUI project as a new build, from local file_paths or from source_urls
+    (fetched server-side, so it works without a client filesystem). Pass project_id to auto-resolve the
+    project token. Set mark_baseline=true to seed a baseline. Returns build_id; follow with smartui_build_query(action=gate).
+- name: smartui_screenshot_review
+  description: Approve or reject SmartUI comparisons — individually (comparison_ids or ss_ids), or for
+    a whole build (all_matching:{status}). Ids are validated against the build before writing, and results
+    are verified by re-reading status, so the response reports real per-item updated[]/failed[] and whether
+    the baseline was promoted. Approving comparisons on the baseline branch can promote the build to baseline.
+- name: smartui_baseline_manage
+  description: 'Merge SmartUI baselines across branches or builds (to read baseline settings, use smartui_project_query
+    with action=get). merge_branch/merge_build resolve source and target names to builds, merge them,
+    then poll the merged build and report its real terminal status — a merge that lands in error or with
+    zero screenshots is returned as a tool error, not as success. Merging permanently changes baseline
+    state: the merged build takes the baseline flag, so a failed merge leaves the baseline on an empty
+    build.'
+- name: listHyperExecuteJobs
+  description: List the account's HyperExecute jobs, newest first, with offset pagination and an optional
+    status filter. The status filter looks at the 200 most recent jobs.
+- name: getHyperExecuteJobArtifacts
+  description: Retrieve all artifacts or categorized errors for a HyperExecute job or task.
+- name: downloadJobArtifact
+  description: Get an authenticated download URL (plus size/status metadata) for a specific HyperExecute
+    job artifact. Requires artefactName (from getHyperExecuteJobArtifacts); optionally scope to a task
+    with taskId. Returns a URL to fetch with your LambdaTest credentials rather than the raw file bytes.
+- name: getJobArtifactDetail
+  description: Get details for a specific artifact within a HyperExecute job.
+- name: getHyperExecuteStage
+  description: Retrieve the stages of a HyperExecute task (cache/prerun/scenario/etc.). Pass a stageId
+    to return just that one stage. Stages are keyed by their parent task, so taskId is required.
+- name: getHyperExecuteStageLogs
+  description: Retrieve logs for a HyperExecute stage. (UNDOCUMENTED - may change without notice)
+- name: getHyperExecuteStageTasks
+  description: Retrieve tasks for a HyperExecute stage. (UNDOCUMENTED - may change without notice)
+- name: getHyperExecuteTask
+  description: Retrieve details for a HyperExecute task by task ID. (UNDOCUMENTED - may change without
+    notice)
+- name: getHyperExecuteTaskLogs
+  description: Retrieve logs for a HyperExecute task. (UNDOCUMENTED - may change without notice)
+- name: getHyperExecuteJobLiveStream
+  description: Stream live output from a running HyperExecute job. (UNDOCUMENTED - may change without
+    notice)
+- name: analyzeHyperExecuteJob
+  description: 'Perform a full analysis of a HyperExecute job: fetches job info, sessions, traverses all
+    tasks → scenario stages → console logs, and returns a structured report with test results, per-scenario
+    logs, and pass/fail statistics. Use this for questions like "which tests failed and why" or "show
+    me the console logs for job X".'
+tools_count: 88
