@@ -13,6 +13,7 @@ checked:
 - https://skillsmp.com/sitemap.xml
 - https://www.skills.sh/sitemap.xml
 - jetbrains/integrations/jetbrains-integration-edges.yml
+- netlify/integrations/netlify-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: Zapier
@@ -270,5 +271,24 @@ edges:
   detected: '2026-10-20'
   detected_by: mirror-platform-listings.py
   category: IDE / developer extension marketplace listing
+- partner_name: Netlify (own)
+  partner: netlify
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.netlify.com/integrations/lambdatest/
+  mirror_of: netlify/integrations/netlify-integration-edges.yml
+  apps:
+  - LambdaTest
+  - LambdaTest SDK Integration
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: Testing & QA
+  partner_tier: listing
 source:
 - https://github.com/marketplace?type=apps
