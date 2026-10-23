@@ -16,6 +16,9 @@ checked:
 - netlify/integrations/netlify-integration-edges.yml
 - https://api.apis.guru/v2/list.json
 - https://api.apis.guru/v2/providers.json
+- https://landscape.cd.foundation/data/full.json
+- https://plugins.jenkins.io/api/plugin/
+- https://plugins.jenkins.io/api/plugins
 marketplace_apps: []
 edges:
 - partner_name: Zapier
@@ -333,5 +336,24 @@ edges:
     detected: '2026-10-22'
   detected_by: sweep-openapi-directory-apis-guru.py
   first_seen: '2026-10-22'
+- partner_name: Jenkins (own)
+  partner: jenkins
+  partner_match: mirror
+  mirror_match: register
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://plugins.jenkins.io/lambdatest-automation/
+  mirror_of: jenkins/integrations/jenkins-integration-edges.yml
+  apps:
+  - lambdatest-automation (lambdatest-automation)
+  listing_count: 1
+  category: Jenkins plugin
+  signal_note: 'publisher side of the all/jenkins listing; vendor-control: lambdatest-automation: maintainer account
+    ''lambdatest'' is the GitHub organization on all/lambdatest''s apis.yml'
+  detected: '2026-10-22'
+  detected_by: sweep-jenkins-cd-foundation-plugins.py
 source:
 - https://github.com/marketplace?type=apps
