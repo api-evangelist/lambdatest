@@ -356,6 +356,8 @@ apis:
   - type: Documentation
     url: https://www.lambdatest.com/support/docs/smart-ui-cypress/
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/lambdatest/overview
   - type: CapabilityMap
     url: capabilities/lambdatest-capability-edges.yml
     name: LambdaTest Business Capability Map
