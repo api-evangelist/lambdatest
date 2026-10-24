@@ -1,208 +1,204 @@
 {
+  "info": {
+    "_postman_id": "9c686a72-18d6-437f-a32b-d4c60276ab4d",
+    "name": "TestMu AI Selenium Automation API Documentation\u2026",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:05:55.000Z",
+    "updatedAt": "2026-10-22T02:05:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9c686a72-18d6-437f-a32b-d4c60276ab4d"
+  },
   "item": [
     {
-      "id": "161e4412-5d3d-4bab-acd5-6bab5eb9dc18",
-      "name": "Organisation",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "org",
       "item": [
         {
-          "id": "bfead54d-2bc2-4932-ab32-c16d338a6f39",
-          "name": "Get organisation concurrency",
-          "request": {
-            "name": "Get organisation concurrency",
-            "description": {
-              "content": "This API fetches the organisation level concurrency",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "org",
-                "concurrency"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            }
-          },
-          "response": [
+          "name": "concurrency",
+          "item": [
             {
-              "id": "8fb04861-356d-4c6f-879d-484a5cb9d53a",
-              "name": "successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "org",
-                    "concurrency"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
+              "name": "Get organisation concurrency",
+              "id": "babc9118-ba27-43f1-aa7b-70cedd751999",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
                     },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": {\n    \"queued\": 100,\n    \"running\": 100\n  },\n  \"status\": \"success\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "fb2c3cc9-2507-4c87-96fb-86fe7d222547",
-              "name": "Invalid request to fetch org concurrency",
-              "originalRequest": {
                 "url": {
-                  "path": [
-                    "org",
-                    "concurrency"
-                  ],
+                  "raw": "{{baseUrl}}/org/concurrency",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "2f3985e2-14d0-470b-85bf-ae76769a3929",
-              "name": "Access denied. Auth error.",
-              "originalRequest": {
-                "url": {
                   "path": [
                     "org",
                     "concurrency"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
+                "description": "This API fetches the organisation level concurrency"
+              },
+              "response": [
+                {
+                  "id": "5320dab1-a059-4ac1-8e04-85add4bffcfb",
+                  "name": "successful operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/org/concurrency",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "org",
+                        "concurrency"
+                      ]
+                    }
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"queued\": \"<integer>\",\n    \"running\": \"<integer>\"\n  },\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:05:56.000Z",
+                  "updatedAt": "2026-10-22T02:05:56.000Z",
+                  "uid": "35240-5320dab1-a059-4ac1-8e04-85add4bffcfb"
+                },
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "24895dbb-5f25-4e96-ba69-209761ceda58",
+                  "name": "Invalid request to fetch org concurrency",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/org/concurrency",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "org",
+                        "concurrency"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:05:56.000Z",
+                  "updatedAt": "2026-10-22T02:05:56.000Z",
+                  "uid": "35240-24895dbb-5f25-4e96-ba69-209761ceda58"
+                },
+                {
+                  "id": "bcfa3557-44b4-4690-8934-e0ec6834677c",
+                  "name": "Access denied. Auth error.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/org/concurrency",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "org",
+                        "concurrency"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "<string>",
+                  "createdAt": "2026-10-22T02:05:56.000Z",
+                  "updatedAt": "2026-10-22T02:05:56.000Z",
+                  "uid": "35240-bcfa3557-44b4-4690-8934-e0ec6834677c"
                 }
               ],
-              "body": "\"HTTP Basic: Access denied.\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-22T02:05:56.000Z",
+              "updatedAt": "2026-10-22T02:05:56.000Z",
+              "uid": "35240-babc9118-ba27-43f1-aa7b-70cedd751999"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "a4dfa748-63f1-4826-8bb3-8bd86264091f",
+          "createdAt": "2026-10-22T02:05:56.000Z",
+          "updatedAt": "2026-10-22T02:05:56.000Z",
+          "uid": "35240-a4dfa748-63f1-4826-8bb3-8bd86264091f"
         }
       ],
-      "event": []
+      "id": "277e5b01-3121-4a8b-90f7-e81b38b130af",
+      "createdAt": "2026-10-22T02:05:56.000Z",
+      "updatedAt": "2026-10-22T02:05:56.000Z",
+      "uid": "35240-277e5b01-3121-4a8b-90f7-e81b38b130af"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://api.lambdatest.com/automation/smart-ui",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://api.lambdatest.com/automation/api/v1"
     }
-  ],
-  "info": {
-    "_postman_id": "47c58127-ce70-494f-884a-d3b8011b14a1",
-    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs Organisation API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

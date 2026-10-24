@@ -1,622 +1,647 @@
 {
+  "info": {
+    "_postman_id": "56969256-feb6-4415-ac73-1da539543e3d",
+    "name": "TestMu AI Selenium Automation API Documentation Extensions\u2026",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:05:22.000Z",
+    "updatedAt": "2026-10-22T02:05:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-56969256-feb6-4415-ac73-1da539543e3d"
+  },
   "item": [
     {
-      "id": "6d10ba75-308c-42c0-b995-3b8d99e3deb4",
-      "name": "extensions",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "files",
       "item": [
         {
-          "id": "d1e8a2ed-0c7f-4ba7-a0b0-4d6e856e40ab",
-          "name": "Fetch all extensions uploaded by the user",
-          "request": {
-            "name": "Fetch all extensions uploaded by the user",
-            "description": {
-              "content": "This API fetches all the extensions which are uploaded to our lambda storage.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "files",
-                "extensions"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            }
-          },
-          "response": [
+          "name": "extensions",
+          "item": [
             {
-              "id": "8d07a3c1-bbfb-47f8-b1e0-c62250d0ed9f",
-              "name": "Successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "files",
-                    "extensions"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
+              "name": "delete",
+              "item": [
+                {
+                  "name": "Delete extension from our lambda storage",
+                  "id": "56f6112e-8e97-4a5a-93e1-d29fabe33b44",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
+                  "request": {
+                    "auth": {
+                      "type": "basic",
+                      "basic": [
+                        {
+                          "key": "username",
+                          "value": "{{basicAuthUsername}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "password",
+                          "value": "{{basicAuthPassword}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"key\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/files/extensions/delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "files",
+                        "extensions",
+                        "delete"
+                      ]
+                    },
+                    "description": "This API deletes extension from lambda storage"
+                  },
+                  "response": [
+                    {
+                      "id": "42d65148-6d42-4205-b8d8-adfc0b7aeab7",
+                      "name": "Successful operation",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"key\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/files/extensions/delete",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            "extensions",
+                            "delete"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:05:23.000Z",
+                      "updatedAt": "2026-10-22T02:05:23.000Z",
+                      "uid": "35240-42d65148-6d42-4205-b8d8-adfc0b7aeab7"
+                    },
+                    {
+                      "id": "60037b10-aa55-42c1-be36-c201a60ef609",
+                      "name": "Invalid file path value",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"key\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/files/extensions/delete",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            "extensions",
+                            "delete"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:05:23.000Z",
+                      "updatedAt": "2026-10-22T02:05:23.000Z",
+                      "uid": "35240-60037b10-aa55-42c1-be36-c201a60ef609"
+                    },
+                    {
+                      "id": "b90eef3d-25f3-4a54-9d38-490bf61d5f07",
+                      "name": "Access denied. Auth error",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"key\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/files/extensions/delete",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            "extensions",
+                            "delete"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<string>",
+                      "createdAt": "2026-10-22T02:05:23.000Z",
+                      "updatedAt": "2026-10-22T02:05:23.000Z",
+                      "uid": "35240-b90eef3d-25f3-4a54-9d38-490bf61d5f07"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:05:22.000Z",
+                  "updatedAt": "2026-10-22T02:05:22.000Z",
+                  "uid": "35240-56f6112e-8e97-4a5a-93e1-d29fabe33b44"
+                }
+              ],
+              "id": "92d74ef0-50d0-4dcd-afc0-2ca9bf91f3ca",
+              "createdAt": "2026-10-22T02:05:22.000Z",
+              "updatedAt": "2026-10-22T02:05:22.000Z",
+              "uid": "35240-92d74ef0-50d0-4dcd-afc0-2ca9bf91f3ca"
+            },
+            {
+              "name": "Fetch all extensions uploaded by the user",
+              "id": "5d7f8e7f-bf4f-48c0-b14a-f38542374876",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
                 "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"Meta\": {\n    \"org_id\": 12345,\n    \"total\": 1\n  },\n  \"data\": [\n    {\n      \"key\": \"extension_1.zip\",\n      \"last_modified_at\": \"2020-08-02T06:46:08Z\",\n      \"size\": 104,\n      \"s3_url\": \"https://automation-prod-user-files.s3.amazonaws.com/extensions/orgId-123456/extension_1.zip\"\n    },\n    {\n      \"key\": \"extension_1.zip\",\n      \"last_modified_at\": \"2020-08-02T06:46:08Z\",\n      \"size\": 104,\n      \"s3_url\": \"https://automation-prod-user-files.s3.amazonaws.com/extensions/orgId-123456/extension_1.zip\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "89b4a30a-13e2-4736-9af1-22fd130797a6",
-              "name": "Access denied. Auth error",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "files",
-                    "extensions"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"HTTP Basic: Access denied.\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "38906063-08c6-4840-aa29-ea9b7e7f7d1c",
-          "name": "Upload new extensions in zip format to our lambda storage",
-          "request": {
-            "name": "Upload new extensions in zip format to our lambda storage",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "files",
-                "extensions"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "multipart/form-data"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            },
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "extensions",
-                  "type": "file",
-                  "description": "(Required) "
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "02f45a62-22ed-4969-a067-d6ede0b0f648",
-              "name": "Successful operation",
-              "originalRequest": {
                 "url": {
-                  "path": [
-                    "files",
-                    "extensions"
-                  ],
+                  "raw": "{{baseUrl}}/files/extensions",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
+                  "path": [
+                    "files",
+                    "extensions"
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
+                "description": "This API fetches all the extensions which are uploaded to our lambda storage."
+              },
+              "response": [
+                {
+                  "id": "118a7355-7afa-4dc7-888a-1c104ac208c4",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/files/extensions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "files",
+                        "extensions"
+                      ]
+                    }
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Meta\": {\n    \"org_id\": \"<number>\",\n    \"total\": \"<number>\"\n  },\n  \"data\": [\n    {\n      \"key\": \"<string>\",\n      \"last_modified_at\": \"<string>\",\n      \"size\": \"<number>\",\n      \"s3_url\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"last_modified_at\": \"<string>\",\n      \"size\": \"<number>\",\n      \"s3_url\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T02:05:23.000Z",
+                  "updatedAt": "2026-10-22T02:05:23.000Z",
+                  "uid": "35240-118a7355-7afa-4dc7-888a-1c104ac208c4"
+                },
+                {
+                  "id": "38dd5a92-c36d-487b-a334-9a5bd110f56e",
+                  "name": "Access denied. Auth error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/files/extensions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "files",
+                        "extensions"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "<string>",
+                  "createdAt": "2026-10-22T02:05:23.000Z",
+                  "updatedAt": "2026-10-22T02:05:23.000Z",
+                  "uid": "35240-38dd5a92-c36d-487b-a334-9a5bd110f56e"
+                }
+              ],
+              "createdAt": "2026-10-22T02:05:22.000Z",
+              "updatedAt": "2026-10-22T02:05:22.000Z",
+              "uid": "35240-5d7f8e7f-bf4f-48c0-b14a-f38542374876"
+            },
+            {
+              "name": "Upload new extensions in zip format to our lambda storage",
+              "id": "71c178bc-204a-4b97-9821-483bcdfbb48c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
                 "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "body": {
                   "mode": "formdata",
                   "formdata": [
                     {
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
+                      "description": "(Required) ",
                       "key": "extensions",
-                      "value": "<binary>",
-                      "type": "text"
+                      "type": "file",
+                      "value": null
                     }
                   ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"\",\n  \"s3_url\": \"https://automation-prod-user-files.s3.amazonaws.com/extensions/orgId-123456/extension_1.zip\",\n  \"message\": \"File have been uploaded successfully to our lambda storage\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "9ece10e1-e832-4ff1-84cd-f37ce1d8972e",
-              "name": "Bad Request",
-              "originalRequest": {
+                },
                 "url": {
+                  "raw": "{{baseUrl}}/files/extensions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "files",
                     "extensions"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "formdata",
-                  "formdata": [
-                    {
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
-                      "key": "extensions",
-                      "value": "<binary>",
-                      "type": "text"
-                    }
                   ]
                 }
               },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"Oops! The name that you have provided already exists. Please use different name or delete this script first\",\n  \"status\": \"fail\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "5bbd8038-d7b1-40f6-9d7a-fdc2a473ef05",
-              "name": "Access denied. Auth error",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "files",
-                    "extensions"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "formdata",
-                  "formdata": [
-                    {
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
+                  "id": "87b604be-188b-4813-a046-7715b3d32baf",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
                       },
-                      "key": "extensions",
-                      "value": "<binary>",
-                      "type": "text"
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ",
+                          "key": "extensions",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/files/extensions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "files",
+                        "extensions"
+                      ]
                     }
-                  ]
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\",\n  \"s3_url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:05:23.000Z",
+                  "updatedAt": "2026-10-22T02:05:23.000Z",
+                  "uid": "35240-87b604be-188b-4813-a046-7715b3d32baf"
+                },
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "eedda039-a9f1-49fe-a717-3af1350d4d22",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ",
+                          "key": "extensions",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/files/extensions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "files",
+                        "extensions"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:05:23.000Z",
+                  "updatedAt": "2026-10-22T02:05:23.000Z",
+                  "uid": "35240-eedda039-a9f1-49fe-a717-3af1350d4d22"
+                },
+                {
+                  "id": "bbcb7b3b-e708-49a9-88b0-53c93fd64ee7",
+                  "name": "Access denied. Auth error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ",
+                          "key": "extensions",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/files/extensions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "files",
+                        "extensions"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "<string>",
+                  "createdAt": "2026-10-22T02:05:23.000Z",
+                  "updatedAt": "2026-10-22T02:05:23.000Z",
+                  "uid": "35240-bbcb7b3b-e708-49a9-88b0-53c93fd64ee7"
                 }
               ],
-              "body": "\"HTTP Basic: Access denied.\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-22T02:05:22.000Z",
+              "updatedAt": "2026-10-22T02:05:22.000Z",
+              "uid": "35240-71c178bc-204a-4b97-9821-483bcdfbb48c"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "0708ecc4-1a84-401b-99a1-3688dd8ddb7b",
-          "name": "Delete extension from our lambda storage",
-          "request": {
-            "name": "Delete extension from our lambda storage",
-            "description": {
-              "content": "This API deletes extension from lambda storage",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "files",
-                "extensions",
-                "delete"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"key\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "f3f3ff40-ca30-4345-af83-70f6c5a11e03",
-              "name": "Successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "files",
-                    "extensions",
-                    "delete"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"key\": \"extension_1.zip\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"File have been successfully deleted from our lambda storage\",\n  \"status\": \"success\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0e8e85e3-5696-4a84-b553-f443539cb387",
-              "name": "Invalid file path value",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "files",
-                    "extensions",
-                    "delete"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"key\": \"extension_1.zip\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"File doesn't exist in lambda storage\",\n  \"status\": \"fail\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "6b31cd7e-bd39-4a31-957c-846605e94452",
-              "name": "Access denied. Auth error",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "files",
-                    "extensions",
-                    "delete"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"key\": \"extension_1.zip\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"HTTP Basic: Access denied.\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "9af03f9e-9655-4c5c-8df5-6a623b5bb1d8",
+          "createdAt": "2026-10-22T02:05:22.000Z",
+          "updatedAt": "2026-10-22T02:05:22.000Z",
+          "uid": "35240-9af03f9e-9655-4c5c-8df5-6a623b5bb1d8"
         }
       ],
-      "event": []
+      "id": "2e3c3555-2bc1-49ef-9c05-37b267b56925",
+      "createdAt": "2026-10-22T02:05:22.000Z",
+      "updatedAt": "2026-10-22T02:05:22.000Z",
+      "uid": "35240-2e3c3555-2bc1-49ef-9c05-37b267b56925"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://api.lambdatest.com/automation/smart-ui",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://api.lambdatest.com/automation/api/v1"
     }
-  ],
-  "info": {
-    "_postman_id": "06ebd772-a775-4977-9434-f447a5c983e5",
-    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs extensions API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

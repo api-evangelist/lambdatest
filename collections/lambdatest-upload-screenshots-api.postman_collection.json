@@ -1,328 +1,291 @@
 {
+  "info": {
+    "_postman_id": "cb421cac-6981-4adb-bb07-78046a12fdaf",
+    "name": "TestMu AI SmartUI API Documentation Upload Screenshots API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:06:49.000Z",
+    "updatedAt": "2026-10-22T02:06:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cb421cac-6981-4adb-bb07-78046a12fdaf"
+  },
   "item": [
     {
-      "id": "ad0da1cb-1b6c-44dd-8f75-17ea5d80f224",
-      "name": "Upload Screenshots",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "v2",
       "item": [
         {
-          "id": "58f215e7-9cbb-4b79-8e7e-f8c3b49765ad",
-          "name": "Upload any locally captured images to SmartUI for visual regression testing.Maximum Upload Size:100MB",
-          "request": {
-            "name": "Upload any locally captured images to SmartUI for visual regression testing.Maximum Upload Size:100MB",
-            "description": {
-              "content": "Using this API you can upload any local images to our cloud comparsion. You can upload images and add their meta-data information to map the screenshots for comparsion.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v2",
-                "upload"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "multipart/form-data"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            },
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "files",
-                  "type": "file",
-                  "description": "(Required) "
-                },
-                {
-                  "key": "projectToken",
-                  "value": "<string>",
-                  "type": "text",
-                  "description": "(Required) "
-                },
-                {
-                  "key": "buildName",
-                  "value": "<string>",
-                  "type": "text",
-                  "description": ""
-                },
-                {
-                  "key": "baseline",
-                  "value": "<boolean>",
-                  "type": "text",
-                  "description": ""
-                },
-                {
-                  "key": "screenshotNames",
-                  "value": "<string>",
-                  "type": "text",
-                  "description": ""
-                },
-                {
-                  "key": "githubURL",
-                  "value": "<string>",
-                  "type": "text",
-                  "description": ""
-                }
-              ]
-            }
-          },
-          "response": [
+          "name": "upload",
+          "item": [
             {
-              "id": "6cfd3b6a-80cd-4180-b8f2-a303664e6e75",
-              "name": "successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "upload"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
+              "name": "Upload any locally captured images to SmartUI for visual regression\u2026",
+              "id": "91ac2123-4d39-4ab3-bb25-5afc7ea7ab8e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
                 },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "formdata",
                   "formdata": [
                     {
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
+                      "description": "(Required) ",
                       "key": "files",
-                      "value": "<binary>",
-                      "type": "text"
+                      "type": "file",
+                      "value": null
                     },
                     {
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
+                      "description": "(Required) ",
                       "key": "projectToken",
-                      "value": "projectToken#key",
+                      "value": "<string>",
                       "type": "text"
                     },
                     {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
                       "key": "buildName",
-                      "value": "any",
+                      "value": "<string>",
                       "type": "text"
                     },
                     {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
                       "key": "baseline",
-                      "value": "false",
+                      "value": "<boolean>",
                       "type": "text"
                     },
                     {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
                       "key": "screenshotNames",
-                      "value": "screenshot1,screenshot2",
+                      "value": "<string>",
                       "type": "text"
                     },
                     {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
                       "key": "githubURL",
-                      "value": "https://api.github.com/repos/OWNER/REPO/statuses/commitId",
+                      "value": "<string>",
                       "type": "text"
                     }
                   ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": {\n    \"filesUploaded\": {\n      \"error\": \"\",\n      \"message\": \"\",\n      \"fileName\": \"Screenshot 2022-12-05 at 5.00.37 PM.png\",\n      \"screenshotName\": \"screenshot1\"\n    },\n    \"buildName\": \"build-1\",\n    \"buildId\": \"f3e9bf89-4b61-4eb2-ad60-aaa72150d05e\",\n    \"projectName\": \"demo-project\",\n    \"totalFilesUploaded\": 1,\n    \"projectId\": \"65bd1675-fe42-40bf-9698-7610cb4211bd\"\n  },\n  \"status\": \"success\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "2af1025c-59c6-4bb7-b43f-4081a1f17638",
-              "name": "Invalid/Missing Project Token . Missing mandatory parameters or wrong input.",
-              "originalRequest": {
+                },
                 "url": {
-                  "path": [
-                    "v2",
-                    "upload"
-                  ],
+                  "raw": "{{baseUrl}}/v2/upload",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "formdata",
-                  "formdata": [
-                    {
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
-                      "key": "files",
-                      "value": "<binary>",
-                      "type": "text"
-                    },
-                    {
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
-                      "key": "projectToken",
-                      "value": "projectToken#key",
-                      "type": "text"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "key": "buildName",
-                      "value": "any",
-                      "type": "text"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "key": "baseline",
-                      "value": "false",
-                      "type": "text"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "key": "screenshotNames",
-                      "value": "screenshot1,screenshot2",
-                      "type": "text"
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "key": "githubURL",
-                      "value": "https://api.github.com/repos/OWNER/REPO/statuses/commitId",
-                      "type": "text"
-                    }
+                  "path": [
+                    "v2",
+                    "upload"
                   ]
-                }
+                },
+                "description": "Using this API you can upload any local images to our cloud comparsion. You can upload images and add their meta-data information to map the screenshots for comparsion."
               },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "50fc990f-a4cd-47b0-92e4-c0ffd70d8724",
+                  "name": "successful operation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ",
+                          "key": "files",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "projectToken",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "buildName",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "baseline",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "screenshotNames",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "githubURL",
+                          "value": "<string>",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/upload",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "upload"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"filesUploaded\": {\n      \"error\": \"<string>\",\n      \"message\": \"<string>\",\n      \"fileName\": \"<string>\",\n      \"screenshotName\": \"<string>\"\n    },\n    \"buildName\": \"<string>\",\n    \"buildId\": \"<string>\",\n    \"projectName\": \"<string>\",\n    \"totalFilesUploaded\": \"<integer>\",\n    \"projectId\": \"<string>\"\n  },\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:06:49.000Z",
+                  "updatedAt": "2026-10-22T02:06:49.000Z",
+                  "uid": "35240-50fc990f-a4cd-47b0-92e4-c0ffd70d8724"
+                },
+                {
+                  "id": "701e2f90-ee8e-4edc-a431-cd6b22642148",
+                  "name": "Invalid/Missing Project Token . Missing mandatory parameters or wrong input.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ",
+                          "key": "files",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "projectToken",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "buildName",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "baseline",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "screenshotNames",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "githubURL",
+                          "value": "<string>",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/upload",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "upload"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": \"<string>\",\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:06:49.000Z",
+                  "updatedAt": "2026-10-22T02:06:49.000Z",
+                  "uid": "35240-701e2f90-ee8e-4edc-a431-cd6b22642148"
                 }
               ],
-              "body": "{\n  \"data\": \"Please Specify Project Token. It is a mandatory parameter\",\n  \"message\": \"error\",\n  \"status\": \"fail\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-22T02:06:49.000Z",
+              "updatedAt": "2026-10-22T02:06:49.000Z",
+              "uid": "35240-91ac2123-4d39-4ab3-bb25-5afc7ea7ab8e"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "04fd9f59-ffaf-4681-9ec1-9f87ecedf296",
+          "createdAt": "2026-10-22T02:06:49.000Z",
+          "updatedAt": "2026-10-22T02:06:49.000Z",
+          "uid": "35240-04fd9f59-ffaf-4681-9ec1-9f87ecedf296"
         }
       ],
-      "event": []
+      "id": "5e47a8ca-17b8-47f6-934a-912b53754b9f",
+      "createdAt": "2026-10-22T02:06:49.000Z",
+      "updatedAt": "2026-10-22T02:06:49.000Z",
+      "uid": "35240-5e47a8ca-17b8-47f6-934a-912b53754b9f"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://api.lambdatest.com/automation/smart-ui",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://api.lambdatest.com/automation/smart-ui"
     }
-  ],
-  "info": {
-    "_postman_id": "2489aa7c-325d-44a1-ab11-6bc3779bffe1",
-    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs Upload Screenshots API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

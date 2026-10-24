@@ -1,165 +1,651 @@
 {
+  "info": {
+    "_postman_id": "2483c9bf-986a-4674-906b-415222ddda9c",
+    "name": "TestMu AI Selenium Automation API Documentation User Files\u2026",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:06:54.000Z",
+    "updatedAt": "2026-10-22T02:06:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2483c9bf-986a-4674-906b-415222ddda9c"
+  },
   "item": [
     {
-      "id": "3295b978-dc28-4015-9359-565bd611f568",
       "name": "user-files",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
       "item": [
         {
-          "id": "03733422-7382-4d41-86d4-214b0df66fd2",
+          "name": "delete",
+          "item": [
+            {
+              "name": "Delete user files from our lambda storage",
+              "id": "c83ab3a8-d2c0-47ca-ac0f-b7637af4ce01",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user-files/delete",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user-files",
+                    "delete"
+                  ]
+                },
+                "description": "This API deletes user file from lambda storage"
+              },
+              "response": [
+                {
+                  "id": "e14f4ede-6c3b-42bd-b2d1-a20f2880774c",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"key\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/user-files/delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user-files",
+                        "delete"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:06:55.000Z",
+                  "updatedAt": "2026-10-22T02:06:55.000Z",
+                  "uid": "35240-e14f4ede-6c3b-42bd-b2d1-a20f2880774c"
+                },
+                {
+                  "id": "75d8f75c-b2a4-40c5-b2b1-260500660e8f",
+                  "name": "Invalid file path value",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"key\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/user-files/delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user-files",
+                        "delete"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:06:55.000Z",
+                  "updatedAt": "2026-10-22T02:06:55.000Z",
+                  "uid": "35240-75d8f75c-b2a4-40c5-b2b1-260500660e8f"
+                },
+                {
+                  "id": "82bc40c8-e317-4d80-923e-115f7bbf2bac",
+                  "name": "Access denied. Auth error",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"key\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/user-files/delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user-files",
+                        "delete"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "<string>",
+                  "createdAt": "2026-10-22T02:06:55.000Z",
+                  "updatedAt": "2026-10-22T02:06:55.000Z",
+                  "uid": "35240-82bc40c8-e317-4d80-923e-115f7bbf2bac"
+                }
+              ],
+              "createdAt": "2026-10-22T02:06:55.000Z",
+              "updatedAt": "2026-10-22T02:06:55.000Z",
+              "uid": "35240-c83ab3a8-d2c0-47ca-ac0f-b7637af4ce01"
+            }
+          ],
+          "id": "d17e6522-f42a-49f9-a5b9-a50f192b9f01",
+          "createdAt": "2026-10-22T02:06:55.000Z",
+          "updatedAt": "2026-10-22T02:06:55.000Z",
+          "uid": "35240-d17e6522-f42a-49f9-a5b9-a50f192b9f01"
+        },
+        {
+          "name": "download",
+          "item": [
+            {
+              "name": "Download user file from lambda storage",
+              "id": "6469171f-7eb7-43de-b5d2-004fada24fa8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user-files/download",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user-files",
+                    "download"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "83c8da87-0885-466c-ba9c-6e3739e223d0",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/octet-stream"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"key\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/user-files/download",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user-files",
+                        "download"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/octet-stream"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "<binary>",
+                  "createdAt": "2026-10-22T02:06:55.000Z",
+                  "updatedAt": "2026-10-22T02:06:55.000Z",
+                  "uid": "35240-83c8da87-0885-466c-ba9c-6e3739e223d0"
+                },
+                {
+                  "id": "c759a89b-5f4c-4634-9bad-76a2a4631b01",
+                  "name": "Invalid file path value specified",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"key\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/user-files/download",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user-files",
+                        "download"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:06:55.000Z",
+                  "updatedAt": "2026-10-22T02:06:55.000Z",
+                  "uid": "35240-c759a89b-5f4c-4634-9bad-76a2a4631b01"
+                },
+                {
+                  "id": "347fd4db-82c2-4382-a8e9-20961b9fa725",
+                  "name": "Access denied. Auth error",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"key\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/user-files/download",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user-files",
+                        "download"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "<string>",
+                  "createdAt": "2026-10-22T02:06:55.000Z",
+                  "updatedAt": "2026-10-22T02:06:55.000Z",
+                  "uid": "35240-347fd4db-82c2-4382-a8e9-20961b9fa725"
+                }
+              ],
+              "createdAt": "2026-10-22T02:06:55.000Z",
+              "updatedAt": "2026-10-22T02:06:55.000Z",
+              "uid": "35240-6469171f-7eb7-43de-b5d2-004fada24fa8"
+            }
+          ],
+          "id": "de7fe9ad-4cfa-4f6b-ac36-f7859678a6c2",
+          "createdAt": "2026-10-22T02:06:55.000Z",
+          "updatedAt": "2026-10-22T02:06:55.000Z",
+          "uid": "35240-de7fe9ad-4cfa-4f6b-ac36-f7859678a6c2"
+        },
+        {
           "name": "Fetch all user files uploaded by the user",
+          "id": "49dde85f-9a94-4224-9667-83279f69733b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Fetch all user files uploaded by the user",
-            "description": {
-              "content": "This API fetches all the user files which are uploaded to our lambda storage.",
-              "type": "text/plain"
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
             },
-            "url": {
-              "path": [
-                "user-files"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/user-files",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-files"
+              ]
+            },
+            "description": "This API fetches all the user files which are uploaded to our lambda storage."
+          },
+          "response": [
+            {
+              "id": "c1a68c46-958d-42c8-ad64-2e3d26a974ad",
+              "name": "Successful operation",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/user-files",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user-files"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Meta\": {\n    \"org_id\": \"<number>\",\n    \"total\": \"<number>\"\n  },\n  \"data\": [\n    {\n      \"key\": \"<string>\",\n      \"last_modified_at\": \"<string>\",\n      \"size\": \"<number>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"last_modified_at\": \"<string>\",\n      \"size\": \"<number>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T02:06:55.000Z",
+              "updatedAt": "2026-10-22T02:06:55.000Z",
+              "uid": "35240-c1a68c46-958d-42c8-ad64-2e3d26a974ad"
+            },
+            {
+              "id": "402c82f0-8d95-49d1-95af-2e1586ce30c1",
+              "name": "Access denied. Auth error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/user-files",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user-files"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<string>",
+              "createdAt": "2026-10-22T02:06:55.000Z",
+              "updatedAt": "2026-10-22T02:06:55.000Z",
+              "uid": "35240-402c82f0-8d95-49d1-95af-2e1586ce30c1"
+            }
+          ],
+          "createdAt": "2026-10-22T02:06:55.000Z",
+          "updatedAt": "2026-10-22T02:06:55.000Z",
+          "uid": "35240-49dde85f-9a94-4224-9667-83279f69733b"
+        },
+        {
+          "name": "Upload files to our lambda storage",
+          "id": "1352d497-117d-46e6-8e4b-9d1ccfb5ad12",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
             "auth": {
               "type": "basic",
               "basic": [
                 {
                   "key": "username",
-                  "value": "{{basicAuthUsername}}"
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
                 },
                 {
                   "key": "password",
-                  "value": "{{basicAuthPassword}}"
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
                 }
               ]
-            }
-          },
-          "response": [
-            {
-              "id": "da320183-77b5-46b4-9664-0e09970771b6",
-              "name": "Successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user-files"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"Meta\": {\n    \"org_id\": 12345,\n    \"total\": 1\n  },\n  \"data\": [\n    {\n      \"key\": \"file_example_JPG_2500kB.jpg\",\n      \"last_modified_at\": \"2020-08-02T06:46:08Z\",\n      \"size\": 104\n    },\n    {\n      \"key\": \"file_example_JPG_2500kB.jpg\",\n      \"last_modified_at\": \"2020-08-02T06:46:08Z\",\n      \"size\": 104\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
             },
-            {
-              "id": "2375f304-9386-47d2-bf8b-a4081b328584",
-              "name": "Access denied. Auth error",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user-files"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"HTTP Basic: Access denied.\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ca72748f-c303-48bc-a5d6-50d516faf666",
-          "name": "Upload files to our lambda storage",
-          "request": {
-            "name": "Upload files to our lambda storage",
-            "description": {
-              "content": "You can upload multiple files to our lambda storage. A maximum of 150 files can be uploaded per organization. We have limit of 20 MB files size per API. So if you are total file sizes reach the limit, please upload your files in multiple API calls",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user-files"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
+            "method": "POST",
             "header": [
               {
                 "key": "Content-Type",
@@ -170,656 +656,213 @@
                 "value": "application/json"
               }
             ],
-            "method": "POST",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            },
             "body": {
               "mode": "formdata",
               "formdata": [
                 {
+                  "description": "(Required) ",
                   "key": "files",
                   "type": "file",
-                  "description": "(Required) "
+                  "value": null
                 }
               ]
-            }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/user-files",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-files"
+              ]
+            },
+            "description": "You can upload multiple files to our lambda storage. A maximum of 150 files can be uploaded per organization. We have limit of 20 MB files size per API. So if you are total file sizes reach the limit, please upload your files in multiple API calls"
           },
           "response": [
             {
-              "id": "47d06ff4-0f3e-4efc-9925-0fdd062ea665",
+              "id": "24af2bde-26f7-48e1-b843-346d1247ff08",
               "name": "Successful operation",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "user-files"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "formdata",
                   "formdata": [
                     {
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
+                      "description": "(Required) ",
                       "key": "files",
-                      "value": "<binary>",
-                      "type": "text"
+                      "type": "file"
                     }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user-files",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user-files"
                   ]
                 }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"file\": \"file_example_JPG_2500kB.jpg\",\n  \"error\": \"\",\n  \"message\": \"File have been uploaded successfully to our lambda storage\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"file\": \"<string>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T02:06:55.000Z",
+              "updatedAt": "2026-10-22T02:06:55.000Z",
+              "uid": "35240-24af2bde-26f7-48e1-b843-346d1247ff08"
             },
             {
-              "id": "9a0d5ba9-dcc1-4b6d-a18b-ab53e487b054",
+              "id": "fd141c5f-9d3f-4d21-b331-171a8e91a13c",
               "name": "Bad Request",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "user-files"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "formdata",
                   "formdata": [
                     {
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
+                      "description": "(Required) ",
                       "key": "files",
-                      "value": "<binary>",
-                      "type": "text"
+                      "type": "file"
                     }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user-files",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user-files"
                   ]
                 }
               },
               "status": "Bad Request",
               "code": 400,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"message\": \"Oops! The name that you have provided already exists. Please use different name or delete this script first\",\n  \"status\": \"fail\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T02:06:55.000Z",
+              "updatedAt": "2026-10-22T02:06:55.000Z",
+              "uid": "35240-fd141c5f-9d3f-4d21-b331-171a8e91a13c"
             },
             {
-              "id": "230dc337-ec84-4020-b45e-8a57d7292767",
+              "id": "706a62a2-9bdf-448d-8703-51a0a7c6a7d6",
               "name": "Access denied. Auth error",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "user-files"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "formdata",
                   "formdata": [
                     {
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
+                      "description": "(Required) ",
                       "key": "files",
-                      "value": "<binary>",
-                      "type": "text"
+                      "type": "file"
                     }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user-files",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user-files"
                   ]
                 }
               },
               "status": "Unauthorized",
               "code": 401,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "\"HTTP Basic: Access denied.\"",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "<string>",
+              "createdAt": "2026-10-22T02:06:55.000Z",
+              "updatedAt": "2026-10-22T02:06:55.000Z",
+              "uid": "35240-706a62a2-9bdf-448d-8703-51a0a7c6a7d6"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "1fb8c4ba-b7f4-42e0-b0d1-8e1625aa099b",
-          "name": "Delete user files from our lambda storage",
-          "request": {
-            "name": "Delete user files from our lambda storage",
-            "description": {
-              "content": "This API deletes user file from lambda storage",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user-files",
-                "delete"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"key\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "1712478f-13d8-4094-9989-a7ab0b5842b3",
-              "name": "Successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user-files",
-                    "delete"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"key\": \"file_example_JPG_2500kB.jpg\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"File have been successfully deleted from our lambda storage\",\n  \"status\": \"success\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "2cb5b618-aaac-4b17-927e-810bddc7fef9",
-              "name": "Invalid file path value",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user-files",
-                    "delete"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"key\": \"file_example_JPG_2500kB.jpg\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"File doesn't exist in lambda storage\",\n  \"status\": \"fail\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "9e9c1076-138c-497d-b9a5-0005d1402fc7",
-              "name": "Access denied. Auth error",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user-files",
-                    "delete"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"key\": \"file_example_JPG_2500kB.jpg\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"HTTP Basic: Access denied.\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "d7f7ae76-d954-4abe-b4be-a73b21f44d4e",
-          "name": "Download user file from lambda storage.",
-          "request": {
-            "name": "Download user file from lambda storage.",
-            "description": {},
-            "url": {
-              "path": [
-                "user-files",
-                "download"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/octet-stream"
-              }
-            ],
-            "method": "PUT",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"key\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "bff67b53-616b-465f-802a-3acae90d6428",
-              "name": "Successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user-files",
-                    "download"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/octet-stream"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"key\": \"file_example_JPG_2500kB.jpg\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/octet-stream"
-                }
-              ],
-              "body": "string",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "d025b6d2-db05-4e28-a82e-604e3b432ec8",
-              "name": "Invalid file path value specified",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user-files",
-                    "download"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"key\": \"file_example_JPG_2500kB.jpg\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"Error in downloading file from lambda storage\",\n  \"status\": \"fail\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "c6554a8c-d474-4f4a-b135-14ac712dae81",
-              "name": "Access denied. Auth error",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user-files",
-                    "download"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"key\": \"file_example_JPG_2500kB.jpg\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"HTTP Basic: Access denied.\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:06:55.000Z",
+          "updatedAt": "2026-10-22T02:06:55.000Z",
+          "uid": "35240-1352d497-117d-46e6-8e4b-9d1ccfb5ad12"
         }
       ],
-      "event": []
+      "id": "1f668ecb-28cf-43ca-aa43-5ce68219f5ca",
+      "createdAt": "2026-10-22T02:06:55.000Z",
+      "updatedAt": "2026-10-22T02:06:55.000Z",
+      "uid": "35240-1f668ecb-28cf-43ca-aa43-5ce68219f5ca"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://api.lambdatest.com/automation/smart-ui",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://api.lambdatest.com/automation/api/v1"
     }
-  ],
-  "info": {
-    "_postman_id": "265d1b04-3ad6-4327-907b-f8f3d1539298",
-    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs user-files API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

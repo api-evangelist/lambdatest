@@ -1,472 +1,456 @@
 {
+  "info": {
+    "_postman_id": "67bf3764-d55a-4ba9-9c80-b86f167c14d0",
+    "name": "TestMu AI Selenium Automation API Documentation Tunnel API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:06:44.000Z",
+    "updatedAt": "2026-10-22T02:06:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-67bf3764-d55a-4ba9-9c80-b86f167c14d0"
+  },
   "item": [
     {
-      "id": "1c5cfd01-37c3-4704-8e14-5da4424a890b",
-      "name": "tunnel",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "tunnels",
       "item": [
         {
-          "id": "7ef82743-4d4b-4e0c-93e1-8fdb692f3785",
-          "name": "Fetch running tunnels of your account.",
-          "request": {
-            "name": "Fetch running tunnels of your account.",
-            "description": {
-              "content": "To fetch lists of all tunnels runing in an account.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "tunnels"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            }
-          },
-          "response": [
+          "name": "{tunnel_id}",
+          "item": [
             {
-              "id": "72e55de2-34c6-4b8b-ae0e-3e2d71b78d8b",
-              "name": "Successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "tunnels"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
+              "name": "Stop a running tunnel",
+              "id": "d825d71a-fe23-4d30-b744-8120b79f25de",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
                     },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"Retrieve tunnel was successful\",\n  \"status\": \"success\",\n  \"data\": [\n    {\n      \"dns\": \"string\",\n      \"email\": \"string\",\n      \"username\": \"string\",\n      \"shared_tunnel\": false,\n      \"folder_path\": \"string\",\n      \"local_domains\": \"string\",\n      \"org_id\": 4746,\n      \"start_timestamp\": \"string\",\n      \"status_ind\": \"string\",\n      \"tunnel_id\": 9987,\n      \"tunnel_name\": \"string\",\n      \"user_id\": 3313\n    },\n    {\n      \"dns\": \"string\",\n      \"email\": \"string\",\n      \"username\": \"string\",\n      \"shared_tunnel\": true,\n      \"folder_path\": \"string\",\n      \"local_domains\": \"string\",\n      \"org_id\": 199,\n      \"start_timestamp\": \"string\",\n      \"status_ind\": \"string\",\n      \"tunnel_id\": 2429,\n      \"tunnel_name\": \"string\",\n      \"user_id\": 5666\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "7c926bcf-d4a5-435f-a3c3-e28c3b8cc83c",
-              "name": "Access denied. Auth error.",
-              "originalRequest": {
                 "url": {
-                  "path": [
-                    "tunnels"
-                  ],
+                  "raw": "{{baseUrl}}/tunnels/:tunnel_id",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"HTTP Basic: Access denied.\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ac0eca2d-cbb0-4ab8-acca-c90519264607",
-              "name": "Not found",
-              "originalRequest": {
-                "url": {
                   "path": [
-                    "tunnels"
+                    "tunnels",
+                    ":tunnel_id"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "id": "9929b937-993c-4d3c-8417-1693dfa8a405",
+                      "key": "tunnel_id",
+                      "value": "<integer>",
+                      "description": "(Required) Your tunnel id."
+                    }
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "To stop a running tunnel in your account. e.g 2345"
               },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "d143caa7-39cc-4967-b663-b4af6180ea80",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/tunnels/:tunnel_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tunnels",
+                        ":tunnel_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "tunnel_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:06:45.000Z",
+                  "updatedAt": "2026-10-22T02:06:45.000Z",
+                  "uid": "35240-d143caa7-39cc-4967-b663-b4af6180ea80"
+                },
+                {
+                  "id": "153e4f0b-4ad5-4d2a-bde8-d748f0407d19",
+                  "name": "Access denied. Auth error.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/tunnels/:tunnel_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tunnels",
+                        ":tunnel_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "tunnel_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "<string>",
+                  "createdAt": "2026-10-22T02:06:45.000Z",
+                  "updatedAt": "2026-10-22T02:06:45.000Z",
+                  "uid": "35240-153e4f0b-4ad5-4d2a-bde8-d748f0407d19"
+                },
+                {
+                  "id": "73ecfff2-3442-41de-b704-94cfa50339fa",
+                  "name": "Forbidden! Operation not allowed.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/tunnels/:tunnel_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tunnels",
+                        ":tunnel_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "tunnel_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:06:45.000Z",
+                  "updatedAt": "2026-10-22T02:06:45.000Z",
+                  "uid": "35240-73ecfff2-3442-41de-b704-94cfa50339fa"
+                },
+                {
+                  "id": "173ddfe8-dd42-4913-9ed2-5711b6397f33",
+                  "name": "Tunnel with specified id does not exists.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/tunnels/:tunnel_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tunnels",
+                        ":tunnel_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "tunnel_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:06:45.000Z",
+                  "updatedAt": "2026-10-22T02:06:45.000Z",
+                  "uid": "35240-173ddfe8-dd42-4913-9ed2-5711b6397f33"
                 }
               ],
-              "body": "{\n  \"message\": \"Either resource not found or already deleted\",\n  \"status\": \"fail\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-22T02:06:45.000Z",
+              "updatedAt": "2026-10-22T02:06:45.000Z",
+              "uid": "35240-d825d71a-fe23-4d30-b744-8120b79f25de"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "5837add1-20d9-42a7-8dad-cc2f04bf8a47",
+          "createdAt": "2026-10-22T02:06:45.000Z",
+          "updatedAt": "2026-10-22T02:06:45.000Z",
+          "uid": "35240-5837add1-20d9-42a7-8dad-cc2f04bf8a47"
         },
         {
-          "id": "d6e1ab7a-72ad-4afa-abb2-c184eb473110",
-          "name": "Stop a running tunnel",
+          "name": "Fetch running tunnels of your account",
+          "id": "afd9af49-726d-4591-a5b8-a246a236e038",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Stop a running tunnel",
-            "description": {
-              "content": "To stop a running tunnel in your account. e.g 2345",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "tunnels",
-                ":tunnel_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
+            "auth": {
+              "type": "basic",
+              "basic": [
                 {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "tunnel_id",
-                  "description": "(Required) Your tunnel id."
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
                 }
               ]
             },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "DELETE",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
+            "url": {
+              "raw": "{{baseUrl}}/tunnels",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tunnels"
               ]
-            }
+            },
+            "description": "To fetch lists of all tunnels runing in an account."
           },
           "response": [
             {
-              "id": "5ec0aa39-d50b-49d5-92e9-8e1940fb7562",
+              "id": "df54d4e7-db63-498c-9f9a-5fe3fcde7b9b",
               "name": "Successful operation",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "tunnels",
-                    ":tunnel_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "tunnel_id",
-                      "description": "(Required) Your tunnel id."
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
                   }
                 ],
-                "method": "DELETE",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/tunnels",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tunnels"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"message\": \"Delete tunnel was successful.\",\n  \"status\": \"success\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\",\n  \"data\": [\n    {\n      \"dns\": \"<string>\",\n      \"email\": \"<string>\",\n      \"username\": \"<string>\",\n      \"shared_tunnel\": \"<boolean>\",\n      \"folder_path\": \"<string>\",\n      \"local_domains\": \"<string>\",\n      \"org_id\": \"<integer>\",\n      \"start_timestamp\": \"<string>\",\n      \"status_ind\": \"<string>\",\n      \"tunnel_id\": \"<integer>\",\n      \"tunnel_name\": \"<string>\",\n      \"user_id\": \"<integer>\"\n    },\n    {\n      \"dns\": \"<string>\",\n      \"email\": \"<string>\",\n      \"username\": \"<string>\",\n      \"shared_tunnel\": \"<boolean>\",\n      \"folder_path\": \"<string>\",\n      \"local_domains\": \"<string>\",\n      \"org_id\": \"<integer>\",\n      \"start_timestamp\": \"<string>\",\n      \"status_ind\": \"<string>\",\n      \"tunnel_id\": \"<integer>\",\n      \"tunnel_name\": \"<string>\",\n      \"user_id\": \"<integer>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T02:06:45.000Z",
+              "updatedAt": "2026-10-22T02:06:45.000Z",
+              "uid": "35240-df54d4e7-db63-498c-9f9a-5fe3fcde7b9b"
             },
             {
-              "id": "c998708d-28ce-440a-9c6c-7c71e27371dd",
+              "id": "a9670a32-4fa5-44da-be89-ecb8b76357e9",
               "name": "Access denied. Auth error.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "tunnels",
-                    ":tunnel_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "tunnel_id",
-                      "description": "(Required) Your tunnel id."
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
                   }
                 ],
-                "method": "DELETE",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/tunnels",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tunnels"
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "\"HTTP Basic: Access denied.\"",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "<string>",
+              "createdAt": "2026-10-22T02:06:45.000Z",
+              "updatedAt": "2026-10-22T02:06:45.000Z",
+              "uid": "35240-a9670a32-4fa5-44da-be89-ecb8b76357e9"
             },
             {
-              "id": "fe90e35c-7968-46e7-a7b7-9a6fada4c941",
-              "name": "Forbidden! Operation not allowed.",
+              "id": "c0688d59-4c01-48e8-b042-f94076fe497a",
+              "name": "Not found",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "tunnels",
-                    ":tunnel_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "tunnel_id",
-                      "description": "(Required) Your tunnel id."
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
                   }
                 ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                "url": {
+                  "raw": "{{baseUrl}}/tunnels",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tunnels"
+                  ]
                 }
-              ],
-              "body": "{\n  \"message\": \"Forbidden! Opertaion not allowed.\",\n  \"status\": \"fail\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "bdd49f02-b5dc-457c-a5fd-1ec934c19eba",
-              "name": "Tunnel with specified id does not exists.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "tunnels",
-                    ":tunnel_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "tunnel_id",
-                      "description": "(Required) Your tunnel id."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
               },
               "status": "Not Found",
               "code": 404,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"message\": \"Tunnel with specified id not found.\",\n  \"status\": \"fail\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T02:06:45.000Z",
+              "updatedAt": "2026-10-22T02:06:45.000Z",
+              "uid": "35240-c0688d59-4c01-48e8-b042-f94076fe497a"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:06:45.000Z",
+          "updatedAt": "2026-10-22T02:06:45.000Z",
+          "uid": "35240-afd9af49-726d-4591-a5b8-a246a236e038"
         }
       ],
-      "event": []
+      "id": "abe9982c-8abf-4101-8b90-181077df43da",
+      "createdAt": "2026-10-22T02:06:45.000Z",
+      "updatedAt": "2026-10-22T02:06:45.000Z",
+      "uid": "35240-abe9982c-8abf-4101-8b90-181077df43da"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://api.lambdatest.com/automation/smart-ui",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://api.lambdatest.com/automation/api/v1"
     }
-  ],
-  "info": {
-    "_postman_id": "e3f9fddb-75b4-4a0b-a52b-139d31e6ad9f",
-    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs tunnel API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

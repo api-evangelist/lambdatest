@@ -1,523 +1,563 @@
 {
+  "info": {
+    "_postman_id": "f94e630b-8e4a-49be-a650-70e5043bb609",
+    "name": "TestMu AI Selenium Automation API Documentation Test API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:06:36.000Z",
+    "updatedAt": "2026-10-22T02:06:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f94e630b-8e4a-49be-a650-70e5043bb609"
+  },
   "item": [
     {
-      "id": "4b871aba-ed70-41a5-ab59-0a86dd796dbe",
-      "name": "Test",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "tests",
       "item": [
         {
-          "id": "3f827b05-5152-403d-8ec7-d8c0d76fc9ea",
-          "name": "Upload assertion logs to our lambda storage",
-          "request": {
-            "name": "Upload assertion logs to our lambda storage",
-            "description": {
-              "content": "You can upload assertion logs or other logs for a test Id. The logs uploaded can then be viewed in the automation dashboard page under EXCEPTION sections. You can only upload a list of strings",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "tests",
-                ":test_id",
-                "exceptions"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "test_id",
-                  "description": "(Required) Test ID"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"exception\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "{test_id}",
+          "item": [
             {
-              "id": "fd860cde-1f28-41d6-934d-6ce68fdd587e",
-              "name": "Successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "tests",
-                    ":test_id",
-                    "exceptions"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "test_id",
-                      "description": "(Required) Test ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
+              "name": "exceptions",
+              "item": [
+                {
+                  "name": "Upload assertion logs to our lambda storage",
+                  "id": "eb598866-3637-4757-a6f6-ff493950d863",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"exception\": [\n    \"exception 1\",\n    \"exception 2\",\n    \"expection 3\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": \"File have been uploaded successfully to our lambda storage\",\n  \"status\": \"success\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "34733890-6c8a-4ea3-8839-26622b69b335",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "tests",
-                    ":test_id",
-                    "exceptions"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "test_id",
-                      "description": "(Required) Test ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
+                  "request": {
+                    "auth": {
+                      "type": "basic",
+                      "basic": [
+                        {
+                          "key": "username",
+                          "value": "{{basicAuthUsername}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "password",
+                          "value": "{{basicAuthPassword}}",
+                          "type": "string"
+                        }
+                      ]
                     },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"exception\": [\n    \"exception 1\",\n    \"exception 2\",\n    \"expection 3\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"Oops ! file size too large (> 2MB)\",\n  \"status\": \"fail\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "63b8ae1d-f818-4190-bb40-b384ec0d64c6",
-              "name": "Access denied. Auth error",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "tests",
-                    ":test_id",
-                    "exceptions"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "test_id",
-                      "description": "(Required) Test ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"exception\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
                     },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"exception\": [\n    \"exception 1\",\n    \"exception 2\",\n    \"expection 3\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"HTTP Basic: Access denied.\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "bbb60b2f-3cd7-496e-a2dc-134656f0c4fd",
-          "name": "Fetch recorded video of a test id.",
-          "request": {
-            "name": "Fetch recorded video of a test id.",
-            "description": {
-              "content": "To fetch video of a recorded test.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "test",
-                ":test_id",
-                "video"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "video_generated_status",
-                  "value": "<boolean>",
-                  "description": "Video generated status"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "test_id",
-                  "description": "(Required) Test ID"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "27fe95b4-5ec3-4e9d-a25a-bf6b7774fb6c",
-              "name": "successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "test",
-                    ":test_id",
-                    "video"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "video_generated_status",
-                      "value": "<boolean>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "test_id",
-                      "description": "(Required) Test ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
+                    "url": {
+                      "raw": "{{baseUrl}}/tests/:test_id/exceptions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tests",
+                        ":test_id",
+                        "exceptions"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6da86a02-9d96-424e-b6b7-f934a9f7cd18",
+                          "key": "test_id",
+                          "value": "<string>",
+                          "description": "(Required) Test ID"
+                        }
+                      ]
                     },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
+                    "description": "You can upload assertion logs or other logs for a test Id. The logs uploaded can then be viewed in the automation dashboard page under EXCEPTION sections. You can only upload a list of strings"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"Retrieve video url was successful\",\n  \"status\": \"success\",\n  \"url\": \"string\",\n  \"view_video_url\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "1d9f2525-5419-4b87-b482-24c9e77c834d",
-              "name": "Access denied. Auth error.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "test",
-                    ":test_id",
-                    "video"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "response": [
                     {
-                      "key": "video_generated_status",
-                      "value": "<boolean>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "test_id",
-                      "description": "(Required) Test ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
+                      "id": "acc60cf2-e70a-4058-ae22-35742131ddc0",
+                      "name": "Successful operation",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"exception\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/tests/:test_id/exceptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "tests",
+                            ":test_id",
+                            "exceptions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "test_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:06:36.000Z",
+                      "updatedAt": "2026-10-22T02:06:36.000Z",
+                      "uid": "35240-acc60cf2-e70a-4058-ae22-35742131ddc0"
                     },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"HTTP Basic: Access denied.\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "8be44dba-7765-4825-8745-c936bf666927",
-              "name": "session id not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "test",
-                    ":test_id",
-                    "video"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
                     {
-                      "key": "video_generated_status",
-                      "value": "<boolean>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "test_id",
-                      "description": "(Required) Test ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
+                      "id": "3d48c105-0d8a-4f8a-9a87-334f62d2a9bc",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"exception\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/tests/:test_id/exceptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "tests",
+                            ":test_id",
+                            "exceptions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "test_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:06:36.000Z",
+                      "updatedAt": "2026-10-22T02:06:36.000Z",
+                      "uid": "35240-3d48c105-0d8a-4f8a-9a87-334f62d2a9bc"
                     },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                    {
+                      "id": "c2e358c1-3a7d-4924-a9a5-d8610febca31",
+                      "name": "Access denied. Auth error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"exception\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/tests/:test_id/exceptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "tests",
+                            ":test_id",
+                            "exceptions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "test_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<string>",
+                      "createdAt": "2026-10-22T02:06:36.000Z",
+                      "updatedAt": "2026-10-22T02:06:36.000Z",
+                      "uid": "35240-c2e358c1-3a7d-4924-a9a5-d8610febca31"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:06:36.000Z",
+                  "updatedAt": "2026-10-22T02:06:36.000Z",
+                  "uid": "35240-eb598866-3637-4757-a6f6-ff493950d863"
                 }
               ],
-              "body": "{\n  \"message\": \"Either resource not found or already deleted\",\n  \"status\": \"fail\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "ff1c7061-af13-484d-a7f6-b4b8edb227c4",
+              "createdAt": "2026-10-22T02:06:36.000Z",
+              "updatedAt": "2026-10-22T02:06:36.000Z",
+              "uid": "35240-ff1c7061-af13-484d-a7f6-b4b8edb227c4"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "73dd51ef-42ee-4db1-b955-62c7fd54737a",
+          "createdAt": "2026-10-22T02:06:36.000Z",
+          "updatedAt": "2026-10-22T02:06:36.000Z",
+          "uid": "35240-73dd51ef-42ee-4db1-b955-62c7fd54737a"
         }
       ],
-      "event": []
+      "id": "fc55c93c-16a5-43cc-b2cf-3b970efb0638",
+      "createdAt": "2026-10-22T02:06:36.000Z",
+      "updatedAt": "2026-10-22T02:06:36.000Z",
+      "uid": "35240-fc55c93c-16a5-43cc-b2cf-3b970efb0638"
+    },
+    {
+      "name": "test",
+      "item": [
+        {
+          "name": "{test_id}",
+          "item": [
+            {
+              "name": "video",
+              "item": [
+                {
+                  "name": "Fetch recorded video of a test id",
+                  "id": "0ef049d9-3453-4b48-99e9-98d6cb1073e1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "basic",
+                      "basic": [
+                        {
+                          "key": "username",
+                          "value": "{{basicAuthUsername}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "password",
+                          "value": "{{basicAuthPassword}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/test/:test_id/video?video_generated_status=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "test",
+                        ":test_id",
+                        "video"
+                      ],
+                      "query": [
+                        {
+                          "description": "Video generated status",
+                          "key": "video_generated_status",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "2cd85b93-3853-47bf-8a4d-57ddc7fa5dbe",
+                          "key": "test_id",
+                          "value": "<string>",
+                          "description": "(Required) Test ID"
+                        }
+                      ]
+                    },
+                    "description": "To fetch video of a recorded test."
+                  },
+                  "response": [
+                    {
+                      "id": "dc2b19a4-59a2-441f-86fc-467ebd4c0fe5",
+                      "name": "successful operation",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/test/:test_id/video?video_generated_status=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "test",
+                            ":test_id",
+                            "video"
+                          ],
+                          "query": [
+                            {
+                              "description": "Video generated status",
+                              "key": "video_generated_status",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "test_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\",\n  \"url\": \"<string>\",\n  \"view_video_url\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:06:36.000Z",
+                      "updatedAt": "2026-10-22T02:06:36.000Z",
+                      "uid": "35240-dc2b19a4-59a2-441f-86fc-467ebd4c0fe5"
+                    },
+                    {
+                      "id": "f70d7778-9138-45b8-9bd4-4e90bf312b6d",
+                      "name": "Access denied. Auth error.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/test/:test_id/video?video_generated_status=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "test",
+                            ":test_id",
+                            "video"
+                          ],
+                          "query": [
+                            {
+                              "description": "Video generated status",
+                              "key": "video_generated_status",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "test_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<string>",
+                      "createdAt": "2026-10-22T02:06:36.000Z",
+                      "updatedAt": "2026-10-22T02:06:36.000Z",
+                      "uid": "35240-f70d7778-9138-45b8-9bd4-4e90bf312b6d"
+                    },
+                    {
+                      "id": "f8ab4509-405e-4291-8ef2-9e822cd1e4ba",
+                      "name": "session id not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/test/:test_id/video?video_generated_status=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "test",
+                            ":test_id",
+                            "video"
+                          ],
+                          "query": [
+                            {
+                              "description": "Video generated status",
+                              "key": "video_generated_status",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "test_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:06:36.000Z",
+                      "updatedAt": "2026-10-22T02:06:36.000Z",
+                      "uid": "35240-f8ab4509-405e-4291-8ef2-9e822cd1e4ba"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:06:36.000Z",
+                  "updatedAt": "2026-10-22T02:06:36.000Z",
+                  "uid": "35240-0ef049d9-3453-4b48-99e9-98d6cb1073e1"
+                }
+              ],
+              "id": "bfe6c83b-0a87-45a9-afc8-12194d056052",
+              "createdAt": "2026-10-22T02:06:36.000Z",
+              "updatedAt": "2026-10-22T02:06:36.000Z",
+              "uid": "35240-bfe6c83b-0a87-45a9-afc8-12194d056052"
+            }
+          ],
+          "id": "72d33988-e36b-4b8e-9464-9f66c3b3263b",
+          "createdAt": "2026-10-22T02:06:36.000Z",
+          "updatedAt": "2026-10-22T02:06:36.000Z",
+          "uid": "35240-72d33988-e36b-4b8e-9464-9f66c3b3263b"
+        }
+      ],
+      "id": "7ee86727-8b11-434a-84cc-a17a842a15de",
+      "createdAt": "2026-10-22T02:06:36.000Z",
+      "updatedAt": "2026-10-22T02:06:36.000Z",
+      "uid": "35240-7ee86727-8b11-434a-84cc-a17a842a15de"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://api.lambdatest.com/automation/smart-ui",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://api.lambdatest.com/automation/api/v1"
     }
-  ],
-  "info": {
-    "_postman_id": "0c00b0ca-71cc-4fc0-9b01-7fc76903b0ba",
-    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs Test API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

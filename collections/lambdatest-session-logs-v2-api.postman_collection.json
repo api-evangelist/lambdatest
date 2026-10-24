@@ -1,1376 +1,1375 @@
 {
+  "info": {
+    "_postman_id": "ce369b0f-293a-4367-8895-8a8ad5332b98",
+    "name": "TestMu AI Selenium Automation API Documentation Session\u2026",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:06:30.000Z",
+    "updatedAt": "2026-10-22T02:06:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ce369b0f-293a-4367-8895-8a8ad5332b98"
+  },
   "item": [
     {
-      "id": "7674159e-64a4-403c-ba17-39a8026a7846",
-      "name": "Session Logs (V2)",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "sessions",
       "item": [
         {
-          "id": "bda0aafb-ffdc-46cf-b3a4-ae81b3dd0564",
-          "name": "command logs of a test session",
-          "request": {
-            "name": "command logs of a test session",
-            "description": {
-              "content": "Returns a signed URL to download the full commands.zip for the session. The zip contains the per-page command log JSON files at the root, plus per-annotation command log JSON files (when present) under an `annotations/` subdirectory. To fetch a single annotation's commands inline (without downloading the zip), use the v1 endpoint with `annotationId`.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "sessions",
-                ":session_id",
-                "v2",
-                "log",
-                "command"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "session_id",
-                  "description": "(Required) Session ID"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            }
-          },
-          "response": [
+          "name": "{session_id}",
+          "item": [
             {
-              "id": "0d0c2d33-cb06-453a-8cb3-d9eab4f1aac7",
-              "name": "successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "sessions",
-                    ":session_id",
-                    "v2",
-                    "log",
-                    "command"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) Session ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "v2",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "log",
+                  "item": [
+                    {
+                      "name": "command",
+                      "item": [
+                        {
+                          "name": "command logs of a test session",
+                          "id": "6f13feae-57ba-46fb-8696-825c9c52132e",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "basic",
+                              "basic": [
+                                {
+                                  "key": "username",
+                                  "value": "{{basicAuthUsername}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "password",
+                                  "value": "{{basicAuthPassword}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sessions/:session_id/v2/log/command",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sessions",
+                                ":session_id",
+                                "v2",
+                                "log",
+                                "command"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "df318978-083d-45fa-b8dd-89f2ec2e398b",
+                                  "key": "session_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Session ID"
+                                }
+                              ]
+                            },
+                            "description": "Returns a signed URL to download the full commands.zip for the session. The zip contains the per-page command log JSON files at the root, plus per-annotation command log JSON files (when present) under an `annotations/` subdirectory. To fetch a single annotation's commands inline (without downloading the zip), use the v1 endpoint with `annotationId`."
+                          },
+                          "response": [
+                            {
+                              "id": "828540b3-813c-4dc7-9793-64e311d5ba67",
+                              "name": "successful operation",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sessions/:session_id/v2/log/command",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sessions",
+                                    ":session_id",
+                                    "v2",
+                                    "log",
+                                    "command"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "session_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\",\n  \"url\": \"<string>\"\n}",
+                              "createdAt": "2026-10-22T02:06:31.000Z",
+                              "updatedAt": "2026-10-22T02:06:31.000Z",
+                              "uid": "35240-828540b3-813c-4dc7-9793-64e311d5ba67"
+                            },
+                            {
+                              "id": "55a82784-a2a4-4fd4-992f-fff8da53a2a5",
+                              "name": "session id not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sessions/:session_id/v2/log/command",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sessions",
+                                    ":session_id",
+                                    "v2",
+                                    "log",
+                                    "command"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "session_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                              "createdAt": "2026-10-22T02:06:31.000Z",
+                              "updatedAt": "2026-10-22T02:06:31.000Z",
+                              "uid": "35240-55a82784-a2a4-4fd4-992f-fff8da53a2a5"
+                            },
+                            {
+                              "id": "c1726d6b-c18d-4b08-8396-b3d09479ce14",
+                              "name": "Access denied. Auth error.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sessions/:session_id/v2/log/command",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sessions",
+                                    ":session_id",
+                                    "v2",
+                                    "log",
+                                    "command"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "session_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "<string>",
+                              "createdAt": "2026-10-22T02:06:31.000Z",
+                              "updatedAt": "2026-10-22T02:06:31.000Z",
+                              "uid": "35240-c1726d6b-c18d-4b08-8396-b3d09479ce14"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T02:06:31.000Z",
+                          "updatedAt": "2026-10-22T02:06:31.000Z",
+                          "uid": "35240-6f13feae-57ba-46fb-8696-825c9c52132e"
+                        }
+                      ],
+                      "id": "04cfeddb-498e-424f-ad95-d70c73e285e8",
+                      "createdAt": "2026-10-22T02:06:31.000Z",
+                      "updatedAt": "2026-10-22T02:06:31.000Z",
+                      "uid": "35240-04cfeddb-498e-424f-ad95-d70c73e285e8"
+                    },
+                    {
+                      "name": "selenium",
+                      "item": [
+                        {
+                          "name": "selenium/appium log of a test session",
+                          "id": "115b30a6-0b26-48bc-b0b8-c983a6ed7766",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "basic",
+                              "basic": [
+                                {
+                                  "key": "username",
+                                  "value": "{{basicAuthUsername}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "password",
+                                  "value": "{{basicAuthPassword}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sessions/:session_id/v2/log/selenium",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sessions",
+                                ":session_id",
+                                "v2",
+                                "log",
+                                "selenium"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "f6a752c8-6a1a-4a89-9e7f-6e5921ea8e43",
+                                  "key": "session_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Session ID"
+                                }
+                              ]
+                            },
+                            "description": "To fetch selenum/appium log that contains grid requests and reponses of a test session in plain text."
+                          },
+                          "response": [
+                            {
+                              "id": "5457524b-cc33-4bd5-8f0c-120509717761",
+                              "name": "successful operation",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sessions/:session_id/v2/log/selenium",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sessions",
+                                    ":session_id",
+                                    "v2",
+                                    "log",
+                                    "selenium"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "session_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\",\n  \"url\": \"<string>\"\n}",
+                              "createdAt": "2026-10-22T02:06:31.000Z",
+                              "updatedAt": "2026-10-22T02:06:31.000Z",
+                              "uid": "35240-5457524b-cc33-4bd5-8f0c-120509717761"
+                            },
+                            {
+                              "id": "2f11be18-3c92-41f7-836b-782f4f1b6eae",
+                              "name": "session id not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sessions/:session_id/v2/log/selenium",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sessions",
+                                    ":session_id",
+                                    "v2",
+                                    "log",
+                                    "selenium"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "session_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                              "createdAt": "2026-10-22T02:06:31.000Z",
+                              "updatedAt": "2026-10-22T02:06:31.000Z",
+                              "uid": "35240-2f11be18-3c92-41f7-836b-782f4f1b6eae"
+                            },
+                            {
+                              "id": "2ab9920e-04f1-4340-8ecf-2669f2457ec1",
+                              "name": "Access denied. Auth error.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sessions/:session_id/v2/log/selenium",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sessions",
+                                    ":session_id",
+                                    "v2",
+                                    "log",
+                                    "selenium"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "session_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "<string>",
+                              "createdAt": "2026-10-22T02:06:31.000Z",
+                              "updatedAt": "2026-10-22T02:06:31.000Z",
+                              "uid": "35240-2ab9920e-04f1-4340-8ecf-2669f2457ec1"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T02:06:31.000Z",
+                          "updatedAt": "2026-10-22T02:06:31.000Z",
+                          "uid": "35240-115b30a6-0b26-48bc-b0b8-c983a6ed7766"
+                        }
+                      ],
+                      "id": "c06b12e0-e05a-43f3-9488-2d78868f8c35",
+                      "createdAt": "2026-10-22T02:06:31.000Z",
+                      "updatedAt": "2026-10-22T02:06:31.000Z",
+                      "uid": "35240-c06b12e0-e05a-43f3-9488-2d78868f8c35"
+                    },
+                    {
+                      "name": "network",
+                      "item": [
+                        {
+                          "name": "Network log of a test session",
+                          "id": "1f94df62-31c5-47e1-a7f4-d388e62efcec",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "basic",
+                              "basic": [
+                                {
+                                  "key": "username",
+                                  "value": "{{basicAuthUsername}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "password",
+                                  "value": "{{basicAuthPassword}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sessions/:session_id/v2/log/network",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sessions",
+                                ":session_id",
+                                "v2",
+                                "log",
+                                "network"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "c91179c0-885c-4430-b3f3-2d9800671f28",
+                                  "key": "session_id",
+                                  "value": "<string>",
+                                  "description": "(Required) get logs based on session id"
+                                }
+                              ]
+                            },
+                            "description": "To fetch Network log that contains all the requested urls of a test session in plain json text."
+                          },
+                          "response": [
+                            {
+                              "id": "135e074c-2873-4a8d-8c5a-3b5dcbd2bdeb",
+                              "name": "successful operation",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sessions/:session_id/v2/log/network",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sessions",
+                                    ":session_id",
+                                    "v2",
+                                    "log",
+                                    "network"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "session_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\",\n  \"url\": \"<string>\"\n}",
+                              "createdAt": "2026-10-22T02:06:31.000Z",
+                              "updatedAt": "2026-10-22T02:06:31.000Z",
+                              "uid": "35240-135e074c-2873-4a8d-8c5a-3b5dcbd2bdeb"
+                            },
+                            {
+                              "id": "2cdd5869-1793-4017-88e7-bdfdf420f725",
+                              "name": "session id not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sessions/:session_id/v2/log/network",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sessions",
+                                    ":session_id",
+                                    "v2",
+                                    "log",
+                                    "network"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "session_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                              "createdAt": "2026-10-22T02:06:31.000Z",
+                              "updatedAt": "2026-10-22T02:06:31.000Z",
+                              "uid": "35240-2cdd5869-1793-4017-88e7-bdfdf420f725"
+                            },
+                            {
+                              "id": "8fa92aaf-173e-41f2-82d5-4fb48deb059f",
+                              "name": "Access denied. Auth error.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sessions/:session_id/v2/log/network",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sessions",
+                                    ":session_id",
+                                    "v2",
+                                    "log",
+                                    "network"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "session_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "<string>",
+                              "createdAt": "2026-10-22T02:06:31.000Z",
+                              "updatedAt": "2026-10-22T02:06:31.000Z",
+                              "uid": "35240-8fa92aaf-173e-41f2-82d5-4fb48deb059f"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T02:06:31.000Z",
+                          "updatedAt": "2026-10-22T02:06:31.000Z",
+                          "uid": "35240-1f94df62-31c5-47e1-a7f4-d388e62efcec"
+                        }
+                      ],
+                      "id": "0b5ca29e-edbe-41ed-8a88-ec00e48472c6",
+                      "createdAt": "2026-10-22T02:06:31.000Z",
+                      "updatedAt": "2026-10-22T02:06:31.000Z",
+                      "uid": "35240-0b5ca29e-edbe-41ed-8a88-ec00e48472c6"
+                    },
+                    {
+                      "name": "console",
+                      "item": [
+                        {
+                          "name": "console/browser log of a test session",
+                          "id": "cfea8963-6a3a-47a1-9cb0-3f626f2abe8e",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "basic",
+                              "basic": [
+                                {
+                                  "key": "username",
+                                  "value": "{{basicAuthUsername}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "password",
+                                  "value": "{{basicAuthPassword}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sessions/:session_id/v2/log/console",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sessions",
+                                ":session_id",
+                                "v2",
+                                "log",
+                                "console"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "ac6b7949-5073-46f4-9c33-8f4b95190ed9",
+                                  "key": "session_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Session ID"
+                                }
+                              ]
+                            },
+                            "description": "To fetch console/browser log that contains console errors thrown by application during a test session in plain json text."
+                          },
+                          "response": [
+                            {
+                              "id": "55651414-951f-4266-9581-452baabd2cb4",
+                              "name": "successful operation",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sessions/:session_id/v2/log/console",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sessions",
+                                    ":session_id",
+                                    "v2",
+                                    "log",
+                                    "console"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "session_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\",\n  \"url\": \"<string>\"\n}",
+                              "createdAt": "2026-10-22T02:06:31.000Z",
+                              "updatedAt": "2026-10-22T02:06:31.000Z",
+                              "uid": "35240-55651414-951f-4266-9581-452baabd2cb4"
+                            },
+                            {
+                              "id": "d0e951b1-08a2-46b1-9ab4-9ffd0866e302",
+                              "name": "session id not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sessions/:session_id/v2/log/console",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sessions",
+                                    ":session_id",
+                                    "v2",
+                                    "log",
+                                    "console"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "session_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                              "createdAt": "2026-10-22T02:06:31.000Z",
+                              "updatedAt": "2026-10-22T02:06:31.000Z",
+                              "uid": "35240-d0e951b1-08a2-46b1-9ab4-9ffd0866e302"
+                            },
+                            {
+                              "id": "5b8eba57-05b9-410a-a4f1-a7499f4edfab",
+                              "name": "Access denied. Auth error.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sessions/:session_id/v2/log/console",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sessions",
+                                    ":session_id",
+                                    "v2",
+                                    "log",
+                                    "console"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "session_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "<string>",
+                              "createdAt": "2026-10-22T02:06:31.000Z",
+                              "updatedAt": "2026-10-22T02:06:31.000Z",
+                              "uid": "35240-5b8eba57-05b9-410a-a4f1-a7499f4edfab"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T02:06:31.000Z",
+                          "updatedAt": "2026-10-22T02:06:31.000Z",
+                          "uid": "35240-cfea8963-6a3a-47a1-9cb0-3f626f2abe8e"
+                        }
+                      ],
+                      "id": "4785981e-ee73-4237-b241-7dc96a4c00f8",
+                      "createdAt": "2026-10-22T02:06:31.000Z",
+                      "updatedAt": "2026-10-22T02:06:31.000Z",
+                      "uid": "35240-4785981e-ee73-4237-b241-7dc96a4c00f8"
+                    },
+                    {
+                      "name": "network.har",
+                      "item": [
+                        {
+                          "name": "Network har log of a test session",
+                          "id": "df9a2ba7-4749-4c51-a846-25e002928d48",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "basic",
+                              "basic": [
+                                {
+                                  "key": "username",
+                                  "value": "{{basicAuthUsername}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "password",
+                                  "value": "{{basicAuthPassword}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sessions/:session_id/v2/log/network.har",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sessions",
+                                ":session_id",
+                                "v2",
+                                "log",
+                                "network.har"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "06a874ff-380c-4188-afbc-440d206fd6bc",
+                                  "key": "session_id",
+                                  "value": "<string>",
+                                  "description": "(Required) get network har logs based on session id"
+                                }
+                              ]
+                            },
+                            "description": "To fetch Network har log that contains all the requested har of a test session in plain json text."
+                          },
+                          "response": [
+                            {
+                              "id": "23f146d5-e4b4-4243-b4bd-dc8d186b9d50",
+                              "name": "successful operation",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sessions/:session_id/v2/log/network.har",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sessions",
+                                    ":session_id",
+                                    "v2",
+                                    "log",
+                                    "network.har"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "session_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\",\n  \"url\": \"<string>\"\n}",
+                              "createdAt": "2026-10-22T02:06:31.000Z",
+                              "updatedAt": "2026-10-22T02:06:31.000Z",
+                              "uid": "35240-23f146d5-e4b4-4243-b4bd-dc8d186b9d50"
+                            },
+                            {
+                              "id": "f5353ac9-1da9-42d8-ad1e-f18e6a1ce2fc",
+                              "name": "session id not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sessions/:session_id/v2/log/network.har",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sessions",
+                                    ":session_id",
+                                    "v2",
+                                    "log",
+                                    "network.har"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "session_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                              "createdAt": "2026-10-22T02:06:31.000Z",
+                              "updatedAt": "2026-10-22T02:06:31.000Z",
+                              "uid": "35240-f5353ac9-1da9-42d8-ad1e-f18e6a1ce2fc"
+                            },
+                            {
+                              "id": "8dfd41c6-9e4d-40b3-b565-dcae9ac9ca92",
+                              "name": "Access denied. Auth error.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sessions/:session_id/v2/log/network.har",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sessions",
+                                    ":session_id",
+                                    "v2",
+                                    "log",
+                                    "network.har"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "session_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "<string>",
+                              "createdAt": "2026-10-22T02:06:31.000Z",
+                              "updatedAt": "2026-10-22T02:06:31.000Z",
+                              "uid": "35240-8dfd41c6-9e4d-40b3-b565-dcae9ac9ca92"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T02:06:31.000Z",
+                          "updatedAt": "2026-10-22T02:06:31.000Z",
+                          "uid": "35240-df9a2ba7-4749-4c51-a846-25e002928d48"
+                        }
+                      ],
+                      "id": "b8b0845f-82be-4982-a9b4-bc0151f25ba4",
+                      "createdAt": "2026-10-22T02:06:31.000Z",
+                      "updatedAt": "2026-10-22T02:06:31.000Z",
+                      "uid": "35240-b8b0845f-82be-4982-a9b4-bc0151f25ba4"
+                    },
+                    {
+                      "name": "full-har",
+                      "item": [
+                        {
+                          "name": "Full har log of a test session",
+                          "id": "643e8303-0f2f-4081-9126-bb9769d2b5fe",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "basic",
+                              "basic": [
+                                {
+                                  "key": "username",
+                                  "value": "{{basicAuthUsername}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "password",
+                                  "value": "{{basicAuthPassword}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sessions/:session_id/v2/log/full-har",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sessions",
+                                ":session_id",
+                                "v2",
+                                "log",
+                                "full-har"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "fb91fe68-d3fb-4d0c-b292-c44e922a3477",
+                                  "key": "session_id",
+                                  "value": "<string>",
+                                  "description": "(Required) get network har logs based on session id"
+                                }
+                              ]
+                            },
+                            "description": "To fetch Full Network har log that contains all the requested har of a test session along with request and response content."
+                          },
+                          "response": [
+                            {
+                              "id": "04487363-363f-416b-8faa-c54c75cb62c4",
+                              "name": "successful operation",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sessions/:session_id/v2/log/full-har",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sessions",
+                                    ":session_id",
+                                    "v2",
+                                    "log",
+                                    "full-har"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "session_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\",\n  \"url\": \"<string>\"\n}",
+                              "createdAt": "2026-10-22T02:06:31.000Z",
+                              "updatedAt": "2026-10-22T02:06:31.000Z",
+                              "uid": "35240-04487363-363f-416b-8faa-c54c75cb62c4"
+                            },
+                            {
+                              "id": "68ced02e-785f-4a4a-8382-6e91b788683b",
+                              "name": "session id not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sessions/:session_id/v2/log/full-har",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sessions",
+                                    ":session_id",
+                                    "v2",
+                                    "log",
+                                    "full-har"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "session_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                              "createdAt": "2026-10-22T02:06:31.000Z",
+                              "updatedAt": "2026-10-22T02:06:31.000Z",
+                              "uid": "35240-68ced02e-785f-4a4a-8382-6e91b788683b"
+                            },
+                            {
+                              "id": "f301ac16-d5a2-4319-b04a-366f0bd38a2f",
+                              "name": "Access denied. Auth error.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sessions/:session_id/v2/log/full-har",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sessions",
+                                    ":session_id",
+                                    "v2",
+                                    "log",
+                                    "full-har"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "session_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "<string>",
+                              "createdAt": "2026-10-22T02:06:31.000Z",
+                              "updatedAt": "2026-10-22T02:06:31.000Z",
+                              "uid": "35240-f301ac16-d5a2-4319-b04a-366f0bd38a2f"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T02:06:31.000Z",
+                          "updatedAt": "2026-10-22T02:06:31.000Z",
+                          "uid": "35240-643e8303-0f2f-4081-9126-bb9769d2b5fe"
+                        }
+                      ],
+                      "id": "8e4b14f0-a019-4c08-9228-896464dd1f3c",
+                      "createdAt": "2026-10-22T02:06:31.000Z",
+                      "updatedAt": "2026-10-22T02:06:31.000Z",
+                      "uid": "35240-8e4b14f0-a019-4c08-9228-896464dd1f3c"
+                    }
+                  ],
+                  "id": "7eaac437-6883-461b-882a-449450de4af7",
+                  "createdAt": "2026-10-22T02:06:31.000Z",
+                  "updatedAt": "2026-10-22T02:06:31.000Z",
+                  "uid": "35240-7eaac437-6883-461b-882a-449450de4af7"
                 }
               ],
-              "body": "{\n  \"message\": \"URL is succesfully generated\",\n  \"status\": \"success\",\n  \"url\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "528dab3b-b939-4c01-91e5-55f5f6f4d78e",
-              "name": "session id not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "sessions",
-                    ":session_id",
-                    "v2",
-                    "log",
-                    "command"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) Session ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"Either resource not found or already deleted\",\n  \"status\": \"fail\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "f7c22ae9-2c66-4ff3-8fd9-17b9141f9838",
-              "name": "Access denied. Auth error.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "sessions",
-                    ":session_id",
-                    "v2",
-                    "log",
-                    "command"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) Session ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"HTTP Basic: Access denied.\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "169c4c2a-9c9e-4e27-841f-eecc4ab2efdc",
+              "createdAt": "2026-10-22T02:06:31.000Z",
+              "updatedAt": "2026-10-22T02:06:31.000Z",
+              "uid": "35240-169c4c2a-9c9e-4e27-841f-eecc4ab2efdc"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a54fe5dc-58bd-45fa-baf5-704b6fdb2bc0",
-          "name": "selenium/appium log of a test session",
-          "request": {
-            "name": "selenium/appium log of a test session",
-            "description": {
-              "content": "To fetch selenum/appium log that contains grid requests and reponses of a test session in plain text.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "sessions",
-                ":session_id",
-                "v2",
-                "log",
-                "selenium"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "session_id",
-                  "description": "(Required) Session ID"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "426edc2d-90be-43e6-bcfd-b763d8c13de7",
-              "name": "successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "sessions",
-                    ":session_id",
-                    "v2",
-                    "log",
-                    "selenium"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) Session ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"URL is succesfully generated\",\n  \"status\": \"success\",\n  \"url\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4d984601-52c6-4d34-97ff-c53457dca9eb",
-              "name": "session id not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "sessions",
-                    ":session_id",
-                    "v2",
-                    "log",
-                    "selenium"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) Session ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"Either resource not found or already deleted\",\n  \"status\": \"fail\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "600e703c-a540-41e1-845a-2c7b32d2c94e",
-              "name": "Access denied. Auth error.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "sessions",
-                    ":session_id",
-                    "v2",
-                    "log",
-                    "selenium"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) Session ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"HTTP Basic: Access denied.\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b66e3cf5-f9ef-4679-a064-96e10185ac7c",
-          "name": "Network log of a test session",
-          "request": {
-            "name": "Network log of a test session",
-            "description": {
-              "content": "To fetch Network log that contains all the requested urls of a test session in plain json text.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "sessions",
-                ":session_id",
-                "v2",
-                "log",
-                "network"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "session_id",
-                  "description": "(Required) get logs based on session id"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "84782f66-40c8-4c4a-9e76-1da3bf9ce682",
-              "name": "successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "sessions",
-                    ":session_id",
-                    "v2",
-                    "log",
-                    "network"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) get logs based on session id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"URL is succesfully generated\",\n  \"status\": \"success\",\n  \"url\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "8f1f5f35-5050-4d5a-a60d-4b00ec831d67",
-              "name": "session id not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "sessions",
-                    ":session_id",
-                    "v2",
-                    "log",
-                    "network"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) get logs based on session id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"Either resource not found or already deleted\",\n  \"status\": \"fail\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0c055a49-fb49-4a7a-9be1-df39ca8ace79",
-              "name": "Access denied. Auth error.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "sessions",
-                    ":session_id",
-                    "v2",
-                    "log",
-                    "network"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) get logs based on session id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"HTTP Basic: Access denied.\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5ab0889b-d8ea-4f91-850c-c0e5757a60b6",
-          "name": "console/browser log of a test session",
-          "request": {
-            "name": "console/browser log of a test session",
-            "description": {
-              "content": "To fetch console/browser log that contains console errors thrown by application during a test session in plain json text.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "sessions",
-                ":session_id",
-                "v2",
-                "log",
-                "console"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "session_id",
-                  "description": "(Required) Session ID"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "c8f39e7f-0f52-4fbc-9742-ff509fbf098d",
-              "name": "successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "sessions",
-                    ":session_id",
-                    "v2",
-                    "log",
-                    "console"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) Session ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"URL is succesfully generated\",\n  \"status\": \"success\",\n  \"url\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "c7eff138-1967-44a4-9caa-970c20f1948a",
-              "name": "session id not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "sessions",
-                    ":session_id",
-                    "v2",
-                    "log",
-                    "console"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) Session ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"Either resource not found or already deleted\",\n  \"status\": \"fail\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "8c0767d8-f538-4c1a-8006-031d631a7799",
-              "name": "Access denied. Auth error.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "sessions",
-                    ":session_id",
-                    "v2",
-                    "log",
-                    "console"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) Session ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"HTTP Basic: Access denied.\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "57893773-ec99-4db9-aad7-649b7a2024b0",
-          "name": "Network har log of a test session",
-          "request": {
-            "name": "Network har log of a test session",
-            "description": {
-              "content": "To fetch Network har log that contains all the requested har of a test session in plain json text.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "sessions",
-                ":session_id",
-                "v2",
-                "log",
-                "network.har"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "session_id",
-                  "description": "(Required) get network har logs based on session id"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "36c287b8-d5a1-4391-a1d3-c06f35dbcb25",
-              "name": "successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "sessions",
-                    ":session_id",
-                    "v2",
-                    "log",
-                    "network.har"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) get network har logs based on session id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"URL is succesfully generated\",\n  \"status\": \"success\",\n  \"url\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "8f2d919a-96ef-47bf-b122-22b42eb97151",
-              "name": "session id not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "sessions",
-                    ":session_id",
-                    "v2",
-                    "log",
-                    "network.har"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) get network har logs based on session id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"Either resource not found or already deleted\",\n  \"status\": \"fail\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "052b3864-3d0b-4f83-b2e1-614d5335906f",
-              "name": "Access denied. Auth error.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "sessions",
-                    ":session_id",
-                    "v2",
-                    "log",
-                    "network.har"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) get network har logs based on session id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"HTTP Basic: Access denied.\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "283aca45-e35b-4b5b-84da-69cf70ef7e36",
-          "name": "Full har log of a test session",
-          "request": {
-            "name": "Full har log of a test session",
-            "description": {
-              "content": "To fetch Full Network har log that contains all the requested har of a test session along with request and response content.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "sessions",
-                ":session_id",
-                "v2",
-                "log",
-                "full-har"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "session_id",
-                  "description": "(Required) get network har logs based on session id"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "3ee59b35-111b-4ec9-81ec-88bda357c3a2",
-              "name": "successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "sessions",
-                    ":session_id",
-                    "v2",
-                    "log",
-                    "full-har"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) get network har logs based on session id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"URL is succesfully generated\",\n  \"status\": \"success\",\n  \"url\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "40d6f439-6e88-4805-9802-911381ea2bad",
-              "name": "session id not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "sessions",
-                    ":session_id",
-                    "v2",
-                    "log",
-                    "full-har"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) get network har logs based on session id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"Either resource not found or already deleted\",\n  \"status\": \"fail\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "1e7b13b7-8ac2-46cf-8a30-4501121f971a",
-              "name": "Access denied. Auth error.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "sessions",
-                    ":session_id",
-                    "v2",
-                    "log",
-                    "full-har"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) get network har logs based on session id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"HTTP Basic: Access denied.\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "53b4c8dc-2cfd-4346-8e28-9df53c03a5e0",
+          "createdAt": "2026-10-22T02:06:31.000Z",
+          "updatedAt": "2026-10-22T02:06:31.000Z",
+          "uid": "35240-53b4c8dc-2cfd-4346-8e28-9df53c03a5e0"
         }
       ],
-      "event": []
+      "id": "3c1e8ff1-ca10-4d89-a2b3-1c8bf1a591a1",
+      "createdAt": "2026-10-22T02:06:31.000Z",
+      "updatedAt": "2026-10-22T02:06:31.000Z",
+      "uid": "35240-3c1e8ff1-ca10-4d89-a2b3-1c8bf1a591a1"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://api.lambdatest.com/automation/smart-ui",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://api.lambdatest.com/automation/api/v1"
     }
-  ],
-  "info": {
-    "_postman_id": "64684be7-c6f7-4ef7-a67f-c4cdfd22c40e",
-    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs Session Logs (V2) API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

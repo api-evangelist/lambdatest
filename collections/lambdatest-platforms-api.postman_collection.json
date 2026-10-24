@@ -1,102 +1,96 @@
 {
+  "info": {
+    "_postman_id": "b5158292-09d8-482f-94e5-87c771e79614",
+    "name": "TestMu AI Selenium Automation API Documentation Platforms\u2026",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:06:03.000Z",
+    "updatedAt": "2026-10-22T02:06:03.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b5158292-09d8-482f-94e5-87c771e79614"
+  },
   "item": [
     {
-      "id": "4d4f3751-4ee4-43b0-b3c4-d7de7292e2f4",
       "name": "platforms",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
       "item": [
         {
-          "id": "9831dfa3-7c21-494b-8c35-617ff56d5024",
           "name": "Fetch platforms",
+          "id": "e124e9e8-6e13-4b5b-82ba-8139295c9016",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Fetch platforms",
-            "description": {
-              "content": "Fetch platforms along with browsers and versions supported.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "platforms"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/platforms",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "platforms"
+              ]
+            },
+            "description": "Fetch platforms along with browsers and versions supported."
           },
           "response": [
             {
-              "id": "07b201d3-2bcc-4fb6-a065-945f9ec034bd",
+              "id": "e54cd911-f4e2-4ac6-9002-45452606c02f",
               "name": "Successful operation",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "platforms"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/platforms",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "platforms"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"message\": \"Retrieve platforms was successful.\",\n  \"status\": \"success\",\n  \"platforms\": [\n    {\n      \"platform\": \"string\",\n      \"browsers\": [\n        {\n          \"browser_name\": \"string\",\n          \"version\": \"string\",\n          \"type\": \"string\",\n          \"slug\": \"string\"\n        },\n        {\n          \"browser_name\": \"string\",\n          \"version\": \"string\",\n          \"type\": \"string\",\n          \"slug\": \"string\"\n        }\n      ]\n    },\n    {\n      \"platform\": \"string\",\n      \"browsers\": [\n        {\n          \"browser_name\": \"string\",\n          \"version\": \"string\",\n          \"type\": \"string\",\n          \"slug\": \"string\"\n        },\n        {\n          \"browser_name\": \"string\",\n          \"version\": \"string\",\n          \"type\": \"string\",\n          \"slug\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\",\n  \"platforms\": [\n    {\n      \"platform\": \"<string>\",\n      \"browsers\": [\n        {\n          \"browser_name\": \"<string>\",\n          \"version\": \"<string>\",\n          \"type\": \"<string>\",\n          \"slug\": \"<string>\"\n        },\n        {\n          \"browser_name\": \"<string>\",\n          \"version\": \"<string>\",\n          \"type\": \"<string>\",\n          \"slug\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"platform\": \"<string>\",\n      \"browsers\": [\n        {\n          \"browser_name\": \"<string>\",\n          \"version\": \"<string>\",\n          \"type\": \"<string>\",\n          \"slug\": \"<string>\"\n        },\n        {\n          \"browser_name\": \"<string>\",\n          \"version\": \"<string>\",\n          \"type\": \"<string>\",\n          \"slug\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T02:06:04.000Z",
+              "updatedAt": "2026-10-22T02:06:04.000Z",
+              "uid": "35240-e54cd911-f4e2-4ac6-9002-45452606c02f"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:06:04.000Z",
+          "updatedAt": "2026-10-22T02:06:04.000Z",
+          "uid": "35240-e124e9e8-6e13-4b5b-82ba-8139295c9016"
         }
       ],
-      "event": []
+      "id": "28efa037-fc11-4fcd-b4da-a07b64849050",
+      "createdAt": "2026-10-22T02:06:03.000Z",
+      "updatedAt": "2026-10-22T02:06:03.000Z",
+      "uid": "35240-28efa037-fc11-4fcd-b4da-a07b64849050"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://api.lambdatest.com/automation/smart-ui",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://api.lambdatest.com/automation/api/v1"
     }
-  ],
-  "info": {
-    "_postman_id": "1d869e37-4234-4938-a49a-f91e4d4d6903",
-    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs platforms API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

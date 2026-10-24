@@ -1,354 +1,347 @@
 {
+  "info": {
+    "_postman_id": "e3f55b63-c4fa-48e2-8dbe-572bb349f045",
+    "name": "TestMu AI Selenium Automation API Documentation Lighthouse\u2026",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:05:50.000Z",
+    "updatedAt": "2026-10-22T02:05:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e3f55b63-c4fa-48e2-8dbe-572bb349f045"
+  },
   "item": [
     {
-      "id": "b9684d60-cb4a-46f5-a685-e464caf8fdc7",
-      "name": "Lighthouse",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "lighthouse",
       "item": [
         {
-          "id": "4103ebcb-4923-470b-aff8-2bf130670f79",
-          "name": "To fetch the Lighthouse performance report data.",
-          "request": {
-            "name": "To fetch the Lighthouse performance report data.",
-            "description": {
-              "content": "To fetch URL to download the generated Lighthouse performance report JSON data.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "lighthouse",
-                "report",
-                ":session_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "session_id",
-                  "description": "(Required) SESSION ID"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            }
-          },
-          "response": [
+          "name": "report",
+          "item": [
             {
-              "id": "569ed34b-1895-4667-8684-10dd8d6d785e",
-              "name": "Operation successful",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "lighthouse",
-                    "report",
-                    ":session_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) SESSION ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{session_id}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "To fetch the Lighthouse performance report data",
+                  "id": "3aaeadc4-c361-4fcd-b6f4-6af744861360",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "basic",
+                      "basic": [
+                        {
+                          "key": "username",
+                          "value": "{{basicAuthUsername}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "password",
+                          "value": "{{basicAuthPassword}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/lighthouse/report/:session_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "lighthouse",
+                        "report",
+                        ":session_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "4c6ae713-8af2-4229-906a-4332be1ca294",
+                          "key": "session_id",
+                          "value": "<string>",
+                          "description": "(Required) SESSION ID"
+                        }
+                      ]
+                    },
+                    "description": "To fetch URL to download the generated Lighthouse performance report JSON data."
+                  },
+                  "response": [
+                    {
+                      "id": "af876214-afd2-45f8-90f0-1f54249edfec",
+                      "name": "Operation successful",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/lighthouse/report/:session_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "lighthouse",
+                            "report",
+                            ":session_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "session_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\",\n  \"data\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:05:51.000Z",
+                      "updatedAt": "2026-10-22T02:05:51.000Z",
+                      "uid": "35240-af876214-afd2-45f8-90f0-1f54249edfec"
+                    },
+                    {
+                      "id": "bb6a9ad7-c35c-44fb-9a8e-2aa709578a6e",
+                      "name": "Bad Request. Conditional combination of 'chrome' browser & capability 'performance=true' is not there.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/lighthouse/report/:session_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "lighthouse",
+                            "report",
+                            ":session_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "session_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:05:51.000Z",
+                      "updatedAt": "2026-10-22T02:05:51.000Z",
+                      "uid": "35240-bb6a9ad7-c35c-44fb-9a8e-2aa709578a6e"
+                    },
+                    {
+                      "id": "71ff3dc4-bb2e-4919-aa48-2f4840825669",
+                      "name": "Access denied. Auth error.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/lighthouse/report/:session_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "lighthouse",
+                            "report",
+                            ":session_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "session_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<string>",
+                      "createdAt": "2026-10-22T02:05:51.000Z",
+                      "updatedAt": "2026-10-22T02:05:51.000Z",
+                      "uid": "35240-71ff3dc4-bb2e-4919-aa48-2f4840825669"
+                    },
+                    {
+                      "id": "d25c4c9c-de5a-4194-b976-946989759297",
+                      "name": "Resource associated to session_id is not available.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/lighthouse/report/:session_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "lighthouse",
+                            "report",
+                            ":session_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "session_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:05:51.000Z",
+                      "updatedAt": "2026-10-22T02:05:51.000Z",
+                      "uid": "35240-d25c4c9c-de5a-4194-b976-946989759297"
+                    },
+                    {
+                      "id": "d4e7b016-f0a4-448c-98f6-e1ad5997a974",
+                      "name": "Unable to get Lighthouse report data.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/lighthouse/report/:session_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "lighthouse",
+                            "report",
+                            ":session_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "session_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:05:51.000Z",
+                      "updatedAt": "2026-10-22T02:05:51.000Z",
+                      "uid": "35240-d4e7b016-f0a4-448c-98f6-e1ad5997a974"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:05:51.000Z",
+                  "updatedAt": "2026-10-22T02:05:51.000Z",
+                  "uid": "35240-3aaeadc4-c361-4fcd-b6f4-6af744861360"
                 }
               ],
-              "body": "{\n  \"message\": \"Retrieve Lighthouse Report data was successful.\",\n  \"status\": \"success\",\n  \"data\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "de9ed5f8-482a-49c6-9a04-ff58f8186b25",
-              "name": "Bad Request. Conditional combination of 'chrome' browser & capability 'performance=true' is not there.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "lighthouse",
-                    "report",
-                    ":session_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) SESSION ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"Please provide valid inputs. Conditional combination of 'chrome' browser & capability 'performance=true' is not satisfied for the test associated with the given sessionId.\",\n  \"status\": \"fail\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e22bf3c9-6fbf-4b0c-9783-7088e1f097d0",
-              "name": "Access denied. Auth error.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "lighthouse",
-                    "report",
-                    ":session_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) SESSION ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"HTTP Basic: Access denied.\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "6185a9d7-9111-4b66-8727-44852d0ecb32",
-              "name": "Resource associated to session_id is not available.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "lighthouse",
-                    "report",
-                    ":session_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) SESSION ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"Either resource not found or already deleted\",\n  \"status\": \"fail\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "bb63f5da-0f4c-4ee6-9f19-2bfa38105db4",
-              "name": "Unable to get Lighthouse report data.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "lighthouse",
-                    "report",
-                    ":session_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "session_id",
-                      "description": "(Required) SESSION ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"Unable to get Lighthouse report data.\",\n  \"status\": \"fail\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "5ec4cbb7-eb5f-472f-b8ed-d82b7581f9ca",
+              "createdAt": "2026-10-22T02:05:51.000Z",
+              "updatedAt": "2026-10-22T02:05:51.000Z",
+              "uid": "35240-5ec4cbb7-eb5f-472f-b8ed-d82b7581f9ca"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "0dff6ad6-943a-4117-b272-dbaa707035c2",
+          "createdAt": "2026-10-22T02:05:51.000Z",
+          "updatedAt": "2026-10-22T02:05:51.000Z",
+          "uid": "35240-0dff6ad6-943a-4117-b272-dbaa707035c2"
         }
       ],
-      "event": []
+      "id": "dfbddbd4-e052-4bc6-b687-27ad99dd2719",
+      "createdAt": "2026-10-22T02:05:51.000Z",
+      "updatedAt": "2026-10-22T02:05:51.000Z",
+      "uid": "35240-dfbddbd4-e052-4bc6-b687-27ad99dd2719"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://api.lambdatest.com/automation/smart-ui",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://api.lambdatest.com/automation/api/v1"
     }
-  ],
-  "info": {
-    "_postman_id": "0dce1fdb-712f-4287-ad94-adcbed2996e0",
-    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs Lighthouse API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

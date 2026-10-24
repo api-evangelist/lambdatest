@@ -1,185 +1,191 @@
 {
+  "info": {
+    "_postman_id": "76854dca-73a0-4bed-883e-1744ee804d58",
+    "name": "TestMu AI Selenium Automation API Documentation Geolocation\u2026",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:05:33.000Z",
+    "updatedAt": "2026-10-22T02:05:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-76854dca-73a0-4bed-883e-1744ee804d58"
+  },
   "item": [
     {
-      "id": "fcaca703-9998-4ebb-b65c-8c2b5b2b8adb",
-      "name": "Geolocation",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "geoLocation",
       "item": [
         {
-          "id": "96481519-6ac8-456c-85d2-ac7d5b930aeb",
-          "name": "Get Ips of geolocation",
-          "request": {
-            "name": "Get Ips of geolocation",
-            "description": {
-              "content": "This API fetches all the possible ips of geolocation. It is recommended to filter using two digit country code.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "geoLocation",
-                "ips"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "countryCode",
-                  "value": "<string>",
-                  "description": "To filter ips of specific country."
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "basic",
-              "basic": [
-                {
-                  "key": "username",
-                  "value": "{{basicAuthUsername}}"
-                },
-                {
-                  "key": "password",
-                  "value": "{{basicAuthPassword}}"
-                }
-              ]
-            }
-          },
-          "response": [
+          "name": "ips",
+          "item": [
             {
-              "id": "f5ac078c-3d33-42c9-ad1a-38ce23fc2406",
-              "name": "successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "geoLocation",
-                    "ips"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "Get Ips of geolocation",
+              "id": "f17e3074-20d1-463e-b009-e27562a7e183",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
                     {
-                      "key": "countryCode",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
                     },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": {\n    \"in\": [\n      \"0.0.0.0\",\n      \"0.0.0.0\",\n      \"0.0.0.0\"\n    ],\n    \"us\": [\n      \"0.0.0.0\",\n      \"0.0.0.0\"\n    ]\n  },\n  \"message\": \"Geolocation IP fetched successfully\",\n  \"status\": \"success\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "dcc65cef-8413-4bd0-b981-d64e1d19fd2b",
-              "name": "Access denied. Auth error.",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/geoLocation/ips?countryCode=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "geoLocation",
                     "ips"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "To filter ips of specific country.",
                       "key": "countryCode",
                       "value": "<string>"
                     }
-                  ],
-                  "variable": []
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "This API fetches all the possible ips of geolocation. It is recommended to filter using two digit country code."
               },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "a8ba970a-48fc-40b1-9256-75ab2edd23fd",
+                  "name": "successful operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/geoLocation/ips?countryCode=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "geoLocation",
+                        "ips"
+                      ],
+                      "query": [
+                        {
+                          "description": "To filter ips of specific country.",
+                          "key": "countryCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"in\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"us\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"message\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:05:33.000Z",
+                  "updatedAt": "2026-10-22T02:05:33.000Z",
+                  "uid": "35240-a8ba970a-48fc-40b1-9256-75ab2edd23fd"
+                },
+                {
+                  "id": "1e617c78-71e6-495e-a6e6-937b966b3af2",
+                  "name": "Access denied. Auth error.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/geoLocation/ips?countryCode=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "geoLocation",
+                        "ips"
+                      ],
+                      "query": [
+                        {
+                          "description": "To filter ips of specific country.",
+                          "key": "countryCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "<string>",
+                  "createdAt": "2026-10-22T02:05:33.000Z",
+                  "updatedAt": "2026-10-22T02:05:33.000Z",
+                  "uid": "35240-1e617c78-71e6-495e-a6e6-937b966b3af2"
                 }
               ],
-              "body": "\"HTTP Basic: Access denied.\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-22T02:05:33.000Z",
+              "updatedAt": "2026-10-22T02:05:33.000Z",
+              "uid": "35240-f17e3074-20d1-463e-b009-e27562a7e183"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "b447e848-ced9-4682-aefb-9a7f9086694c",
+          "createdAt": "2026-10-22T02:05:33.000Z",
+          "updatedAt": "2026-10-22T02:05:33.000Z",
+          "uid": "35240-b447e848-ced9-4682-aefb-9a7f9086694c"
         }
       ],
-      "event": []
+      "id": "e0deb771-13e8-444f-9070-164dbbac35a0",
+      "createdAt": "2026-10-22T02:05:33.000Z",
+      "updatedAt": "2026-10-22T02:05:33.000Z",
+      "uid": "35240-e0deb771-13e8-444f-9070-164dbbac35a0"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://api.lambdatest.com/automation/smart-ui",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://api.lambdatest.com/automation/api/v1"
     }
-  ],
-  "info": {
-    "_postman_id": "dfda6fc0-5630-4319-a718-fdddab876b10",
-    "name": "TestMu AI SmartUI API Documentation Autoheal Command Logs Geolocation API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "",
-      "type": "text/plain"
-    }
-  }
+  ]
 }
