@@ -1,4 +1,4 @@
-# LambdaTest (lambdatest)
+# TestMu AI
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,50 +64,235 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-LambdaTest (rebranding as TestMu AI) is a cloud-based AI-powered test execution platform enabling developers and QA teams to run Selenium, Cypress, Playwright, and Appium automation tests across 3,000+ browser and OS combinations. The platform provides live cross-browser testing, real device testing on 10,000+ iOS/Android devices, visual regression testing via SmartUI, and AI-native test orchestration with HyperExecute and KaneAI.
+TestMu AI (formerly LambdaTest; testmuai.com) is a cloud-based AI-powered test execution platform that enables developers and QA teams to run Selenium, Cypress, Playwright, and Appium automation tests across 3,000+ browser and OS combinations at scale. The platform provides live interactive cross-browser and real device testing, visual regression testing with SmartUI, and AI-native test orchestration via HyperExecute. LambdaTest exposes a suite of REST APIs for managing test sessions, uploading mobile apps, retrieving test results, and controlling tunnel connections, all secured with HTTP Basic Authentication using a username and access key. The platform serves over 2 million developers and testers across 10,000+ enterprise customers in 130 countries.
 
-- **APIs.json**: [https://raw.githubusercontent.com/api-evangelist/lambdatest/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/lambdatest/refs/heads/main/apis.yml)
-- **Naftiko Fleet**: [https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=lambdatest-api-evangelist&utm_content=repo](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=lambdatest-api-evangelist&utm_content=repo)
+**Areas:** Testing · Cross-Browser Testing · Selenium · Cypress · Playwright · Mobile Testing · Automation · QA · Visual Regression
 
-## Tags
+## TestMu AI on APIs.io
 
-Testing, Cross-Browser Testing, Selenium, Cypress, Playwright, Mobile Testing, Automation, QA, Visual Regression, HyperExecute, KaneAI
+Everything profiled for TestMu AI is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/lambdatest/](https://apis.io/providers/lambdatest/)** — or go straight to one of the APIs or properties below.
 
-## APIs
+### APIs (20)
 
-| API | Description |
-|-----|-------------|
-| Web Automation API | REST API for managing Selenium, Cypress, and Playwright test sessions on the LambdaTest cloud grid |
-| App Automation API | REST API for managing mobile app test automation on real devices and emulators/simulators |
-| SmartUI API | REST API for visual regression testing and screenshot comparison (OpenAPI 3.0 available) |
-| HyperExecute API | REST API for the AI-native test orchestration platform |
+- [LambdaTest App Automation API](https://apis.io/apis/lambdatest/app-automation-api/) — REST API for managing mobile app test automation on real devices and emulators/simulators. Supports uploading iOS (.ipa) and Android (.apk/.aab) apps,…
+- [LambdaTest HyperExecute API](https://apis.io/apis/lambdatest/hyperexecute-api/) — REST API for the HyperExecute AI-native test orchestration platform. Provides endpoints for triggering distributed test jobs, monitoring job status,…
+- [LambdaTest Autoheal Command Logs API](https://apis.io/apis/lambdatest/lambdatest-autoheal-command-logs-api/) — The Autoheal Command Logs API from LambdaTest — 1 operation(s) for autoheal command logs.
+- [LambdaTest Build API](https://apis.io/apis/lambdatest/lambdatest-build-api/) — The Build API from LambdaTest — 3 operation(s) for build.
+- [LambdaTest Extensions API](https://apis.io/apis/lambdatest/lambdatest-extensions-api/) — The extensions API from LambdaTest — 2 operation(s) for extensions.
+- [LambdaTest Fetch Build Screenshots API](https://apis.io/apis/lambdatest/lambdatest-fetch-build-screenshots-api/) — The Fetch Build Screenshots API from LambdaTest — 1 operation(s) for fetch build screenshots.
+- [LambdaTest Geolocation API](https://apis.io/apis/lambdatest/lambdatest-geolocation-api/) — The Geolocation API from LambdaTest — 1 operation(s) for geolocation.
+- [LambdaTest Get Build Status API](https://apis.io/apis/lambdatest/lambdatest-get-build-status-api/) — The Get Build Status API from LambdaTest — 1 operation(s) for get build status.
+- [LambdaTest Get Screenshot Status API](https://apis.io/apis/lambdatest/lambdatest-get-screenshot-status-api/) — The Get Screenshot Status API from LambdaTest — 1 operation(s) for get screenshot status.
+- [LambdaTest Lighthouse API](https://apis.io/apis/lambdatest/lambdatest-lighthouse-api/) — The Lighthouse API from LambdaTest — 1 operation(s) for lighthouse.
+- [LambdaTest Organisation API](https://apis.io/apis/lambdatest/lambdatest-organisation-api/) — The Organisation API from LambdaTest — 1 operation(s) for organisation.
+- [LambdaTest Platforms API](https://apis.io/apis/lambdatest/lambdatest-platforms-api/) — The platforms API from LambdaTest — 1 operation(s) for platforms.
+- [LambdaTest Prerun API](https://apis.io/apis/lambdatest/lambdatest-prerun-api/) — The prerun API from LambdaTest — 4 operation(s) for prerun.
+- [LambdaTest Resolution API](https://apis.io/apis/lambdatest/lambdatest-resolution-api/) — The Resolution API from LambdaTest — 1 operation(s) for resolution.
+- [LambdaTest Session API](https://apis.io/apis/lambdatest/lambdatest-session-api/) — The Session API from LambdaTest — 13 operation(s) for session.
+- [LambdaTest Session Logs (V2) API](https://apis.io/apis/lambdatest/lambdatest-session-logs-v2-api/) — The Session Logs (V2) API from LambdaTest — 6 operation(s) for session logs (v2).
+- [LambdaTest Test API](https://apis.io/apis/lambdatest/lambdatest-test-api/) — The Test API from LambdaTest — 2 operation(s) for test.
+- [LambdaTest Tunnel API](https://apis.io/apis/lambdatest/lambdatest-tunnel-api/) — The tunnel API from LambdaTest — 2 operation(s) for tunnel.
+- [LambdaTest Upload Screenshots API](https://apis.io/apis/lambdatest/lambdatest-upload-screenshots-api/) — The Upload Screenshots API from LambdaTest — 1 operation(s) for upload screenshots.
+- [LambdaTest User Files API](https://apis.io/apis/lambdatest/lambdatest-user-files-api/) — The user-files API from LambdaTest — 3 operation(s) for user-files.
 
-## Plans / Rate Limits / FinOps
+### Published properties
 
-| Resource | File |
-|----------|------|
-| Pricing Plans | [plans/lambdatest-plans-pricing.yml](plans/lambdatest-plans-pricing.yml) |
-| Rate Limits | [rate-limits/lambdatest-rate-limits.yml](rate-limits/lambdatest-rate-limits.yml) |
-| FinOps | [finops/lambdatest-finops.yml](finops/lambdatest-finops.yml) |
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Timestamps
+#### MCP servers (1)
 
-- **Created**: 2026-06-12
-- **Modified**: 2026-06-12
+Model Context Protocol servers that expose the API to agents.
 
-## Common Properties
+- [lambdatest](https://apis.io/servers/lambdatest/lambdatest/)
 
-| Type | URL |
-|------|-----|
-| Website | https://www.lambdatest.com |
-| Documentation | https://www.lambdatest.com/support/docs/ |
-| GitHub Organization | https://github.com/LambdaTest |
-| LinkedIn | https://www.linkedin.com/company/lambdatest |
-| X / Twitter | https://x.com/lambdatesting |
-| Blog | https://www.lambdatest.com/blog/ |
-| Pricing | https://www.lambdatest.com/pricing |
-| Status Page | https://status.lambdatest.com/ |
+#### Agent skills (71)
 
-## Maintainers
+Agent skills built on the API.
 
-- **Kin Lane** - [kin@apievangelist.com](mailto:kin@apievangelist.com)
+- [api-ai-augmented](https://apis.io/agent-skills/lambdatest/api-ai-augmented/)
+- [api-analyzer](https://apis.io/agent-skills/lambdatest/api-analyzer/)
+- [api-compliance-checker](https://apis.io/agent-skills/lambdatest/api-compliance-checker/)
+- [api-designer](https://apis.io/agent-skills/lambdatest/api-designer/)
+- [api-documentation](https://apis.io/agent-skills/lambdatest/api-documentation/)
+- [api-fetcher-specific-domains](https://apis.io/agent-skills/lambdatest/api-fetcher-specific-domains/)
+- [api-graphql-grpc](https://apis.io/agent-skills/lambdatest/api-graphql-grpc/)
+- [api-health-monitoring](https://apis.io/agent-skills/lambdatest/api-health-monitoring/)
+- [api-inferrer-from-files](https://apis.io/agent-skills/lambdatest/api-inferrer-from-files/)
+- [api-integration](https://apis.io/agent-skills/lambdatest/api-integration/)
+- [api-mock-helper](https://apis.io/agent-skills/lambdatest/api-mock-helper/)
+- [api-rate-limiting-helper](https://apis.io/agent-skills/lambdatest/api-rate-limiting-helper/)
+- [api-sdk-generator](https://apis.io/agent-skills/lambdatest/api-sdk-generator/)
+- [api-security-auth-pattern](https://apis.io/agent-skills/lambdatest/api-security-auth-pattern/)
+- [api-to-testcase-generator](https://apis.io/agent-skills/lambdatest/api-to-testcase-generator/)
+- [api-versioning-helper](https://apis.io/agent-skills/lambdatest/api-versioning-helper/)
+- [appium-skill](https://apis.io/agent-skills/lambdatest/appium-skill/)
+- [behat-skill](https://apis.io/agent-skills/lambdatest/behat-skill/)
+- [behave-skill](https://apis.io/agent-skills/lambdatest/behave-skill/)
+- [capybara-skill](https://apis.io/agent-skills/lambdatest/capybara-skill/)
+- [cicd-pipeline-skill](https://apis.io/agent-skills/lambdatest/cicd-pipeline-skill/)
+- [codeception-skill](https://apis.io/agent-skills/lambdatest/codeception-skill/)
+- [cucumber-skill](https://apis.io/agent-skills/lambdatest/cucumber-skill/)
+- [cypress-skill](https://apis.io/agent-skills/lambdatest/cypress-skill/)
+- [detox-skill](https://apis.io/agent-skills/lambdatest/detox-skill/)
+- …and 46 more published on APIs.io
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Lambdatest Agentic Access](https://apis.io/agentic-access/lambdatest/lambdatest-agentic-access/)
+
+#### JSON Schema (3)
+
+The data models the API reads and writes.
+
+- [LambdaTest Build](https://apis.io/schemas/lambdatest/lambdatest-build/)
+- [LambdaTest Session](https://apis.io/schemas/lambdatest/lambdatest-session/)
+- [LambdaTest SmartUI Build](https://apis.io/schemas/lambdatest/lambdatest-smartui-build/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Lambdatest Context](https://apis.io/jsonld/lambdatest/lambdatest-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Lambdatest Vocabulary](https://apis.io/vocabularies/lambdatest/lambdatest-vocabulary/)
+
+#### Examples (3)
+
+Example requests and responses.
+
+- [Lambdatest Get Session Example](https://apis.io/examples/lambdatest/lambdatest-get-session-example/)
+- [Lambdatest List Builds Example](https://apis.io/examples/lambdatest/lambdatest-list-builds-example/)
+- [Lambdatest Smartui Build Status Example](https://apis.io/examples/lambdatest/lambdatest-smartui-build-status-example/)
+
+#### Collections (18)
+
+Postman and Open Collection request collections.
+
+- [TestMu AI SmartUI API Documentation Autoheal Command Logs API](https://apis.io/collections/lambdatest/open-lambdatest-autoheal-command-logs-api/)
+- [TestMu AI SmartUI API Documentation Autoheal Command Logs Build API](https://apis.io/collections/lambdatest/open-lambdatest-build-api/)
+- [TestMu AI SmartUI API Documentation Autoheal Command Logs extensions API](https://apis.io/collections/lambdatest/open-lambdatest-extensions-api/)
+- [TestMu AI SmartUI API Documentation Autoheal Command Logs Fetch Build Screenshots API](https://apis.io/collections/lambdatest/open-lambdatest-fetch-build-screenshots-api/)
+- [TestMu AI SmartUI API Documentation Autoheal Command Logs Geolocation API](https://apis.io/collections/lambdatest/open-lambdatest-geolocation-api/)
+- [TestMu AI SmartUI API Documentation Autoheal Command Logs Get Build Status API](https://apis.io/collections/lambdatest/open-lambdatest-get-build-status-api/)
+- [TestMu AI SmartUI API Documentation Autoheal Command Logs Get Screenshot Status API](https://apis.io/collections/lambdatest/open-lambdatest-get-screenshot-status-api/)
+- [TestMu AI SmartUI API Documentation Autoheal Command Logs Lighthouse API](https://apis.io/collections/lambdatest/open-lambdatest-lighthouse-api/)
+- [TestMu AI SmartUI API Documentation Autoheal Command Logs Organisation API](https://apis.io/collections/lambdatest/open-lambdatest-organisation-api/)
+- [TestMu AI SmartUI API Documentation Autoheal Command Logs platforms API](https://apis.io/collections/lambdatest/open-lambdatest-platforms-api/)
+- [TestMu AI SmartUI API Documentation Autoheal Command Logs prerun API](https://apis.io/collections/lambdatest/open-lambdatest-prerun-api/)
+- [TestMu AI SmartUI API Documentation Autoheal Command Logs Resolution API](https://apis.io/collections/lambdatest/open-lambdatest-resolution-api/)
+- [TestMu AI SmartUI API Documentation Autoheal Command Logs Session API](https://apis.io/collections/lambdatest/open-lambdatest-session-api/)
+- [TestMu AI SmartUI API Documentation Autoheal Command Logs Session Logs (V2) API](https://apis.io/collections/lambdatest/open-lambdatest-session-logs-v2-api/)
+- [TestMu AI SmartUI API Documentation Autoheal Command Logs Test API](https://apis.io/collections/lambdatest/open-lambdatest-test-api/)
+- [TestMu AI SmartUI API Documentation Autoheal Command Logs tunnel API](https://apis.io/collections/lambdatest/open-lambdatest-tunnel-api/)
+- [TestMu AI SmartUI API Documentation Autoheal Command Logs Upload Screenshots API](https://apis.io/collections/lambdatest/open-lambdatest-upload-screenshots-api/)
+- [TestMu AI SmartUI API Documentation Autoheal Command Logs user-files API](https://apis.io/collections/lambdatest/open-lambdatest-user-files-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [TestMu AI — jsonschema rules](https://apis.io/rules/lambdatest/lambdatest-jsonschema-spectral-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Lambdatest Authentication](https://apis.io/security/lambdatest/lambdatest-authentication/)
+- [Lambdatest Domain Security](https://apis.io/security/lambdatest/lambdatest-domain-security/)
+- [Lambdatest Trust Center](https://apis.io/security/lambdatest/lambdatest-trust-center/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Lambdatest Plans Pricing](https://apis.io/plans/lambdatest/lambdatest-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Lambdatest Rate Limits](https://apis.io/rate-limits/lambdatest/lambdatest-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Lambdatest Finops](https://apis.io/finops/lambdatest/lambdatest-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.testmuai.com)
+- [Documentation](https://www.lambdatest.com/support/docs/)
+- [Getting started](https://www.testmuai.com/support/docs/getting-started-with-kane-ai)
+- [Pricing](https://www.lambdatest.com/pricing)
+- [Support](https://www.testmuai.com/support/faq/)
+- [Blog](https://www.lambdatest.com/blog/)
+- [Security](https://www.testmuai.com/security/)
+- [Compliance](https://www.testmuai.com/trust/)
+- [Terms of service](https://www.testmuai.com/legal/terms-of-service/)
+- [Privacy policy](https://www.testmuai.com/legal/privacy/)
+- [GitHub](https://github.com/LambdaTest)
+- [Status](https://status.lambdatest.com/)
+
+## API Evangelist rating
+
+**Kin Score 35.9** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 55.8 |
+| Contract governance | 9.8 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 30.2 |
+| Access clarity | 26.3 |
+
+**Agent readiness 41.4** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | unknown |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 21.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/lambdatest/](https://apis.io/providers/lambdatest/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for TestMu AI: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/lambdatest/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
