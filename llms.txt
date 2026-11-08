@@ -1,0 +1,12 @@
+# lambdatest
+
+> LambdaTest — independent third-party profile of a public API surface, by API Evangelist. LambdaTest (rebranding as TestMu AI) is a cloud-based AI-powered test execution platform that enables developers and QA teams to run Selenium, Cypress, Playwright, and Appium automation tests across 3,000+ browser and OS combinations at scale.
+
+## Core Resources
+
+- [GitHub Repository](https://github.com/api-evangelist/lambdatest): Source code, documentation, and issue tracker.
+
+## AI Agent & LLM Indexing
+
+- Structured following the standard /llms.txt specification for AI search engines and coding assistants.
+- Validated via [AccessGuard AI-Readiness Suite](https://ronanchnlps-bit.github.io/).
